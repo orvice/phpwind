@@ -1,4 +1,5 @@
 <?php
+
 /**
  * the last known user to change this file in the repository  <$LastChangedBy: gao.wanggao $>.
  *
@@ -8,6 +9,7 @@
  *
  * @version $Id: PwDesignModuleBo.php 22756 2012-12-27 03:27:36Z gao.wanggao $
  */
+
 class PwDesignModuleBo
 {
     public static $stdId;
@@ -170,7 +172,7 @@ class PwDesignModuleBo
     /**
      * 允许数据更新的时间.
      *
-     * @return � �许更新的开始时间，允许更新的结束时间，更新的时间
+     * @return ??许更新的开始时间，允许更新的结束时间，更新的时间
      */
     public function refreshTime($time)
     {

@@ -1,8 +1,6 @@
 <?php
 
-
 /**
- * 计划任务，版块今日发帖清零
  *
  * @author Jianmin Chen <sky_hold@163.com>
  * @license http://www.phpwind.com
