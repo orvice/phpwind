@@ -24,4 +24,6 @@ error_reporting(-1);
 require __DIR__.'/bootstrap.php';
 
 $app = new \Pw\Console\Application();
-$app->run();
+$status = $app->run();
+
+exit($status);
