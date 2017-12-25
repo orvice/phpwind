@@ -35,9 +35,3 @@ if (!file_exists($filename) || !is_file($filename)) {
 }
 
 require $filename;
-
-// 开发框架信息
-$frameworkAutoloadFile = dirname(__FILE__).'/windframework/vendor/autoload.php';
-if (file_exists($frameworkAutoloadFile) && is_file($frameworkAutoloadFile)) {
-    require $frameworkAutoloadFile;
-}
