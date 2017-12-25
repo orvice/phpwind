@@ -86,11 +86,11 @@ class PwSpecialSortDm extends PwBaseDm
         if (empty($this->_data['tid'])) {
             return new PwError('FORUM:headtopic.threaderror');
         }
-    /*
-        if (!$this->_data['topped']) {
-            return new PwError('FORUM:headtopic.toppederror');
-        }
-    */
+        /*
+            if (!$this->_data['topped']) {
+                return new PwError('FORUM:headtopic.toppederror');
+            }
+        */
         $this->_data['created_time'] = Pw::getTime();
 
         return true;

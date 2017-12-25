@@ -9,7 +9,6 @@
  *
  * @version $Id: PwDesignModuleBo.php 22756 2012-12-27 03:27:36Z gao.wanggao $
  */
-
 class PwDesignModuleBo
 {
     public static $stdId;

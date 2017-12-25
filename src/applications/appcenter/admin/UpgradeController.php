@@ -272,6 +272,7 @@ class UpgradeController extends AdminBaseController
             $this->forwardRedirect(WindUrlHelper::createUrl('appcenter/upgrade/php'));
         }
         $lang = Wind::getComponent('i18n');
+
         try {
             /* @var $db WindConnection */
             $db = Wind::getComponent('db');

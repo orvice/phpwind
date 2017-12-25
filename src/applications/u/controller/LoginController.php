@@ -459,7 +459,7 @@ class LoginController extends PwBaseController
         list($identify, $url, $rememberme) = explode('|', base64_decode($identify).'|');
         list($uid, $password) = PwLoginService::parseLoginIdentify(rawurldecode($identify));
 
-// 		$info = $this->_getUserDs()->getUserByUid($uid, PwUser::FETCH_MAIN);
+        // 		$info = $this->_getUserDs()->getUserByUid($uid, PwUser::FETCH_MAIN);
         $this->loginUser = new PwUserBo($uid);
         if (!$this->loginUser->isExists() || Pw::getPwdCode($this->loginUser->info['password']) != $password) {
             $this->showError('USER:illegal.request');

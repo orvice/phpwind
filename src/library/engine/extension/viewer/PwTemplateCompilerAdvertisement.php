@@ -18,7 +18,7 @@ class PwTemplateCompilerAdvertisement extends AbstractWindTemplateCompiler
     protected $id = ''; //广告位ID
     protected $sys = '';
 
- //是否为默认广告位
+    //是否为默认广告位
     /* (non-PHPdoc)
      * @see AbstractWindTemplateCompiler::compile()
      */

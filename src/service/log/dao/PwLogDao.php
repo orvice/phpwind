@@ -92,7 +92,6 @@ class PwLogDao extends PwBaseDao
     }
 
     /**
-
      * 根据日志ID删除某条日志.
      *
      * @param int $id

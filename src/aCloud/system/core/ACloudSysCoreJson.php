@@ -261,7 +261,7 @@ class Services_JSON
                 * Iterate over every character in the string,
                 * escaping with a slash or encoding to UTF-8 where necessary
                 */
-                for ($c = 0; $c < $strlen_var; ++$c) {
+                for ($c = 0; $c < $strlen_var; $c++) {
                     $ord_var_c = ord($var[$c]);
 
                     switch (true) {
@@ -514,30 +514,30 @@ class Services_JSON
                     $utf8 = '';
                     $strlen_chrs = strlen($chrs);
 
-                    for ($c = 0; $c < $strlen_chrs; ++$c) {
+                    for ($c = 0; $c < $strlen_chrs; $c++) {
                         $substr_chrs_c_2 = substr($chrs, $c, 2);
                         $ord_chrs_c = ord($chrs[$c]);
 
                         switch (true) {
                             case $substr_chrs_c_2 == '\b':
                                 $utf8 .= chr(0x08);
-                                ++$c;
+                                $c++;
                                 break;
                             case $substr_chrs_c_2 == '\t':
                                 $utf8 .= chr(0x09);
-                                ++$c;
+                                $c++;
                                 break;
                             case $substr_chrs_c_2 == '\n':
                                 $utf8 .= chr(0x0A);
-                                ++$c;
+                                $c++;
                                 break;
                             case $substr_chrs_c_2 == '\f':
                                 $utf8 .= chr(0x0C);
-                                ++$c;
+                                $c++;
                                 break;
                             case $substr_chrs_c_2 == '\r':
                                 $utf8 .= chr(0x0D);
-                                ++$c;
+                                $c++;
                                 break;
 
                             case $substr_chrs_c_2 == '\\"':
@@ -566,7 +566,7 @@ class Services_JSON
                                 // characters U-00000080 - U-000007FF, mask 110XXXXX
                                 //see http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8
                                 $utf8 .= substr($chrs, $c, 2);
-                                ++$c;
+                                $c++;
                                 break;
 
                             case ($ord_chrs_c & 0xF0) == 0xE0:
@@ -636,7 +636,7 @@ class Services_JSON
 
                     $strlen_chrs = strlen($chrs);
 
-                    for ($c = 0; $c <= $strlen_chrs; ++$c) {
+                    for ($c = 0; $c <= $strlen_chrs; $c++) {
                         $top = end($stk);
                         $substr_chrs_c_2 = substr($chrs, $c, 2);
 
@@ -720,7 +720,7 @@ class Services_JSON
                             array_pop($stk);
                             $c++;
 
-                            for ($i = $top['where']; $i <= $c; ++$i) {
+                            for ($i = $top['where']; $i <= $c; $i++) {
                                 $chrs = substr_replace($chrs, ' ', $i, 1);
                             }
 

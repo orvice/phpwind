@@ -39,10 +39,10 @@ class PasswordController extends BaseProfileController
     public function editAction()
     {
         //创始人不允许在前台修改密码
-/*		if (Wekit::load('ADMIN:service.srv.AdminFounderService')->isFounder($this->loginUser->username)) {
-            $this->showError('USER:founder.edit');
-        }
-        */
+        /*		if (Wekit::load('ADMIN:service.srv.AdminFounderService')->isFounder($this->loginUser->username)) {
+                    $this->showError('USER:founder.edit');
+                }
+                */
         list($newPwd, $oldPwd, $rePwd) = $this->getInput(array('newPwd', 'oldPwd', 'rePwd'), 'post');
         if (!$oldPwd) {
             $this->showError('USER:pwd.change.oldpwd.require');

@@ -69,21 +69,21 @@ class PwCateDigestThread extends PwThreadDataSource
         return Wekit::load('forum.PwThreadDigestIndex');
     }
 
-     /**
-      * 根据帖子ID$sort排序.
-      *
-      * @param array $data
-      * @param array $sort
-      *
-      * @return array
-      */
-     protected function _sort($data, $sort)
-     {
-         $result = array();
-         foreach ($sort as $tid) {
-             $result[$tid] = $data[$tid];
-         }
+    /**
+     * 根据帖子ID$sort排序.
+     *
+     * @param array $data
+     * @param array $sort
+     *
+     * @return array
+     */
+    protected function _sort($data, $sort)
+    {
+        $result = array();
+        foreach ($sort as $tid) {
+            $result[$tid] = $data[$tid];
+        }
 
-         return $result;
-     }
+        return $result;
+    }
 }

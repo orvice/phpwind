@@ -233,7 +233,7 @@ class PwImageWatermark
         $ws = $water->getSource();
         if ($water->type == 'png') {
             //imagealphablending($source, true);
-               imagecolortransparent($source, imagecolorallocatealpha($source, 0, 0, 0, 0));
+            imagecolortransparent($source, imagecolorallocatealpha($source, 0, 0, 0, 0));
             imagecopyresampled($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height, $water->width, $water->height);
             //imagecopy($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height);
         } else {

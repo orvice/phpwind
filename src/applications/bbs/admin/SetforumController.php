@@ -304,10 +304,10 @@ class SetforumController extends AdminBaseController
                 $dm->setName($forumname)
                     ->setVieworder($vieworder)
                     ->setParentid($tmpParentid);
-                    //上传版块图标
-                    $icon = $this->_uploadImage('icon', $fid);
-                    //上传版块logo
-                    $logo = $this->_uploadImage('logo', $fid);
+                //上传版块图标
+                $icon = $this->_uploadImage('icon', $fid);
+                //上传版块logo
+                $logo = $this->_uploadImage('logo', $fid);
             }
             if ($icon && ($flag || $copyItems['icon'])) {
                 $dm->setIcon($icon['path']);

@@ -183,6 +183,7 @@ class IndexController extends WindController
         // 检测是否安装过了
 
         $dsn = 'mysql:host='.$input['dbhost'].';port='.$input['dbport'];
+
         try {
             $pdo = new WindConnection($dsn, $input['dbuser'], $input['dbpw'], $charset);
             $result = $pdo->query('SHOW DATABASES')->fetchAll();
@@ -301,6 +302,7 @@ class IndexController extends WindController
         }
 
         $tableSql = include $this->_getTableSqlFile();
+
         try {
             foreach ($tableSql['UPDATE'] as $sql) {
                 $pdo->query($sql);

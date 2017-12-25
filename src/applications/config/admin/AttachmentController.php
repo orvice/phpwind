@@ -112,7 +112,7 @@ class AttachmentController extends AdminBaseController
     {
         $config = Wekit::C()->getValues('attachment');
         $this->setOutput($config, 'config');
-// 		$this->setOutput(Wekit::C('attachment'), 'config');
+        // 		$this->setOutput(Wekit::C('attachment'), 'config');
     }
 
     /**

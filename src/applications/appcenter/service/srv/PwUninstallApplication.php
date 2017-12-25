@@ -34,6 +34,7 @@ class PwUninstallApplication
             if (!isset($var['class'])) {
                 continue;
             }
+
             try {
                 $_install = Wekit::load($var['class']);
             } catch (PwException $e) {

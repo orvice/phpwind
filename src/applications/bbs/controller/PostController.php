@@ -413,7 +413,7 @@ class PostController extends PwBaseController
                 if (!is_array($value)) {
                     continue;
                 }
-// 				if (!$forceTopicType && $value) $jsonArray[$key][$key] = '无分类';
+                // 				if (!$forceTopicType && $value) $jsonArray[$key][$key] = '无分类';
                 foreach ($value as $k => $v) {
                     $jsonArray[$key][$k] = strip_tags($v['name']);
                 }

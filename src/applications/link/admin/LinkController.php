@@ -178,11 +178,11 @@ class LinkController extends AdminBaseController
             if (Pw::strlen($v['typename']) > 6) {
                 $this->showError('Link:linkname.len.error');
             }
-/*			$type = $this->_getLinkDs()->getTypeByName($v['typename']);
-            if ($type && $type['typeid'] != $v['typeid']) {
-                $this->showError('Link:type.exist');
-            }
-            */
+            /*			$type = $this->_getLinkDs()->getTypeByName($v['typename']);
+                        if ($type && $type['typeid'] != $v['typeid']) {
+                            $this->showError('Link:type.exist');
+                        }
+                        */
             $this->_getLinkDs()->updateLinkType($v['typeid'], $v['typename'], $v['vieworder']);
         }
 

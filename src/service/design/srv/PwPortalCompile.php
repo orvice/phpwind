@@ -276,7 +276,7 @@ class PwPortalCompile
                 //$limit = $this->compileFor($matches[2][$k]);
                 $dm = new PwDesignModuleDm($v);
                 $dm->setModuleTpl($matches[2][$k]);
-                 // ->setProperty(array('limit' => $limit));
+                // ->setProperty(array('limit' => $limit));
                 $ds->updateModule($dm);
             }
         }

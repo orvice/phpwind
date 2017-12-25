@@ -34,7 +34,7 @@ class InviteController extends PwBaseController
     {
         if ($this->regist['type'] != 2) {
             $this->forwardRedirect(WindUrlHelper::createUrl('my/invite/inviteFriend'));
-//			$this->showError('USER:invite.close');
+            //			$this->showError('USER:invite.close');
         }
 
         /* @var $pwCreditBo PwCreditBo */

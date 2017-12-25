@@ -171,7 +171,7 @@ class PwModuleData
         $params = $this->getComponentValue($this->bo->getTemplate(), implode('', $this->bo->getStandardSign()), $order);
         if ($data['from_type'] == 'auto' && $data['data_type'] == PwDesignData::AUTO && !$data['is_edited']) {
             //if ($this->bo->getLimit() > 10) {
-                $data = $this->asynCutImg($data);
+            $data = $this->asynCutImg($data);
             //} else {
             //	$data = $this->cutImg($data);
             //}

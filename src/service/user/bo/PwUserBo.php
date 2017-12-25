@@ -63,7 +63,7 @@ class PwUserBo
         return self::$_userBo[$uid];
     }
 
-    public static function pushUser(PwUserBo $bo)
+    public static function pushUser(self $bo)
     {
         self::$_userBo[$bo->uid] = $bo;
     }

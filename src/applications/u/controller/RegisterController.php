@@ -194,7 +194,7 @@ class RegisterController extends PwBaseController
         $this->setOutput($guideService->hasGuide(), 'goGuide');
         $this->setOutput('activeEmailSuccess', 'type');
         $this->setTemplate('register_about');
-//		$this->showMessage('USER:active.email.success', 'u/register/welcome?_statu=' . $_statu);
+        //		$this->showMessage('USER:active.email.success', 'u/register/welcome?_statu=' . $_statu);
     }
 
     /**

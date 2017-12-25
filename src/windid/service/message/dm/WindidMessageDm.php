@@ -214,7 +214,7 @@ class WindidMessageDm extends PwBaseDm
     public function beforeUpdateDialog()
     {
         $this->_serializeLastMessage();
-    //	$this->_setModifiedTime();
+        //	$this->_setModifiedTime();
         return true;
     }
 

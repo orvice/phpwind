@@ -70,7 +70,7 @@ class PwUserValidator
     public static function isAlipayValid($alipay, $username = '')
     {
         /* @var $userDs PwUser */
-//		$userDs = Wekit::load('user.PwUser');
+        //		$userDs = Wekit::load('user.PwUser');
         //TODO【用户数据验证】支付宝帐号唯一验证
         return true;
     }
@@ -138,11 +138,11 @@ class PwUserValidator
             return new PwError('WINDID:code.'.$result);
         }
         /* @var $userDs PwUser */
-    /*	$userDs = Wekit::load('user.PwUser');
-        $info = $userDs->getUserByName($username, PwUser::FETCH_MAIN);
-        if (!$info) return false;
-        $exceptUid = intval($exceptUid);
-        if ($exceptUid && $info['uid'] == $exceptUid) return false;*/
+        /*	$userDs = Wekit::load('user.PwUser');
+            $info = $userDs->getUserByName($username, PwUser::FETCH_MAIN);
+            if (!$info) return false;
+            $exceptUid = intval($exceptUid);
+            if ($exceptUid && $info['uid'] == $exceptUid) return false;*/
         return true;
     }
 

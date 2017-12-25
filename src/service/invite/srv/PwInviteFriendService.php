@@ -40,7 +40,7 @@ class PwInviteFriendService
         /* @var $attentionSrv PwAttentionService */
         $attentionSrv = Wekit::load('attention.srv.PwAttentionService');
         $attentionSrv->addFollow($invited_uid, $aUser['uid']);
-// 		$attentionSrv->addFollow($aUser['uid'], $invited_uid);
+        // 		$attentionSrv->addFollow($aUser['uid'], $invited_uid);
 
         //邀请成功，增加积分
         /* $inviteConfig = Wekit::getConfig('site');
@@ -51,7 +51,7 @@ class PwInviteFriendService
         $creditBo->writeLog(); */
 
         // 邀请成功--邀请好友的任务
-// 		PwSimpleHook::getInstance('PwInviteFriendService_invite')->runDo($aUser['uid'], $invited_uid);
+        // 		PwSimpleHook::getInstance('PwInviteFriendService_invite')->runDo($aUser['uid'], $invited_uid);
         return true;
     }
 
@@ -100,7 +100,7 @@ class PwInviteFriendService
     public function allowInvite()
     {
         // 		$invite_config = Wekit::C('site');
-// 		if (!$invite_config['invite.friend.isOpen']) return new PwError('USER:invite.friend.code.close');
+        // 		if (!$invite_config['invite.friend.isOpen']) return new PwError('USER:invite.friend.code.close');
         if (2 == Wekit::C('register', 'type')) {
             return new PwError('USER:invite.friend.code.dumplic');
         }

@@ -9,7 +9,7 @@ class ACloudSysRouter
         $method = strtolower(str_replace('.', '_', $method));
         $controlService = ACloudSysCoreCommon::loadSystemClass('control', 'verify.service');
         $control = in_array($method, array('apply_verify', 'apply_initkey', 'apply_checkkey', 'apply_success')) ? true : $controlService->doubleControl($_POST);
-        $output = ($control && $method && method_exists($this, $method)) ? $this->$method () : $this->sys_error();
+        $output = ($control && $method && method_exists($this, $method)) ? $this->$method() : $this->sys_error();
         print_r($output);
         exit();
     }

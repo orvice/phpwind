@@ -35,10 +35,10 @@ class PwCommonRoute extends AbstractPwRoute
     /* (non-PHPdoc)
      * @see AbstractWindRoute::match()
      */
-     public function match($request)
-     {
-         $path = $request->getPathInfo();
+    public function match($request)
+    {
+        $path = $request->getPathInfo();
 
-         return WindUrlHelper::urlToArgs($path);
-     }
+        return WindUrlHelper::urlToArgs($path);
+    }
 }

@@ -3,7 +3,8 @@
 defined('WEKIT_VERSION') || exit('Forbidden');
 
 /**
- * ???ĳ????͵???? *
+ * ???ĳ????͵???? *.
+ *
  * @author $Author: jieyin $ Foxsee@aliyun.com
  * @copyright ?2003-2103 phpwind.com
  * @license http://www.phpwind.com

@@ -130,7 +130,7 @@ class ACloudSysDataFlowServiceCrawler
         if (!method_exists($commonFactory, $method)) {
             return '';
         }
-        $service = $commonFactory->$method ();
+        $service = $commonFactory->$method();
         if (!$service || !is_object($service) || !method_exists($service, 'getDeletedId')) {
             return '';
         }

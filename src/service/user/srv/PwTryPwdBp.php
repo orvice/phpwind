@@ -186,7 +186,7 @@ class PwTryPwdBp
             } else {
                 return new PwError('USER:login.error.'.$type, array('{num}' => $this->configTotal - $num));
             }
-        //尝试的次数已经达到上限，同时上次错误的时间距离现在已经大于30分钟
+            //尝试的次数已经达到上限，同时上次错误的时间距离现在已经大于30分钟
         } elseif (($now - $lastTry) > $this->nextTrySpace) {
             $this->restoreTryRecord($info['uid'], $now.'|1');
 

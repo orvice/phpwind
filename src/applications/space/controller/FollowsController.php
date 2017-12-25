@@ -23,14 +23,14 @@ class FollowsController extends SpaceBaseController
         $perpage = 20;
         list($start, $limit) = Pw::page2limit($page, $perpage);
         $args = $classCurrent = array();
-/*		$typeCounts = $this->_getTypeDs()->countUserType($this->space->spaceUid);
-        if ($type) {
-            $tmp = $this->_getTypeDs()->getUserByType($this->space->spaceUid, $type, $limit, $start);
-            $follows = $this->_getDs()->fetchFollows($this->space->spaceUid, array_keys($tmp));
-            $count = $typeCounts[$type] ? $typeCounts[$type]['count'] : 0;
-            $classCurrent[$type] = 'current';
-            $args = array('type' => $type);
-        } else {*/
+        /*		$typeCounts = $this->_getTypeDs()->countUserType($this->space->spaceUid);
+                if ($type) {
+                    $tmp = $this->_getTypeDs()->getUserByType($this->space->spaceUid, $type, $limit, $start);
+                    $follows = $this->_getDs()->fetchFollows($this->space->spaceUid, array_keys($tmp));
+                    $count = $typeCounts[$type] ? $typeCounts[$type]['count'] : 0;
+                    $classCurrent[$type] = 'current';
+                    $args = array('type' => $type);
+                } else {*/
         $follows = $this->_getDs()->getFollows($this->space->spaceUid, $limit, $start);
         $count = $this->space->spaceUser['follows'];
         $classCurrent[0] = 'current';

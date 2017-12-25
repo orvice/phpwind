@@ -104,8 +104,8 @@ class UpgradeController extends WindController
         $this->_writeWindid();
         $this->_designUpgrade();
         //清理升级过程的文件
-//		WindFile::del(Wind::getRealPath('DATA:setup.setup_config.php', true));
-// 		WindFile::del(Wind::getRealPath('DATA:setup.tmp_dbsql.php', true));
+        //		WindFile::del(Wind::getRealPath('DATA:setup.setup_config.php', true));
+        // 		WindFile::del(Wind::getRealPath('DATA:setup.tmp_dbsql.php', true));
         $this->setTemplate('upgrade_finish');
     }
 

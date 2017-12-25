@@ -1,7 +1,6 @@
 <?php
 
 /**
- *
  * @author Jianmin Chen <sky_hold@163.com>
  * @license http://www.phpwind.com
  *

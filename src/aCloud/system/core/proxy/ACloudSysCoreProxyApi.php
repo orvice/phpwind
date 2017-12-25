@@ -70,7 +70,7 @@ class ACloudSysCoreProxyApi
         if (!class_exists($className)) {
             return array('', '', array());
         }
-        $apiClass = new $className ();
+        $apiClass = new $className();
         if (!method_exists($apiClass, $method)) {
             return array('', '', array());
         }

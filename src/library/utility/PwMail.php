@@ -57,6 +57,7 @@ class PwMail
         $this->_mail->setSubject($subject);
         $this->_mail->setTo($toUser);
         $this->_mail->setBody($content);
+
         try {
             $rt = $this->_mail->send($this->getMethod(), $this->_config);
             if (false === $rt) {

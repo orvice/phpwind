@@ -19,7 +19,7 @@ class MessageController extends PwBaseController
         parent::beforeAction($handlerAdapter);
         if (!$this->loginUser->isExists()) {
             $this->forwardRedirect(WindUrlHelper::createUrl('u/login/run'));
-        //	$this->forwardRedirect(WindUrlHelper::createUrl('u/login/run'));
+            //	$this->forwardRedirect(WindUrlHelper::createUrl('u/login/run'));
         }
         $controller = $handlerAdapter->getController();
         $action = $handlerAdapter->getAction();

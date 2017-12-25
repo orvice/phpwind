@@ -18,7 +18,7 @@ Wind::import('ADMIN:library.AdminBaseController');
          $list = $this->_getCronDs()->getList();
          foreach ($list as $key => &$cron) {
              //if ($cron['isopen'] == 2) unset($list[$key]);
-            $cron['type'] = $this->_getLoopType($cron['loop_type']);
+             $cron['type'] = $this->_getLoopType($cron['loop_type']);
              list($day, $hour, $minute) = explode('-', $cron['loop_daytime']);
              if ($cron['loop_type'] == 'week') {
                  $cron['type'] .= '星期'.$this->_capitalWeek($day);
@@ -203,15 +203,15 @@ Wind::import('ADMIN:library.AdminBaseController');
          $this->showMessage('operate.success');
      }
 
-    /**
-     * 导入系统计划任务
-     * Enter description here ...
-     */
-    public function importAction()
-    {
-        $this->_getCronService()->updateSysCron();
-        $this->showMessage('operate.success');
-    }
+     /**
+      * 导入系统计划任务
+      * Enter description here ...
+      */
+     public function importAction()
+     {
+         $this->_getCronService()->updateSysCron();
+         $this->showMessage('operate.success');
+     }
 
      private function _getLoopType($select = '')
      {

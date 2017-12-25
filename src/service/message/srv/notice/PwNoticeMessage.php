@@ -46,7 +46,7 @@ class PwNoticeMessage extends PwNoticeAction
         //$list = $this->_getMessagesDs()->getDialogMessages($notice['uid'], $notice['param'], 0, 20);
         $list = $this->_getWindid()->getMessageList($dialog['dialog_id'], 0, 20);
         krsort($list);
-//		$list['newreplies'] = $this->_getThreadDs()->getPostByTid($notice['param'],0,20,false);
+        //		$list['newreplies'] = $this->_getThreadDs()->getPostByTid($notice['param'],0,20,false);
         $num = $this->_getWindid()->read($notice['uid'], $dialog['dialog_id'], array_keys($list));
         if ($num) {
             //$this->_getMessagesService()->resetDialogMessages($dialog['dialog_id']);

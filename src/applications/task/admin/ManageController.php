@@ -45,7 +45,7 @@ class ManageController extends AdminBaseController
     {
         $tasks = $this->getInput('task');
         $isopen = intval($this->getInput('isOpen'));
-//		if (!$tasks) $this->showMessage();
+        //		if (!$tasks) $this->showMessage();
         /* @var $taskService PwTaskService */
         $taskService = Wekit::load('task.srv.PwTaskService');
         foreach ($tasks as $id => $item) {

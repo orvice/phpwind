@@ -15,7 +15,7 @@ class ACloudRouter
         $action = ($a) ? $a.'Action' : '';
         if ($action && method_exists($this, $action)) {
             ACloudInit::execute();
-            $this->$action ();
+            $this->$action();
         }
     }
 

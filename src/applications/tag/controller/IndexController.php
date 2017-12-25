@@ -54,9 +54,9 @@ class IndexController extends PwBaseController
             $this->forwardRedirect(WindUrlHelper::createUrl('u/login/run', array('backurl' => WindUrlHelper::createUrl('tag/index/my'))));
         }
         $typeName = $this->defaultType;
-/*		list($page) = $this->getInput(array('page'));
-        $page = $page ? $page : 1;
-        list($start, $limit) = Pw::page2limit($page, $this->attentionTagList);*/
+        /*		list($page) = $this->getInput(array('page'));
+                $page = $page ? $page : 1;
+                list($start, $limit) = Pw::page2limit($page, $this->attentionTagList);*/
         $tagServicer = $this->_getTagService();
         //获取我关注的话题列表
         $myTagsCount = $this->_getTagAttentionDs()->countAttentionByUid($this->loginUser->uid);
@@ -170,7 +170,7 @@ class IndexController extends PwBaseController
             $ifcheck = !$this->_checkAllowManage() ? 1 : '';
             $typeId = $this->_getTagService()->getTypeIdByTypeName($this->defaultType);
             $count = $this->_getTagDs()->countRelationsByTagId($id, $typeId, $ifcheck);
-        //	$tag['content_count'] = $count;
+            //	$tag['content_count'] = $count;
             if ($count > 0) {
                 $tmpTags = $this->_getTagService()->getContentsByTypeName($id, $this->defaultType, $ifcheck, $start, $limit);
                 foreach ($tmpTags as $k => $v) {

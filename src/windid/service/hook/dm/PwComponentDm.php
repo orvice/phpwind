@@ -2,11 +2,11 @@
 
 /**
  * name: 		组件的名字，唯一用于在应用中获取对应组件的对象实例.
- path: 		该组件的实现
- scope: 		组件对象的范围： {singleton: 单例; application: 整个应用； prototype: 当前使用}
- initMethod: 在应用对象生成时执行的方法
- destroy： 	在应用结束的时候执行的操作
- proxy：
+ * path: 		该组件的实现
+ * scope: 		组件对象的范围： {singleton: 单例; application: 整个应用； prototype: 当前使用}
+ * initMethod: 在应用对象生成时执行的方法
+ * destroy： 	在应用结束的时候执行的操作
+ * proxy：.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com

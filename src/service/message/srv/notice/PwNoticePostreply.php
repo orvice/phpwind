@@ -81,9 +81,9 @@ class PwNoticePostreply extends PwNoticeAction
             return $list;
         }
         $list['replyUsers'] = Wekit::load('user.PwUser')->fetchUserByUid($notice['extend_params']['uids'], PwUser::FETCH_MAIN);
-/*		$list['thread'] = $this->_getThreadDs()->getPost($notice['param']);
-        $list['newreplies'] = $this->_getNewReply($notice['param'],20);
-        $list['thread']['fid'] && $list['forum'] = $this->_getForumDs()->getForum($list['thread']['fid']);*/
+        /*		$list['thread'] = $this->_getThreadDs()->getPost($notice['param']);
+                $list['newreplies'] = $this->_getNewReply($notice['param'],20);
+                $list['thread']['fid'] && $list['forum'] = $this->_getForumDs()->getForum($list['thread']['fid']);*/
         return $list;
     }
 

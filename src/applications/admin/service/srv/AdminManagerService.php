@@ -70,6 +70,7 @@ class AdminManagerService
         if ($userService instanceof IAdminUserDependenceService) {
             return $userService;
         }
+
         throw new PwDependanceException('admin.userservice',
             array('{service}' => __CLASS__, '{userservice}' => 'IAdminUserDependenceService'));
     }

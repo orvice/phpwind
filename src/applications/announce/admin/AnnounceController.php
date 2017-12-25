@@ -41,9 +41,7 @@ class AnnounceController extends AdminBaseController
     }
 
     /**
-
      * 添加公告处理.
-
      */
     public function doAddAction()
     {

@@ -9,18 +9,18 @@
  class PwBaseCode
  {
      /**
-     * 验证码长度.
-     *
-     * @var int
-     */
-    public static $verifyLength = 4;
+      * 验证码长度.
+      *
+      * @var int
+      */
+     public static $verifyLength = 4;
 
-    /**
-     * 1.数字 2.字母 3.数字+字母 4,随机加减，5.汉字6.自定义问题 7语音.
-     *
-     * @var int
-     */
-    public static $verifyType = 3;
+     /**
+      * 1.数字 2.字母 3.数字+字母 4,随机加减，5.汉字6.自定义问题 7语音.
+      *
+      * @var int
+      */
+     public static $verifyType = 3;
 
      public static $verifyWidth = 240;
 
@@ -59,12 +59,12 @@
          return strtolower(self::$verifyCode);
      }
 
-    /**
-     * 设置验证码
-     */
-    protected static function setRandCode()
-    {
-        switch (self::$verifyType) {
+     /**
+      * 设置验证码
+      */
+     protected static function setRandCode()
+     {
+         switch (self::$verifyType) {
             case '1':
                 $str = '1234567890';
                 break;
@@ -87,88 +87,88 @@
                 $str = '123456789BCEFGHJKMPQRTVWXYZ';
                 break;
         }
-        $_tmp = Pw::strlen($str) - 1;
-        $_num = 0;
-        for ($i = 0; $i < self::$verifyLength; $i++) {
-            $_num = mt_rand(0, $_tmp);
-            $_code = Pw::substrs($str, 1, $_num, false);
-            self::$verifyCode .= self::_convert($_code);
-        }
-    }
+         $_tmp = Pw::strlen($str) - 1;
+         $_num = 0;
+         for ($i = 0; $i < self::$verifyLength; $i++) {
+             $_num = mt_rand(0, $_tmp);
+             $_code = Pw::substrs($str, 1, $_num, false);
+             self::$verifyCode .= self::_convert($_code);
+         }
+     }
 
      private static function _convert($text = '')
      {
          return Pw::convert($text, 'UTF-8');
-        /*if ($text !== utf8_decode(utf8_encode($text))) {
-            $text = WindConvert::convert($text, 'UTF-8', 'GBK');
-        }
-        return $text;*/
+         /*if ($text !== utf8_decode(utf8_encode($text))) {
+             $text = WindConvert::convert($text, 'UTF-8', 'GBK');
+         }
+         return $text;*/
      }
 
-    /**
-     * 获取验证码背景文件.
-     *
-     * @return array
-     */
-    protected static function getVerifyBackground()
-    {
-        $_files = array();
-        $_path = Wind::getRealDir(self::$path.'.bg.');
-        $files = WindFolder::read($_path);
-        foreach ($files as $file) {
-            if (is_file($_path.$file)) {
-                $_files[] = $_path.$file;
-            }
-        }
+     /**
+      * 获取验证码背景文件.
+      *
+      * @return array
+      */
+     protected static function getVerifyBackground()
+     {
+         $_files = array();
+         $_path = Wind::getRealDir(self::$path.'.bg.');
+         $files = WindFolder::read($_path);
+         foreach ($files as $file) {
+             if (is_file($_path.$file)) {
+                 $_files[] = $_path.$file;
+             }
+         }
 
-        return $_files;
-    }
+         return $_files;
+     }
 
-    /**
-     * 获取字体列表.
-     *
-     * @return array
-     */
-    protected static function getFontList()
-    {
-        $_path = Wind::getRealDir(self::$path.'.font');
+     /**
+      * 获取字体列表.
+      *
+      * @return array
+      */
+     protected static function getFontList()
+     {
+         $_path = Wind::getRealDir(self::$path.'.font');
 
-        return WindFolder::read($_path, WindFolder::READ_FILE);
-    }
+         return WindFolder::read($_path, WindFolder::READ_FILE);
+     }
 
-    /**
-     * 获取英文字体列表.
-     *
-     * @return array
-     */
-    protected static function getEnFontList()
-    {
-        $_fontList = array();
-        $fontList = self::getFontList();
-        foreach ($fontList as $key => $font) {
-            if (strpos($font, 'en_') === 0) {
-                $_fontList[] = $font;
-            }
-        }
+     /**
+      * 获取英文字体列表.
+      *
+      * @return array
+      */
+     protected static function getEnFontList()
+     {
+         $_fontList = array();
+         $fontList = self::getFontList();
+         foreach ($fontList as $key => $font) {
+             if (strpos($font, 'en_') === 0) {
+                 $_fontList[] = $font;
+             }
+         }
 
-        return $_fontList ? $_fontList : array('en_arial.ttf');
-    }
+         return $_fontList ? $_fontList : array('en_arial.ttf');
+     }
 
-    /**
-     * 获取中文字体列表.
-     *
-     * @return array
-     */
-    protected static function getCnFontList()
-    {
-        $_fontList = array();
-        $fontList = self::getFontList();
-        foreach ($fontList as $key => $font) {
-            if (strpos($font, 'cn_') === 0) {
-                $_fontList[] = $font;
-            }
-        }
+     /**
+      * 获取中文字体列表.
+      *
+      * @return array
+      */
+     protected static function getCnFontList()
+     {
+         $_fontList = array();
+         $fontList = self::getFontList();
+         foreach ($fontList as $key => $font) {
+             if (strpos($font, 'cn_') === 0) {
+                 $_fontList[] = $font;
+             }
+         }
 
-        return $_fontList;
-    }
+         return $_fontList;
+     }
  }

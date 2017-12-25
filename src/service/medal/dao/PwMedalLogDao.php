@@ -154,29 +154,29 @@ Wind::import('SRC:library.base.PwBaseDao');
          return $smt->getValue($_array);
      }
 
-    /*
+     /*
 
-    public function addInfo($data) {
-        if (!$data = $this->_filterStruct($data)) return false;
-        $sql = $this->_bindSql('INSERT INTO %s SET %s',  $this->getTable(), $this->sqlSingle($data));
-        $this->getConnection()->execute($sql);
-        return $this->getConnection()->lastInsertId();
-    }
-    */
+     public function addInfo($data) {
+         if (!$data = $this->_filterStruct($data)) return false;
+         $sql = $this->_bindSql('INSERT INTO %s SET %s',  $this->getTable(), $this->sqlSingle($data));
+         $this->getConnection()->execute($sql);
+         return $this->getConnection()->lastInsertId();
+     }
+     */
 
-    public function replace($data)
-    {
-        if (!$data = $this->_filterStruct($data)) {
-            return false;
-        }
-        if (!$data['uid'] || !$data['medal_id']) {
-            return false;
-        }
-        $sql = $this->_bindSql('REPLACE INTO %s SET %s', $this->getTable(), $this->sqlSingle($data));
-        $this->getConnection()->execute($sql);
+     public function replace($data)
+     {
+         if (!$data = $this->_filterStruct($data)) {
+             return false;
+         }
+         if (!$data['uid'] || !$data['medal_id']) {
+             return false;
+         }
+         $sql = $this->_bindSql('REPLACE INTO %s SET %s', $this->getTable(), $this->sqlSingle($data));
+         $this->getConnection()->execute($sql);
 
-        return $this->getConnection()->lastInsertId();
-    }
+         return $this->getConnection()->lastInsertId();
+     }
 
      public function updateInfo($logId, $data)
      {

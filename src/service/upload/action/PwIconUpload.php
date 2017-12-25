@@ -36,18 +36,18 @@ class PwIconUpload extends PwUploadAction
     /* (non-PHPdoc)
      * @see PwUploadAction::getSaveDir()
      */
-     public function getSaveDir(PwUploadFile $file)
-     {
-         return $this->dir;
-     }
+    public function getSaveDir(PwUploadFile $file)
+    {
+        return $this->dir;
+    }
 
     /* (non-PHPdoc)
      * @see PwUploadAction::update()
      */
-     public function update($uploaddb)
-     {
-         foreach ($uploaddb as $key => $value) {
-             $this->attachs = array(
+    public function update($uploaddb)
+    {
+        foreach ($uploaddb as $key => $value) {
+            $this->attachs = array(
                 'attname' => $value['attname'],
                 'type'    => $value['type'],
                 'path'    => $value['fileuploadurl'],
@@ -55,10 +55,10 @@ class PwIconUpload extends PwUploadAction
                 'width'   => $this->width,
                 'height'  => $this->height,
             );
-         }
+        }
 
-         return true;
-     }
+        return true;
+    }
 
     public function getAttachInfo()
     {

@@ -27,11 +27,11 @@ class PwUserBanSign implements PwUserBanTypeInterface
 
         //$end_time = $dm->getField('end_time') > 0 ? Pw::time2str($dm->getField('end_time'), 'Y年m月d日 H:i') : '永久';
         //构建显示禁止签名的文本内容
-    //	$newSign = sprintf('由于"%s"被%s禁止签名至%s', $dm->getField('reason'), $dm->getOperator(), $end_time);
+        //	$newSign = sprintf('由于"%s"被%s禁止签名至%s', $dm->getField('reason'), $dm->getOperator(), $end_time);
 
         $userDm = new PwUserInfoDm($dm->getField('uid'));
         $userDm->setBanSign(true);
-    //		->setBbsSign($newSign)
+        //		->setBbsSign($newSign)
         /* @var $userDs PwUser */
         $userDs = Wekit::load('SRV:user.PwUser');
         $userDs->editUser($userDm, PwUser::FETCH_MAIN | PwUser::FETCH_INFO);
@@ -54,7 +54,7 @@ class PwUserBanSign implements PwUserBanTypeInterface
 
         $userDm = new PwUserInfoDm($uid);
         $userDm->setBanSign(false);
-    //		->setBbsSign('')
+        //		->setBbsSign('')
         /* @var $userDs PwUser */
         $userDs = Wekit::load('SRV:user.PwUser');
         $userDs->editUser($userDm, PwUser::FETCH_MAIN | PwUser::FETCH_INFO);

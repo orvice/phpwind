@@ -96,6 +96,7 @@ class PwUpgradeApplication extends PwInstallApplication
     public function doUpgrade()
     {
         $this->backUp();
+
         try {
             list($service) = $this->resolvedInstallation();
             foreach ($service as $key => $var) {

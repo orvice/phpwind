@@ -73,44 +73,44 @@ class PwFilterDfa extends PwFilterAction
         WindFile::write($this->file.'/word.txt', serialize($nodes));
     }
 
-   /**
-    * 检测敏感词 | 如果有敏感词直接返回true.
-    *
-    * @param string $s
-    *
-    * @return bool
-    */
-   public function check($s)
-   {  //直接提示
+    /**
+     * 检测敏感词 | 如果有敏感词直接返回true.
+     *
+     * @param string $s
+     *
+     * @return bool
+     */
+    public function check($s)
+    {  //直接提示
         $charset = Wekit::V('charset');
-       $charset = str_replace('-', '', strtolower($charset));
-       $isUTF8 = ($charset == 'utf8') ? true : false;
-       $ret = array();
-       $cur = 0; //当前节点，初始为根节点
+        $charset = str_replace('-', '', strtolower($charset));
+        $isUTF8 = ($charset == 'utf8') ? true : false;
+        $ret = array();
+        $cur = 0; //当前节点，初始为根节点
         $i = 0; //字符串当前偏移
         $p = 0; //字符串回溯位置
         $len = strlen($s);
-       while ($i < $len) {
-           $c = ord($s[$i]);
-           if (isset($this->nodes[$cur][1][$c])) { //如果存在
+        while ($i < $len) {
+            $c = ord($s[$i]);
+            if (isset($this->nodes[$cur][1][$c])) { //如果存在
                 $cur = $this->nodes[$cur][1][$c]; //下移当前节点
                 if ($this->nodes[$cur][0]) { //是叶子节点，单词匹配！
                     return true;
                 }
-               $i++; //下一个字符
-           } else { //不匹配
+                $i++; //下一个字符
+            } else { //不匹配
                 $cur = 0; //重置当前节点为根节点
                 if (!$isUTF8 && ord($s[$p]) > 127 && ord($s[$p + 1]) > 127) {
                     $p += 2; //设置下一个回溯位置
                 } else {
                     $p += 1; //设置下一个回溯位置
                 }
-               $i = $p; //把当前偏移设为回溯位置
-           }
-       }
+                $i = $p; //把当前偏移设为回溯位置
+            }
+        }
 
-       return false;
-   }
+        return false;
+    }
 
     /**
      * 检测敏感词 | 检测所有敏感词并返回.

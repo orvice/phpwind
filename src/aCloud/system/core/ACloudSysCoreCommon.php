@@ -161,7 +161,7 @@ class ACloudSysCoreCommon
         if (!class_exists($className)) {
             self::showError('cann`t find class');
         }
-        $classes[$className] = new $className ();
+        $classes[$className] = new $className();
 
         return $classes[$className];
     }
@@ -178,7 +178,7 @@ class ACloudSysCoreCommon
         if (!class_exists($class)) {
             self::showError('cann`t find class');
         }
-        $classes[$class] = new $class ();
+        $classes[$class] = new $class();
 
         return $classes[$class];
     }

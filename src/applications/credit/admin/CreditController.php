@@ -290,7 +290,7 @@ class CreditController extends AdminBaseController
         if ($username) {
             $user = Wekit::load('user.PwUser')->getUserByName($username);
             $sc->setUserid($user['uid']);
-// 			$url['uid'] = $user['uid'];
+            // 			$url['uid'] = $user['uid'];
             $url['username'] = $username;
         }
         if ($uid) {

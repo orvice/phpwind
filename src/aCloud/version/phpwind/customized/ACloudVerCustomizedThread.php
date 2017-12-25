@@ -32,7 +32,7 @@ class ACloudVerCustomizedThread extends ACloudVerCustomizedBase
         if ($tid < 1) {
             return $this->buildResponse(THREAD_INVALID_PARAMS, '参数不存在');
         }
-            //TODO 权限
+        //TODO 权限
 
         $thread = new PwThreadBo($tid);
         $thread = $thread->info;

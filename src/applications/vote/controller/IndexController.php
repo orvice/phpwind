@@ -79,8 +79,8 @@ class IndexController extends PwBaseController
 
         $pollOptionDs = Wekit::load('poll.PwPollOption'); /* @var $pollOptionDs PwPollOption */
 
-//		$optionTotal = $pollOptionDs->countByPollid($pollid);
-//		if ($optionTotal < 3) $this->showError('VOTE:options.default.option.num');
+        //		$optionTotal = $pollOptionDs->countByPollid($pollid);
+        //		if ($optionTotal < 3) $this->showError('VOTE:options.default.option.num');
 
         $option = $pollOptionDs->get($optionid);
         $pollOptionDs->delete($optionid);
@@ -115,8 +115,8 @@ class IndexController extends PwBaseController
         $dm = new PwPollOptionDm($optionid);
         $dm->setImage('');
         $this->_getPollOptionDS()->update($dm);
-//		$optionTotal = $pollOptionDs->countByPollid($pollid);
-//		if ($optionTotal < 3) $this->showError('VOTE:options.default.option.num');
+        //		$optionTotal = $pollOptionDs->countByPollid($pollid);
+        //		if ($optionTotal < 3) $this->showError('VOTE:options.default.option.num');
         $option['image'] && $this->_getPollService()->removeImg($option['image']);
 
         $this->_afterDelete($pollid);

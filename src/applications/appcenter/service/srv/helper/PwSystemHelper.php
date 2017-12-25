@@ -57,7 +57,7 @@ class PwSystemHelper
             } elseif ($sql_key == 'ALTER') {
                 $alter || ++$i;
                 $dataSQL[$i][] = trim($query, ';');
-                ++$i;
+                $i++;
                 $alter = 1;
             } elseif (in_array($sql_key, array('INSERT', 'REPLACE', 'UPDATE', 'DELETE'))) {
                 $dataSQL[$i][] = trim($query, ';');

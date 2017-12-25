@@ -341,7 +341,7 @@ class ManageController extends AdminBaseController
 
         if (($if = in_array($groupid, $banGids)) || ($r = array_intersect($banGids, $groups))) {
             $this->showError('USER:user.belong.default.error');
-// 			(!$if && $r) && $groupid = array_shift($r);
+            // 			(!$if && $r) && $groupid = array_shift($r);
         } else {
             foreach ($groups as $value) {
                 $clearGids[$value] = (isset($endtime[$value]) && $endtime[$value]) ? Pw::str2time($endtime[$value]) : 0;

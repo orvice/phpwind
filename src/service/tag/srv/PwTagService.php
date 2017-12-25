@@ -65,7 +65,7 @@ class PwTagService
                 $tagRecords[] = array('tag_id' => $dm->tag_id, 'update_time' => $time);
             }
             $relationDms[] = $dm;
-        //	$this->addAttention($dm->getCreateUid(),$dm->tag_id);
+            //	$this->addAttention($dm->getCreateUid(),$dm->tag_id);
         }
 
         $this->_getTagDs()->batchAddRelation($relationDms);

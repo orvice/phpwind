@@ -10,7 +10,7 @@ class ACloudSysCoreFormat
         $format = ACloudSysCoreS::inArray(strtolower($format), $this->formats) ? strtolower($format) : 'json';
         $action = $format.'Format';
 
-        return $this->$action ($data, $charset);
+        return $this->$action($data, $charset);
     }
 
     public function jsonFormat($data, $charset)

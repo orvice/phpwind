@@ -30,45 +30,45 @@
         $this->_getSpace();
     }
 
-    /**
-     * 设置访问用户
-     * Enter description here ...
-     *
-     * @param unknown_type $visitUid
-     */
-    public function setVisitUid($visitUid)
-    {
-        $this->visitUid = (int) $visitUid;
-    }
+     /**
+      * 设置访问用户
+      * Enter description here ...
+      *
+      * @param unknown_type $visitUid
+      */
+     public function setVisitUid($visitUid)
+     {
+         $this->visitUid = (int) $visitUid;
+     }
 
-    /**
-     * 设置用户与空间的关系
-     * Enter description here ...
-     */
-    public function setTome($spaceUid, $visitUid)
-    {
-        $this->tome = $this->_getTome($spaceUid, $visitUid);
-    }
+     /**
+      * 设置用户与空间的关系
+      * Enter description here ...
+      */
+     public function setTome($spaceUid, $visitUid)
+     {
+         $this->tome = $this->_getTome($spaceUid, $visitUid);
+     }
 
-    /**
-     * 判断某个key显示权限.
-     *
-     * @param string $key
-     */
-    public function allowView($key = 'space')
-    {
-        if ($this->tome == self::MYSELF) {
-            return true;
-        }
-        if (!isset($this->spaceUser['secret'][$key])) {
-            //手机号码默认仅对自己开放
-            if ($key == 'mobile') {
-                $this->spaceUser['secret'][$key] = self::MYSELF;
-            } else {
-                $this->spaceUser['secret'][$key] = self::VISITOR;
-            }
-        }
-        switch ($this->spaceUser['secret'][$key]) {
+     /**
+      * 判断某个key显示权限.
+      *
+      * @param string $key
+      */
+     public function allowView($key = 'space')
+     {
+         if ($this->tome == self::MYSELF) {
+             return true;
+         }
+         if (!isset($this->spaceUser['secret'][$key])) {
+             //手机号码默认仅对自己开放
+             if ($key == 'mobile') {
+                 $this->spaceUser['secret'][$key] = self::MYSELF;
+             } else {
+                 $this->spaceUser['secret'][$key] = self::VISITOR;
+             }
+         }
+         switch ($this->spaceUser['secret'][$key]) {
             case 0://完全开放
                 return true;
             case 1://对自已开放
@@ -83,8 +83,8 @@
                 break;
         }
 
-        return false;
-    }
+         return false;
+     }
 
      private function _getSpaceUser()
      {
@@ -136,37 +136,37 @@
          return WindUrlHelper::createUrl('space/index/run', array('uid' => $this->spaceUid));
      }
 
-    /**
-     * 获取访问者和空间的关系
-     * 0未登录,1未关注,2本人,3主人关注的, 4,关注主人的 5互相关注.
-     */
-    private function _getTome($spaceUid, $visitUid)
-    {
-        $attention = $followed = false;
-        if ($visitUid == 0) {
-            return self::VISITOR;
-        }
-        if ($visitUid == $spaceUid) {
-            return self::MYSELF;
-        }
-        if (Wekit::load('attention.PwAttention')->isFollowed($spaceUid, $visitUid)) {
-            $attention = true; //self::ATTENTION;
-        }
-        if (Wekit::load('attention.PwAttention')->isFollowed($visitUid, $spaceUid)) {
-            $followed = true; //self::FOLLOWED;
-        }
-        if ($attention && $followed) {
-            return self::FRIEND;
-        }
-        if ($attention) {
-            return self::ATTENTION;
-        }
-        if ($followed) {
-            return self::FOLLOWED;
-        }
+     /**
+      * 获取访问者和空间的关系
+      * 0未登录,1未关注,2本人,3主人关注的, 4,关注主人的 5互相关注.
+      */
+     private function _getTome($spaceUid, $visitUid)
+     {
+         $attention = $followed = false;
+         if ($visitUid == 0) {
+             return self::VISITOR;
+         }
+         if ($visitUid == $spaceUid) {
+             return self::MYSELF;
+         }
+         if (Wekit::load('attention.PwAttention')->isFollowed($spaceUid, $visitUid)) {
+             $attention = true; //self::ATTENTION;
+         }
+         if (Wekit::load('attention.PwAttention')->isFollowed($visitUid, $spaceUid)) {
+             $followed = true; //self::FOLLOWED;
+         }
+         if ($attention && $followed) {
+             return self::FRIEND;
+         }
+         if ($attention) {
+             return self::ATTENTION;
+         }
+         if ($followed) {
+             return self::FOLLOWED;
+         }
 
-        return self::STRANGER;
-    }
+         return self::STRANGER;
+     }
 
      private function _getSpaceDs()
      {

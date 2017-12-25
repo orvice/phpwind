@@ -28,7 +28,7 @@ class ConfigbbsController extends AdminBaseController
 
         $config = Wekit::C()->getValues('bbs');
         $this->setOutput($config, 'config');
-// 		$this->setOutput(Wekit::C('bbs'), 'config');
+        // 		$this->setOutput(Wekit::C('bbs'), 'config');
     }
 
     /**

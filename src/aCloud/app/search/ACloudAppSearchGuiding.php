@@ -7,7 +7,7 @@ class ACloudAppSearchGuiding
         list($a) = ACloudSysCoreS::gp(array('a'));
         $action = ($a) ? $a.'Action' : 'searchAction';
         if ($action && method_exists($this, $action)) {
-            $this->$action ();
+            $this->$action();
         }
     }
 

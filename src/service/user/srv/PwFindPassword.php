@@ -120,7 +120,7 @@ class PwFindPassword
         }
         /*$validTime = $this->activeCodeValidTime * 3600;
         if (($info['send_time'] + $validTime) < Pw::getTime()) return new PwError('USER:active.email.overtime');*/
-//		$activeCodeDs->activeCode($this->info['uid'], Pw::getTime());
+        //		$activeCodeDs->activeCode($this->info['uid'], Pw::getTime());
         return true;
     }
 
@@ -358,16 +358,16 @@ class PwFindPassword
             /*如果该方式的找回密码方式没有尝试过*/
             if (!($recode = $recodes[$typeCode])) {
                 $recodes[$typeCode] = Pw::time2str(Pw::getTime(), 'Y-m-d').':1';
-            /*如果该方式的找回密码方式尝试过*/
+                /*如果该方式的找回密码方式尝试过*/
             } else {
                 list($time, $num) = explode(':', $recode);
                 /*如果该方式的上次找回密码不是在今天发生，那么这是今天第一次找回密码*/
                 if (($time != Pw::time2str(Pw::getTime(), 'Y-m-d'))) {
                     $recodes[$typeCode] = Pw::time2str(Pw::getTime(), 'Y-m-d').':1';
-                /*如果今天不是第一次尝试找回密码，并且今天尝试找回密码的次数已经超过规定次数，抛出错误*/
+                    /*如果今天不是第一次尝试找回密码，并且今天尝试找回密码的次数已经超过规定次数，抛出错误*/
                 } elseif ($num >= $tryTime) {
                     return new PwError('USER:findpwd.over.limit.'.$type);
-                /*否则记录今天找回密码的次数*/
+                    /*否则记录今天找回密码的次数*/
                 } else {
                     $recodes[$typeCode] = $time.':'.($num + 1);
                 }
