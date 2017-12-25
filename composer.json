@@ -26,7 +26,6 @@
         "ext-mcrypt": "*",
         "ext-zlib": "*",
         "ext-zip": "*",
-        "medz/windframework": "^1.0",
         "guzzlehttp/guzzle": "^3.8"
     },
     "autoload": {
@@ -35,7 +34,8 @@
             "src/library/",
             "src/service/",
             "src/bootstrap/",
-            "src/hooks/"
+            "src/hooks/",
+            "windframework/"
         ],
         "psr-4": {
             "Pw\\Ext\\": "src/extensions/",

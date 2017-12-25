@@ -1,7 +1,6 @@
 /vendor
 /composer.lock
 /.php_cs.cache
-/windframework
 /conf/database.php
 /conf/founder.php
 /!data/index.html
