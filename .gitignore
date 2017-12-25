@@ -14,3 +14,7 @@
 /windid/attachment/
 !/src/extensions/demo
 /src/extensions/
+.env
+/node_modules
+/bootstrap
+/storage
