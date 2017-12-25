@@ -3,8 +3,7 @@
 defined('WEKIT_VERSION') || exit('Forbidden');
 
 /**
- * 获取我关注的新鲜事
- *
+ * ???????????? *
  * @author Jianmin Chen <sky_hold@163.com>
  * @license http://www.phpwind.com
  *

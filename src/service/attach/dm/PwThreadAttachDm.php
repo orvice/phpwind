@@ -3,7 +3,7 @@
 defined('WEKIT_VERSION') || exit('Forbidden');
 
 /**
- * 附件数据模型.
+ * ?????????.
  *
  * @author Jianmin Chen <sky_hold@163.com>
  * @license http://www.phpwind.com

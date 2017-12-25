@@ -3,8 +3,7 @@
 defined('WEKIT_VERSION') || exit('Forbidden');
 
 /**
- * 获取某个类型的新鲜事
- *
+ * ???某????偷???? *
  * @author $Author: jieyin $ Foxsee@aliyun.com
  * @copyright ?2003-2103 phpwind.com
  * @license http://www.phpwind.com
