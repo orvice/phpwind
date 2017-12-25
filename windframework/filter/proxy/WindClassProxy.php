@@ -1,6 +1,6 @@
 <?php
 /**
- * 类代理定义
+ * 类代理定义.
  *
  * 通过使用类代理机制,可以实现对类方法或属性的监听过滤机制.<code>
  * //相关组件配置,只需设置 proxy为true,就可以通过组件工厂创建一个具有代理功能的类实例对象.
@@ -14,16 +14,17 @@
  * $object = Wind::getComponents('windApplication');
  * $object->registerEventListener('runProcess', new Listener());
  * </code>
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindClassProxy.php 3681 2012-06-18 02:45:28Z yishuo $
- * @package base
  */
 class WindClassProxy
 {
     /**
-     * 默认过滤链类型定义
+     * 默认过滤链类型定义.
      *
      * @var string
      */
@@ -49,7 +50,7 @@ class WindClassProxy
     }
 
     /**
-     * 注册事件以及事件监听类
+     * 注册事件以及事件监听类.
      *
      * 通过调用该方法,将事件以及对事件的监听方法注册进来,当事件方法被调用的时候监听的方法被触发.例:<code>
      * <component name='windApplication' path='WIND:web.WindWebApplication'
@@ -57,6 +58,7 @@ class WindClassProxy
      * $object = Wind::getComponents('windApplication');
      * $object->registerEventListener('runProcess', new Listener());
      * </code>
+     *
      * @param object $listener 事件监听器
      * @param stinrg $event    被监听的事件
      */
@@ -66,7 +68,7 @@ class WindClassProxy
     }
 
     /**
-     * 注册目标对象,如果已经注册了不重复注册
+     * 注册目标对象,如果已经注册了不重复注册.
      *
      * WindFactory中创建类代理的一段例子:<code>
      * $instance = new Object();
@@ -75,7 +77,9 @@ class WindClassProxy
      * $proxy->registerTargetObject($instance);
      * $instance->_proxy = $proxy;
      * </code><note><b>注意:</b>$instance继承自WindModule</note>
-     * @param  object         $targetObject
+     *
+     * @param object $targetObject
+     *
      * @return WindClassProxy
      */
     public function registerTargetObject($targetObject)
@@ -87,12 +91,14 @@ class WindClassProxy
     }
 
     /**
-     * 监听类方法
+     * 监听类方法.
      *
-     * @param  string        $methodName 方法名
-     * @param  array         $args       方法参数
-     * @return mixed
+     * @param string $methodName 方法名
+     * @param array  $args       方法参数
+     *
      * @throws WindException
+     *
+     * @return mixed
      */
     public function __call($methodName, $args)
     {
@@ -108,11 +114,13 @@ class WindClassProxy
     }
 
     /**
-     * 创建并返回过滤链,如果过滤链已经被创建不重复创建
+     * 创建并返回过滤链,如果过滤链已经被创建不重复创建.
      *
-     * @param  string                      $event 事件名称 默认值为空
-     * @return WindHandlerInterceptorChain
+     * @param string $event 事件名称 默认值为空
+     *
      * @throws WindException
+     *
+     * @return WindHandlerInterceptorChain
      */
     private function _getInterceptorChain($event = '')
     {
@@ -136,7 +144,7 @@ class WindClassProxy
     }
 
     /**
-     * 返回当前代理对象的真实类名称
+     * 返回当前代理对象的真实类名称.
      *
      * @return string
      */
@@ -146,7 +154,7 @@ class WindClassProxy
     }
 
     /**
-     * 返回当前代理对象的真实类的路径信息
+     * 返回当前代理对象的真实类的路径信息.
      *
      * @return string
      */
@@ -156,7 +164,7 @@ class WindClassProxy
     }
 
     /**
-     * 设置类名称
+     * 设置类名称.
      *
      * @param string $className
      */
@@ -166,7 +174,7 @@ class WindClassProxy
     }
 
     /**
-     * 设置类路径
+     * 设置类路径.
      *
      * @param string $classPath
      */

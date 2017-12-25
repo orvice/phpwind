@@ -10,8 +10,7 @@
  * <li>delete($key): 继承自{@link AbstractWindCache::delete()}.</li>
  * <li>batchGet($keys): 继承自{@link AbstractWindCache::batchGet()}.</li>
  * <li>batchDelete($keys): 继承自{@link AbstractWindCache::batchDelete()}.</li>
- * <li>{@link setConfig($config)}: 重写了父类的{@link
- * AbstractWindCache::setConfig()}.</li>
+ * <li>{@link setConfig($config)}: 重写了父类的{@link * AbstractWindCache::setConfig()}.</li>
  * </ul>
  * 它接收如下配置:
  * <code>
@@ -25,7 +24,7 @@
  * </code>
  * <i>xcache缓存的使用:</i><br/>
  * 1、像使用普通类库一样使用该组件:
- * <code>
+ * <code>.
  *
  * $cache = new WindxCache();
  * $cache->set('name', 'windDbTest');
@@ -57,21 +56,21 @@
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindXCache.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package strategy
  */
 class WindXCache extends AbstractWindCache
 {
     /**
      * 拥有删除数据的权限用户
-     * xcache清空缓存的时候需要获得有权限的用户
+     * xcache清空缓存的时候需要获得有权限的用户.
      *
      * @var string
      */
     private $authUser = '';
     /**
      * 拥有删除数据的权限用户的密码
-     * xcache清空缓存的时候需要获得有权限的用户
+     * xcache清空缓存的时候需要获得有权限的用户.
      *
      * @var string
      */

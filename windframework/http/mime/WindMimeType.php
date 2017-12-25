@@ -3,9 +3,8 @@
  * @author Qiong Wu <papa0924@gmail.com> 2011-11-16
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package http
- * @subpackage mime
  */
 class WindMimeType
 {
@@ -15,9 +14,10 @@ class WindMimeType
     protected static $mimes = null;
 
     /**
-     * 根据内容的类型返回mime类型
+     * 根据内容的类型返回mime类型.
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return array
      */
     public static function getMime($type)
@@ -30,9 +30,10 @@ class WindMimeType
     }
 
     /**
-     * 根据请求的mime类型获得返回内容类型
+     * 根据请求的mime类型获得返回内容类型.
      *
-     * @param  string $mime mime类型
+     * @param string $mime mime类型
+     *
      * @return string
      */
     public static function getType($mime)

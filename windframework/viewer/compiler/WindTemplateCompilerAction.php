@@ -9,15 +9,14 @@
  * isRedirect: 是否用url重定向模式进行跳转
  * <code>
  * <action action='run' args='{$a}' isRedirect='true' />
- * </code>
+ * </code>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerAction.php 2917 2011-10-09 02:48:19Z
  *          xiaoxia.xuxx $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerAction extends AbstractWindTemplateCompiler
 {

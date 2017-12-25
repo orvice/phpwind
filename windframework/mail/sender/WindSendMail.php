@@ -2,14 +2,13 @@
 
 
 /**
- * 使用sendmail发送邮件
+ * 使用sendmail发送邮件.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSendMail.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
- * @subpackage sender
  */
 class WindSendMail extends WindModule implements IWindSendMail
 {
@@ -42,7 +41,7 @@ class WindSendMail extends WindModule implements IWindSendMail
     }
 
     /**
-     * 初始化系统配置
+     * 初始化系统配置.
      *
      * @param array $config
      */

@@ -2,7 +2,7 @@
 
 
 /**
- * memCache策略实现
+ * memCache策略实现.
  *
  * memCache缓存允许将缓存保存到memCache内存缓存中.
  * 提供对方访问接口如下:
@@ -49,7 +49,7 @@
  * <code>
  * 'memCache' => array(
  * 'path' => 'WIND:cache.strategy.WindMemCache',
- 'scope' => 'singleton',
+ * 'scope' => 'singleton',
  * 'config' = array(
  * 'security-code' => '',
  * 'key-prefix' => '',
@@ -75,30 +75,31 @@
  * <note><b>注意：</b>要使用该组件需要安装memcache扩展库.</note>
  *
  * the last known user to change this file in the repository  <LastChangedBy: xiaoxiao >
+ *
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindMemCache.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package strategy
  */
 class WindMemCache extends AbstractWindCache
 {
     /**
-     * memcache缓存操作句柄
+     * memcache缓存操作句柄.
      *
      * @var WindMemcache
      */
     protected $memcache = null;
 
     /**
-     * 是否对缓存采取压缩存储
+     * 是否对缓存采取压缩存储.
      *
      * @var int
      */
     protected $compress = 0;
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 判断是否有支持memCache,如果没有安装扩展库将会抛出异常,<br/>
      * 首先尝试使用memcached扩展，如果然后尝试创建memcache
@@ -207,13 +208,13 @@ class WindMemCache extends AbstractWindCache
         $this->compress = $this->getConfig('compress', '', '0');
         $servers = $this->getConfig('servers', '', array());
         $defaultServer = array(
-            'host' => '',
-            'port' => '',
-            'pconn' => true,
-            'weight' => 1,
-            'timeout' => 1,
-            'retry' => 15,
-            'status' => true,
+            'host'      => '',
+            'port'      => '',
+            'pconn'     => true,
+            'weight'    => 1,
+            'timeout'   => 1,
+            'retry'     => 15,
+            'status'    => true,
             'fcallback' => null, );
         foreach ((array) $servers as $server) {
             if (!is_array($server)) {

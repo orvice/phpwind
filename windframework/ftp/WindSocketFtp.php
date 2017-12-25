@@ -2,7 +2,7 @@
 
 
 /**
- * 采用sockey方式实现ftp操作
+ * 采用sockey方式实现ftp操作.
  *
  * 使用方法和普通类库一样:
  * <code>
@@ -14,20 +14,20 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSocketFtp.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package ftp
  */
 class WindSocketFtp extends AbstractWindFtp
 {
     /**
-     * 临时链接对象保存
+     * 临时链接对象保存.
      *
      * @var object
      */
     private $tmpConnection;
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 通过传入config构造链接对象
      *
@@ -39,17 +39,18 @@ class WindSocketFtp extends AbstractWindFtp
     }
 
     /**
-     * 获得ftp链接
+     * 获得ftp链接.
      *
-     * @param  array $config ftp的配置信息：
-     *                       <ul>
-     *                       <li>server: ftp主机地址</li>
-     *                       <li>port: ftp链接端口号，默认为21</li>
-     *                       <li>user: ftp链接用户名</li>
-     *                       <li>pwd: ftp链接用户密码</li>
-     *                       <li>dir: ftp链接后切换的目录,默认为空</li>
-     *                       <li>timeout: ftp链接超时时间,默认为10秒</li>
-     *                       </ul>
+     * @param array $config ftp的配置信息：
+     *                      <ul>
+     *                      <li>server: ftp主机地址</li>
+     *                      <li>port: ftp链接端口号，默认为21</li>
+     *                      <li>user: ftp链接用户名</li>
+     *                      <li>pwd: ftp链接用户密码</li>
+     *                      <li>dir: ftp链接后切换的目录,默认为空</li>
+     *                      <li>timeout: ftp链接超时时间,默认为10秒</li>
+     *                      </ul>
+     *
      * @return bool
      */
     private function getConnection($config)
@@ -250,12 +251,13 @@ class WindSocketFtp extends AbstractWindFtp
     }
 
     /**
-     * 发送ftp处理命令
+     * 发送ftp处理命令.
      *
-     * @param  string $cmd   待发送的命令
-     * @param  string $args  命令参数
-     * @param  bool   $check 是否需要检查返回状态,默认为true需要检查
-     * @return bool   如果检查命令发送失败则返回false,否则返回true
+     * @param string $cmd   待发送的命令
+     * @param string $args  命令参数
+     * @param bool   $check 是否需要检查返回状态,默认为true需要检查
+     *
+     * @return bool 如果检查命令发送失败则返回false,否则返回true
      */
     private function sendcmd($cmd, $args = '', $check = true)
     {
@@ -271,7 +273,8 @@ class WindSocketFtp extends AbstractWindFtp
     /**
      * 检查命令状态
      *
-     * @param  bool        $return 是否需要返回命令状态信息,默认为false,不许要返回
+     * @param bool $return 是否需要返回命令状态信息,默认为false,不许要返回
+     *
      * @return bool|string 检查命令已经发送成功，则返回true,失败则返回false,如果设置了参数$return=true并且命令状态正确的情况下将会返回状态信息
      */
     private function checkcmd($return = false)
@@ -291,7 +294,7 @@ class WindSocketFtp extends AbstractWindFtp
     }
 
     /**
-     * 打开临时链接句柄
+     * 打开临时链接句柄.
      *
      * @return bool 如果打开成功返回true
      */

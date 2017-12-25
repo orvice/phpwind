@@ -38,19 +38,19 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindActionFilter.php 3829 2012-11-19 11:13:22Z yishuo $
- * @package filter
  */
 abstract class WindActionFilter extends WindHandlerInterceptor
 {
     /**
-     * action跳转类
+     * action跳转类.
      *
      * @var WindForward
      */
     protected $forward = null;
     /**
-     * 错误处理类
+     * 错误处理类.
      *
      * @var WindErrorMessage
      */
@@ -64,7 +64,7 @@ abstract class WindActionFilter extends WindHandlerInterceptor
 
     /**
      * 构造函数
-     * 初始化类属性
+     * 初始化类属性.
      *
      * @param WindForward        $forward
      *                                         设置当前的forward对象
@@ -87,7 +87,7 @@ abstract class WindActionFilter extends WindHandlerInterceptor
 
     /**
      * 设置模板数据
-     * 此方法设置的参数,作用域仅仅只是在当前模板中可用,调用的方法为{$varName}
+     * 此方法设置的参数,作用域仅仅只是在当前模板中可用,调用的方法为{$varName}.
      *
      * @param string|array|object $data
      *                                  需要设置输出的参数
@@ -100,24 +100,25 @@ abstract class WindActionFilter extends WindHandlerInterceptor
     }
 
     /**
-     * 从指定源中根据输入的参数名获得输入数据
+     * 从指定源中根据输入的参数名获得输入数据.
      *
-     * @param  string $name
-     *                      需要获取的值的key
-     * @param  string $type
-     *                      获取数据源,可以是(GET POST COOKIE)中的一个,每种都将从各自的源中去获取对应的数值:
-     *                      <ul>
-     *                      <li>GET: 将从$_GET中去获取数据</li>
-     *                      <li>POST: 将从$_POST中去获取数据</li>
-     *                      <li>COOKIE: 将从$_COOKIE中去获取数据</li>
-     *                      <li>其他值:
-     *                      将依次从request对象的attribute,$_GET,$_POST,$_COOKIE,$_REQUEST,$_ENV,$_SERVER中去尝试获取该值.</li>
-     *                      </ul>
-     *                      该参数默认为空
-     * @return array  string <ul>
-     *                     <li>第一个元素: 获得的用户输入的值</li>
-     *                     <li>第二个元素：执行$callback之后返回的值</li>
+     * @param string $name
+     *                     需要获取的值的key
+     * @param string $type
+     *                     获取数据源,可以是(GET POST COOKIE)中的一个,每种都将从各自的源中去获取对应的数值:
+     *                     <ul>
+     *                     <li>GET: 将从$_GET中去获取数据</li>
+     *                     <li>POST: 将从$_POST中去获取数据</li>
+     *                     <li>COOKIE: 将从$_COOKIE中去获取数据</li>
+     *                     <li>其他值:
+     *                     将依次从request对象的attribute,$_GET,$_POST,$_COOKIE,$_REQUEST,$_ENV,$_SERVER中去尝试获取该值.</li>
      *                     </ul>
+     *                     该参数默认为空
+     *
+     * @return array string <ul>
+     *               <li>第一个元素: 获得的用户输入的值</li>
+     *               <li>第二个元素：执行$callback之后返回的值</li>
+     *               </ul>
      */
     protected function getInput($name, $type = '')
     {

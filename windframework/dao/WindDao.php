@@ -1,17 +1,17 @@
 <?php
 /**
- * 提供的DAO的父类
+ * 提供的DAO的父类.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindDao.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package dao
  */
 class WindDao extends WindModule
 {
     /**
-     * 链接句柄
+     * 链接句柄.
      *
      * @var WindConnection
      */

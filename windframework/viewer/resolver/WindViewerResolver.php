@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * 视图渲染器引擎
  * 该类实现了接口<i>IWindViewerResolver</i>,主要职责是进行视图渲染，并返回渲染的视图内容.
@@ -18,13 +17,13 @@
  * <note>WindView和WindViewerResolver是相互配合使用的,等WindView接受一个视图渲染请求后会初始化一个ViewerResolver对象并将进一步的视图渲染工作移交给该对象.
  * 而ViewerResolver对象在进行视图渲染时的状态信息，模板信息，以及配置信息都来自于WindView对象.ViewerResolver对象中的WindView对象必须是创建ViewerResolver的那个对象.
  * 我们可以通过修改view的component配置来注入不同的ViewerResolver实现.
- * </note>
+ * </note>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindViewerResolver.php 3908 2013-01-18 03:37:53Z yishuo $
- * @package viewer
  */
 class WindViewerResolver extends WindNormalViewerResolver implements IWindViewerResolver
 {
@@ -48,16 +47,17 @@ class WindViewerResolver extends WindNormalViewerResolver implements IWindViewer
      * <pre>
      * <i>$output==true</i>返回编译文件绝对路径地址和内容,不生成编译文件;
      * <i>$output==false</i>返回编译文件绝对路径地址和内容,生成编译文件
-     * </pre>
+     * </pre>.
      *
-     * @param  string                     $template    模板名称 必填
-     * @param  string                     $suffix      模板后缀 默认为空
-     * @param  bool                       $readOnly    是否直接输出模板内容,接受两个值true,false 默认值为false
-     * @param  bool                       $forceOutput 是否强制返回模板内容,默认为不强制
+     * @param string $template    模板名称 必填
+     * @param string $suffix      模板后缀 默认为空
+     * @param bool   $readOnly    是否直接输出模板内容,接受两个值true,false 默认值为false
+     * @param bool   $forceOutput 是否强制返回模板内容,默认为不强制
+     *
      * @return array(compileFile,content) <pre>
-     *                                                <i>compileFile</i>模板编译文件绝对地址,
-     *                                                <i>content</i>编译后模板输出内容,当<i>$output</i>
-     *                                                为false时将content写入compileFile</pre>
+     *                                    <i>compileFile</i>模板编译文件绝对地址,
+     *                                    <i>content</i>编译后模板输出内容,当<i>$output</i>
+     *                                    为false时将content写入compileFile</pre>
      */
     public function compile($template, $suffix = '', $readOnly = false, $forceOutput = false)
     {
@@ -88,7 +88,7 @@ class WindViewerResolver extends WindNormalViewerResolver implements IWindViewer
     /**
      * 如果存在模板风格，该方法将返回当前风格值
      *
-     * @return NULL int
+     * @return null int
      */
     public function getCurrentThemeKey()
     {
@@ -101,8 +101,9 @@ class WindViewerResolver extends WindNormalViewerResolver implements IWindViewer
      * 'isCompile'是一个配置值来自'WindView'对象,用户可以通过配置进行修改.当'isCompile'为'1'时,程序会进一步判断,当编译文件不存在或者已经过期时对模板进行重新编译.
      * 如果'isCompile'为'0',则不对模板文件进行重新编译.
      *
-     * @param  string $templateFilePath 模板路径
-     * @param  string $compileFilePath  编译路径
+     * @param string $templateFilePath 模板路径
+     * @param string $compileFilePath  编译路径
+     *
      * @return bool
      */
     private function checkReCompile($templateFilePath, $compileFilePath)

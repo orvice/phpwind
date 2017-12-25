@@ -3,13 +3,13 @@
 defined('RUNTIME_START') or define('RUNTIME_START', microtime(true));
 defined('USEMEM_START') or define('USEMEM_START', memory_get_usage());
 /**
- * 调试工具
+ * 调试工具.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindDebug.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package log
  */
 class WindDebug
 {
@@ -34,7 +34,8 @@ class WindDebug
     const RUN_TIME = 'time';
 
     /**
-     * 设置调试点
+     * 设置调试点.
+     *
      * @param string $point 调试点
      */
     public static function setBreakPoint($point = '')
@@ -49,7 +50,8 @@ class WindDebug
     }
 
     /**
-     * 移除调试点
+     * 移除调试点.
+     *
      * @param string $point 调试点
      */
     public static function removeBreakPoint($point = '')
@@ -64,7 +66,7 @@ class WindDebug
     }
 
     /**
-     * 取得系统运行所耗内存
+     * 取得系统运行所耗内存.
      */
     public static function getMemUsage()
     {
@@ -74,7 +76,7 @@ class WindDebug
     }
 
     /**
-     * 取得系统运行所耗时间
+     * 取得系统运行所耗时间.
      */
     public static function getExecTime()
     {
@@ -84,7 +86,8 @@ class WindDebug
     }
 
     /**
-     * 获取调试点
+     * 获取调试点.
+     *
      * @param $point
      * @param $label
      */
@@ -98,9 +101,11 @@ class WindDebug
     }
 
     /**
-     * 调试点之间系统运行所耗内存
-     * @param  string $beginPoint 开始调试点
-     * @param  string $endPoint   结束调试点
+     * 调试点之间系统运行所耗内存.
+     *
+     * @param string $beginPoint 开始调试点
+     * @param string $endPoint   结束调试点
+     *
      * @return float
      */
     public static function getMemUsageOfp2p($beginPoint, $endPoint = '')
@@ -115,9 +120,11 @@ class WindDebug
     }
 
     /**
-     * 调试点之间的系统运行所耗时间
-     * @param  string $beginPoint 开始调试点
-     * @param  string $endPoint   结束调试点
+     * 调试点之间的系统运行所耗时间.
+     *
+     * @param string $beginPoint 开始调试点
+     * @param string $endPoint   结束调试点
+     *
      * @return float
      */
     public static function getExecTimeOfp2p($beginPoint, $endPoint = '')
@@ -132,8 +139,10 @@ class WindDebug
     }
 
     /**
-     * 堆栈情况
-     * @param  array $trace 堆栈引用，如异常
+     * 堆栈情况.
+     *
+     * @param array $trace 堆栈引用，如异常
+     *
      * @return array
      */
     public static function trace($trace = array())
@@ -155,7 +164,7 @@ class WindDebug
     }
 
     /**
-     * 获取系统所加载的文件
+     * 获取系统所加载的文件.
      */
     public static function loadFiles()
     {

@@ -2,13 +2,13 @@
 
 
 /**
- * 基于cbc算法实现的加密组件
+ * 基于cbc算法实现的加密组件.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-12-1
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package security
  */
 class WindMcryptCbc implements IWindSecurity
 {
@@ -55,7 +55,7 @@ class WindMcryptCbc implements IWindSecurity
         $size = mcrypt_get_block_size(MCRYPT_DES, MCRYPT_MODE_CBC);
         $iv = substr(md5($iv ? $iv : $key), -$size);
         $str = mcrypt_cbc(MCRYPT_DES, $key, $string, MCRYPT_DECRYPT, $iv);
-        $pad = ord($str{strlen($str) - 1});
+        $pad = ord($str[strlen($str) - 1]);
         if ($pad > strlen($str)) {
             return false;
         }

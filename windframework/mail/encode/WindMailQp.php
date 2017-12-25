@@ -8,12 +8,12 @@
  * 的字符用两个16进制数值表示，然后在前面加“=”。
  * 所以我们看到经过QP编码后的文件通常是这个样子：
  * =B3=C2=BF=A1=C7=E5=A3=AC=C4=FA=BA=C3=A3=A1。
+ *
  * @author Qiong Wu <papa0924@gmail.com> 2012-1-1
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package mail
- * @subpackage encode
  */
 class WindMailQp implements IWindMailEncoder
 {
@@ -32,7 +32,7 @@ class WindMailQp implements IWindMailEncoder
     }
 
     /**
-     * 用Base64方式编码邮件内容
+     * 用Base64方式编码邮件内容.
      *
      * @param string $string
      * @param int    $line_max
@@ -99,7 +99,7 @@ class WindMailQp implements IWindMailEncoder
     }
 
     /**
-     * 编码邮件头
+     * 编码邮件头.
      *
      * @param string $string
      * @param string $charset

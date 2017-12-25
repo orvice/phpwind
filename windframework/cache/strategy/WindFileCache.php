@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * file缓存策略实现
  * 提供对方访问接口如下:
@@ -11,8 +10,7 @@
  * <li>delete($key): 继承自{@link AbstractWindCache::delete()}.</li>
  * <li>batchGet($keys): 继承自{@link AbstractWindCache::batchGet()}.</li>
  * <li>batchDelete($keys): 继承自{@link AbstractWindCache::batchDelete()}.</li>
- * <li>{@link setConfig($config)}: 重写了父类的{@link
- * AbstractWindCache::setConfig()}.</li>
+ * <li>{@link setConfig($config)}: 重写了父类的{@link * AbstractWindCache::setConfig()}.</li>
  * </ul>
  * 它接收如下配置:
  * <code>
@@ -27,7 +25,7 @@
  * </code>
  * <i>使用方法:</i><br/>
  * 1、您可以像使用普通类库一样使用该组件:
- * <code>
+ * <code>.
  *
  * $cache = new WindFileCache();
  * $cache->setConfig(array('dir' => 'data', 'suffix' => 'php'));
@@ -59,13 +57,13 @@
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFileCache.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package strategy
  */
 class WindFileCache extends AbstractWindCache
 {
     /**
-     * 缓存目录
+     * 缓存目录.
      *
      * @var string
      */
@@ -79,7 +77,7 @@ class WindFileCache extends AbstractWindCache
     private $cacheFileSuffix = 'txt';
 
     /**
-     * 缓存子目录的长度
+     * 缓存子目录的长度.
      *
      * @var int
      */
@@ -153,9 +151,10 @@ class WindFileCache extends AbstractWindCache
      * <li>如果没有配置缓存子目录长度,则直接将该文件缓存在缓存根目录下,同时也将该缓存文件路径保存在已访问的缓存路径列表中.</li>
      * </ol>
      * </li>
-     * </ul>
+     * </ul>.
      *
-     * @param  string $key 用户的缓存文件key
+     * @param string $key 用户的缓存文件key
+     *
      * @return string 真实的缓存文件
      */
     protected function buildSecurityKey($key)
@@ -181,9 +180,10 @@ class WindFileCache extends AbstractWindCache
      * <ul>
      * <li>如果缓存key已经在缓存访问列表中,则将会直接返回存在的值</li>
      * <li>如果不存在则返回false.</li>
-     * </ul>
+     * </ul>.
      *
-     * @param  string $key 待检查的缓存key
+     * @param string $key 待检查的缓存key
+     *
      * @return string boolean
      */
     private function checkCacheDir($key)
@@ -192,7 +192,7 @@ class WindFileCache extends AbstractWindCache
     }
 
     /**
-     * 设置缓存目录
+     * 设置缓存目录.
      *
      * @param string $dir 缓存目录，必须是<b>可写可读</b>权限
      */
@@ -204,7 +204,7 @@ class WindFileCache extends AbstractWindCache
     }
 
     /**
-     * 获得缓存目录
+     * 获得缓存目录.
      *
      * @return string $cacheDir 返回配置的缓存目录
      */
@@ -234,7 +234,7 @@ class WindFileCache extends AbstractWindCache
     }
 
     /**
-     * 设置缓存存放的目录下子目录的长度
+     * 设置缓存存放的目录下子目录的长度.
      *
      * @param int $cacheDirectoryLevel
      *                                 该值将会决定缓存目录下子缓存目录的长度，最小为0（不建子目录），最大为32（md5值最长32），缺省为0
@@ -246,7 +246,7 @@ class WindFileCache extends AbstractWindCache
 
     /**
      * 返回缓存存放的目录下子目录的长度
-     * 该值将会决定缓存目录下子缓存目录的长度，最小为0（不建子目录），最大为32（md5值最长32），缺省为0
+     * 该值将会决定缓存目录下子缓存目录的长度，最小为0（不建子目录），最大为32（md5值最长32），缺省为0.
      *
      * @return int $cacheDirectoryLevel
      */

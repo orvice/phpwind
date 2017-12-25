@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 /**
  * 数据库链接,提供了数据库连接服务,以及基本的数据操作方法.
  *
@@ -28,26 +26,27 @@
  * @author Qiong Wu <papa0924@gmail.com> 2011-9-23
  * @copyright (c)2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindConnection.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package db
  */
 class WindConnection extends WindModule
 {
     /**
-     * 链接字符串,携带数据驱动类型,主机信息,库名等
+     * 链接字符串,携带数据驱动类型,主机信息,库名等.
      *
      * <code>mysql:host=localhost;dbname=test</code>
+     *
      * @var string
      */
     protected $_dsn;
     /**
-     * 驱动名
+     * 驱动名.
      *
      * @var string
      */
     protected $_driverName;
     /**
-     * 用户名
+     * 用户名.
      *
      * @var string
      */
@@ -65,7 +64,7 @@ class WindConnection extends WindModule
      */
     protected $_tablePrefix;
     /**
-     * 数据连接编码方式
+     * 数据连接编码方式.
      *
      * @var string
      */
@@ -77,7 +76,7 @@ class WindConnection extends WindModule
      */
     protected $_attributes = array();
     /**
-     * 数据连接句柄
+     * 数据连接句柄.
      *
      * @var PDO
      */
@@ -98,7 +97,8 @@ class WindConnection extends WindModule
     /**
      * 接受一条sql语句，并返回sqlStatement对象
      *
-     * @param  string           $sql sql语句
+     * @param string $sql sql语句
+     *
      * @return WindSqlStatement
      */
     public function createStatement($sql = null)
@@ -124,9 +124,10 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 获得链接相关属性设置
+     * 获得链接相关属性设置.
      *
-     * @param  string $attribute
+     * @param string $attribute
+     *
      * @return string
      * */
     public function getAttribute($attribute)
@@ -139,7 +140,7 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 设置链接相关属性
+     * 设置链接相关属性.
      *
      * @param string $attribute
      * @param string $value     默认值为null
@@ -157,7 +158,7 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 返回DB驱动类型
+     * 返回DB驱动类型.
      *
      * @return string
      */
@@ -176,9 +177,10 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 执行一条sql语句 同时返回影响行数
+     * 执行一条sql语句 同时返回影响行数.
      *
-     * @param  string $sql sql语句
+     * @param string $sql sql语句
+     *
      * @return int
      */
     public function execute($sql)
@@ -189,13 +191,16 @@ class WindConnection extends WindModule
             return $statement->execute();
         } catch (PDOException $e) {
             $this->close();
+
             throw new WindDbException('[db.WindConnection.execute] '.$e->getMessage()."\r\nSQL:$sql", WindDbException::DB_QUERY_ERROR);
         }
     }
 
     /**
-     * 执行一条查询同时返回结果集
-     * @param  string        $sql sql语句
+     * 执行一条查询同时返回结果集.
+     *
+     * @param string $sql sql语句
+     *
      * @return WindResultSet
      */
     public function query($sql)
@@ -210,9 +215,10 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 过滤SQL元数据，数据库对象(如表名字，字段等)
+     * 过滤SQL元数据，数据库对象(如表名字，字段等).
      *
-     * @param  string          $data
+     * @param string $data
+     *
      * @throws WindDbException
      */
     public function sqlMetadata($data)
@@ -221,9 +227,10 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 过滤数组变量，将数组变量转换为字符串，并用逗号分隔每个数组元素支持多维数组
+     * 过滤数组变量，将数组变量转换为字符串，并用逗号分隔每个数组元素支持多维数组.
      *
-     * @param  array  $array
+     * @param array $array
+     *
      * @return string
      */
     public function quoteArray($array)
@@ -232,9 +239,10 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 过滤二维数组将数组变量转换为多组的sql字符串
+     * 过滤二维数组将数组变量转换为多组的sql字符串.
      *
-     * @param  array  $array
+     * @param array $array
+     *
      * @return string
      */
     public function quoteMultiArray($array)
@@ -245,7 +253,8 @@ class WindConnection extends WindModule
     /**
      * sql元数据安全过滤,并返回过滤后值
      *
-     * @param  string $string
+     * @param string $string
+     *
      * @return string
      */
     public function quote($string)
@@ -254,12 +263,15 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 过滤数组值并返回(insert/update)sql语句形式
+     * 过滤数组值并返回(insert/update)sql语句形式.
      *
      * 该方法接收一个数组变量,进行安全过滤,并返回组装单条 key=value 形式的SQL查询语句值 (适用于insert/update value值组装).
      * 该方法的具体实现根据数据库的链接类型不同有所不同.
-     * @param  array  $array
+     *
+     * @param array $array
+     *
      * @return string
+     *
      * @see AbstractWindPdoAdapter::sqlSingle()
      */
     public function sqlSingle($array)
@@ -271,10 +283,13 @@ class WindConnection extends WindModule
      * 创建表,返回是否创建成功
      *
      * 创建表并返回是否创建成功'$values'为字段信息.该方法的具体实现根据数据库的链接类型不同有所不同.
-     * @param  string $tableName 表名称
-     * @param  array  $values    字段值信息
-     * @param  bool   $replace   是否覆盖
+     *
+     * @param string $tableName 表名称
+     * @param array  $values    字段值信息
+     * @param bool   $replace   是否覆盖
+     *
      * @return bool
+     *
      * @see AbstractWindPdoAdapter::createTable()
      */
     public function createTable($tableName, $values, $replace = false)
@@ -285,7 +300,8 @@ class WindConnection extends WindModule
     /**
      * 返回最后一条插入的数据值,当传一个'name'给该方法,则返回'name'对应的列值
      *
-     * @param  string $name 默认为空字符串
+     * @param string $name 默认为空字符串
+     *
      * @return int
      */
     public function lastInsertId($name = '')
@@ -298,8 +314,7 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 关闭数据库连接
-     *
+     * 关闭数据库连接.
      */
     public function close()
     {
@@ -307,7 +322,7 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 初始化DB句柄
+     * 初始化DB句柄.
      *
      * @throws WindDbException
      */
@@ -326,12 +341,14 @@ class WindConnection extends WindModule
             $this->_dbHandle->setCharset($this->_charset);
         } catch (PDOException $e) {
             $this->close();
+
             throw new WindDbException('[db.WindConnection.init] '.$e->getMessage());
         }
     }
 
     /**
-     * (non-PHPdoc)
+     * (non-PHPdoc).
+     *
      * @see WindModule::setConfig()
      */
     public function setConfig($config)
@@ -356,7 +373,7 @@ class WindConnection extends WindModule
     }
 
     /**
-     * 解析当前查询语句,并返回解析后结果
+     * 解析当前查询语句,并返回解析后结果.
      *
      * @param string $sql
      */

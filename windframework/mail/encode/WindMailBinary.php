@@ -2,14 +2,13 @@
 
 
 /**
- * 二进制编码，消息体内容是没有经过编码的原始数据
+ * 二进制编码，消息体内容是没有经过编码的原始数据.
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $id$
- * @package mail
- * @subpackage encode
  */
 class WindMailBinary implements IWindMailEncoder
 {

@@ -26,49 +26,49 @@
  * <charset>utf8</charset>
  * <tablePrefix>pw_</tablePrefix>
  * </connection>
- * </connections></code>
+ * </connections></code>.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-9-23
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindConnectionManager.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package db
  */
 class WindConnectionManager extends WindConnection
 {
     /**
-     * 通配符设置
+     * 通配符设置.
      *
      * @var string
      */
     private $wildcard = '*';
     /**
-     * 数据链接池,临时保存当前所有数据库连接句柄
+     * 数据链接池,临时保存当前所有数据库连接句柄.
      *
      * @var array
      */
     private $pool = array();
     /**
-     * 当前数据表名称
+     * 当前数据表名称.
      *
      * @var string
      */
     private $tableName;
     /**
-     * 当前的sql语句查询类型
+     * 当前的sql语句查询类型.
      *
      * @var string
      */
     private $sqlType;
     /**
-     * 数据库连接池策略部署配置信息
+     * 数据库连接池策略部署配置信息.
      *
      * @var array
      */
     private $except = array('_current' => '', '_default' => array(), '_except' => array(), '_db' => array());
 
     /**
-     * 是否强制主链接,默认为false
+     * 是否强制主链接,默认为false.
      *
      * @var bool
      */
@@ -108,6 +108,7 @@ class WindConnectionManager extends WindConnection
             }
         } catch (PDOException $e) {
             $this->close();
+
             throw new WindDbException('[db.WindConnectionManager.init] '.$e->getMessage());
         }
     }
@@ -149,7 +150,7 @@ class WindConnectionManager extends WindConnection
     }
 
     /**
-     * 根据当前sql语句类型,从一条数据连接配置中解析出主从信息,并设置当前db链接名
+     * 根据当前sql语句类型,从一条数据连接配置中解析出主从信息,并设置当前db链接名.
      *
      * @param array $_c
      */
@@ -185,9 +186,10 @@ class WindConnectionManager extends WindConnection
      * [3] => db1:													| 当前table自定义链接
      * [4] => database.												| 当前database
      * [5] => members												| 当前表名
-     * )</code>
+     * )</code>.
      *
-     * @param  array  $matchs
+     * @param array $matchs
+     *
      * @return string
      */
     private function _pregQueryString($matchs)
@@ -226,7 +228,7 @@ class WindConnectionManager extends WindConnection
     }
 
     /**
-     * 重置链接信息
+     * 重置链接信息.
      *
      * @param string $db
      */

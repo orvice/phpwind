@@ -1,12 +1,12 @@
 <?php
 /**
- * 命令行模式的response
+ * 命令行模式的response.
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindCommandResponse.php 3668 2012-06-12 03:36:18Z yishuo $
- * @package command
  */
 class WindCommandResponse implements IWindResponse
 {
@@ -14,8 +14,7 @@ class WindCommandResponse implements IWindResponse
     private $charset = 'utf-8';
 
     /**
-     * 发送响应信息
-     *
+     * 发送响应信息.
      */
     public function sendResponse()
     {
@@ -23,7 +22,7 @@ class WindCommandResponse implements IWindResponse
     }
 
     /**
-     * 设置输出信息
+     * 设置输出信息.
      *
      * @param string $output
      */

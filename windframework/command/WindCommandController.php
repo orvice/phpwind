@@ -1,23 +1,22 @@
 <?php
 /**
- * 命令行操作控制器
+ * 命令行操作控制器.
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindCommandController.php 3859 2012-12-18 09:25:51Z yishuo $
- * @package command
  */
 abstract class WindCommandController extends WindModule implements IWindController
 {
     /**
-     * 默认的操作处理方法
-     *
+     * 默认的操作处理方法.
      */
     abstract public function run();
 
     /**
-     * action操作开始前调用
+     * action操作开始前调用.
      *
      * @param AbstractWindRouter $handlerAdapter
      */
@@ -26,7 +25,7 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     * action操作结束后调用
+     * action操作结束后调用.
      *
      * @param AbstractWindRouter $handlerAdapter
      */
@@ -56,7 +55,7 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     * 设置模板数据
+     * 设置模板数据.
      *
      * @param string|array|object $data
      * @param string              $key
@@ -67,8 +66,9 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /* 错误处理 */
+
     /**
-     * 添加错误信息
+     * 添加错误信息.
      *
      * @param string $message
      * @param string $key     默认为空字符串
@@ -103,7 +103,6 @@ abstract class WindCommandController extends WindModule implements IWindControll
     // 		exit();
     // 	}
 
-
     // 	/**
     // 	 * 显示信息
     // 	 *
@@ -118,12 +117,12 @@ abstract class WindCommandController extends WindModule implements IWindControll
     // 			echo $message, "\r\n";
     // 	}
 
-
     /**
-     * 解析action操作方法名称
+     * 解析action操作方法名称.
      *
      * 默认解析规则,在请求的action名称后加'Action'后缀<code>
      * 请求的action为 'add',则对应的处理方法名为 'addAction',可以通过覆盖本方法,修改解析规则</code>
+     *
      * @param string $action
      */
     protected function resolvedActionName($action)
@@ -132,7 +131,7 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     * 读取输入行
+     * 读取输入行.
      *
      * @return string
      */
@@ -144,7 +143,6 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     *
      * @return WindForward
      */
     public function getForward()
@@ -153,7 +151,6 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     *
      * @return WindErrorMessage
      */
     public function getErrorMessage()
@@ -162,7 +159,6 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     *
      * @param WindForward $forward
      */
     public function setForward($forward)
@@ -171,7 +167,6 @@ abstract class WindCommandController extends WindModule implements IWindControll
     }
 
     /**
-     *
      * @param WindErrorMessage $errorMessage
      */
     public function setErrorMessage($errorMessage)

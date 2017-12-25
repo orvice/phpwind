@@ -1,24 +1,24 @@
 <?php
 
 
-
 /**
- * 字符、路径过滤等安全处理
+ * 字符、路径过滤等安全处理.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSecurity.php 3939 2013-05-29 06:22:57Z xiaoxia.xuxx $
- * @package utility
  */
 class WindSecurity
 {
     /**
      * 输出json到页面
-     * 添加转义
+     * 添加转义.
      *
-     * @param  mixed  $source
-     * @param  string $charset
+     * @param mixed  $source
+     * @param string $charset
+     *
      * @return string
      */
     public static function escapeEncodeJson($source, $charset = 'utf-8')
@@ -27,9 +27,10 @@ class WindSecurity
     }
 
     /**
-     * 转义输出字符串
+     * 转义输出字符串.
      *
-     * @param  string $str 被转义的字符串
+     * @param string $str 被转义的字符串
+     *
      * @return string
      */
     public static function escapeHTML($str, $charset = 'ISO-8859-1')
@@ -42,9 +43,10 @@ class WindSecurity
     }
 
     /**
-     * 转义字符串
+     * 转义字符串.
      *
-     * @param  array $array 被转移的数组
+     * @param array $array 被转移的数组
+     *
      * @return array
      */
     public static function escapeArrayHTML($array)
@@ -62,10 +64,11 @@ class WindSecurity
     }
 
     /**
-     * 字符串加密
+     * 字符串加密.
      *
-     * @param  string $str 需要加密的字符串
-     * @param  string $key 密钥
+     * @param string $str 需要加密的字符串
+     * @param string $key 密钥
+     *
      * @return string 加密后的结果
      */
     public static function encrypt($str, $key, $iv = '')
@@ -89,10 +92,11 @@ class WindSecurity
     }
 
     /**
-     * 解密字符串
+     * 解密字符串.
      *
-     * @param  string $str 解密的字符串
-     * @param  string $key 密钥
+     * @param string $str 解密的字符串
+     * @param string $key 密钥
+     *
      * @return string 解密后的结果
      */
     public static function decrypt($str, $key, $iv = '')
@@ -110,7 +114,7 @@ class WindSecurity
         $iv = substr(md5($iv ? $iv : $key), -$size);
         $str = base64_decode($str);
         @$str = mcrypt_cbc(MCRYPT_DES, $key, $str, MCRYPT_DECRYPT, $iv);
-        $pad = ord($str{strlen($str) - 1});
+        $pad = ord($str[strlen($str) - 1]);
         if ($pad > strlen($str)) {
             return false;
         }
@@ -147,10 +151,11 @@ class WindSecurity
     }
 
     /**
-     * 路径检查转义
+     * 路径检查转义.
      *
-     * @param  string $fileName 被检查的路径
-     * @param  bool   $ifCheck  是否需要检查文件名，默认为false
+     * @param string $fileName 被检查的路径
+     * @param bool   $ifCheck  是否需要检查文件名，默认为false
+     *
      * @return string
      */
     public static function escapePath($filePath, $ifCheck = false)
@@ -161,6 +166,7 @@ class WindSecurity
         if (strtr($filePath, $_tmp) == $filePath) {
             return preg_replace('/[\/\\\]{1,}/i', '/', $filePath);
         }
+
         throw new WindException('[utility.WindSecurity.escapePath] file path is illegal');
     }
 }

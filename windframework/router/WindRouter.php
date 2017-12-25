@@ -2,7 +2,7 @@
 
 
 /**
- * wind路由基础实现
+ * wind路由基础实现.
  *
  * 该路由是框架默认路由实现继承自{@see AbstractWindRouter},
  * 'WindRouter'是利用路由链机制实现了多路由协议支持.在没有任何路由协议定义的情况下,直接进行参数解析.
@@ -32,8 +32,8 @@
  * @author Qiong Wu <papa0924@gmail.com> 2011-9-23
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindRouter.php 3928 2013-01-29 10:21:53Z yishuo $
- * @package router
  */
 class WindRouter extends AbstractWindRouter
 {
@@ -61,7 +61,7 @@ class WindRouter extends AbstractWindRouter
     }
 
     /**
-     * 默认路由处理
+     * 默认路由处理.
      */
     public function defaultRoute()
     {

@@ -2,7 +2,7 @@
 
 
 /**
- * 编译模板标签
+ * 编译模板标签.
  *
  * 支持属性:
  * source: 模板文件源地址
@@ -13,9 +13,8 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerTemplate.php 3699 2012-06-27 03:43:23Z yishuo $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerTemplate extends AbstractWindTemplateCompiler
 {

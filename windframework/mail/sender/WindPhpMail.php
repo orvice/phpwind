@@ -2,14 +2,13 @@
 
 
 /**
- * 使用php内部函数发送邮件
+ * 使用php内部函数发送邮件.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindPhpMail.php 3583 2012-05-28 03:35:10Z yishuo $
- * @package mail
- * @subpackage sender
  */
 class WindPhpMail implements IWindSendMail
 {

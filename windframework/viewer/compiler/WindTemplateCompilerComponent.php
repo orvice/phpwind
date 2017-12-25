@@ -2,18 +2,18 @@
 
 
 /**
- * 组件标签编译器
+ * 组件标签编译器.
  *
  * 标签使用例子:
  * <code>
  * <component name="test" args="my:index:run" templateDir="template"
  * appConfig="WIND:config.config.php" componentPath="WIND:demos.helloworld"/></code>
+ *
  * @author xiaoxiao <x_824@sina.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerComponent.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
 {
@@ -23,7 +23,6 @@ class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
     protected $appConfig = ''; //组件的配置文件
     protected $appConfigSuffix = 'php'; //配置文件的缺省格式
     protected $componentPath = ''; //组件的入口地址
-
 
     /* (non-PHPdoc)
      * @see AbstractWindTemplateCompiler::compile()
@@ -48,9 +47,10 @@ class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
     }
 
     /**
-     * 编译获得配置文件
+     * 编译获得配置文件.
      *
-     * @param  array $params
+     * @param array $params
+     *
      * @return array
      */
     private function rebuildConfig($params)
@@ -69,7 +69,7 @@ class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
     }
 
     /**
-     * 注册变量信息
+     * 注册变量信息.
      *
      * @param array $params
      */
@@ -85,9 +85,10 @@ class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
     }
 
     /**
-     * 匹配配置信息
+     * 匹配配置信息.
      *
-     * @param  string $content
+     * @param string $content
+     *
      * @return array
      */
     private function matchConfig($content)
@@ -113,9 +114,10 @@ class WindTemplateCompilerComponent extends AbstractWindTemplateCompiler
     }
 
     /**
-     * 解析传递给url的参数信息
+     * 解析传递给url的参数信息.
      *
-     * @param  string $arg
+     * @param string $arg
+     *
      * @return array
      */
     private function compileArgs($arg)

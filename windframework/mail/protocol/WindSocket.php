@@ -1,13 +1,12 @@
 <?php
 /**
- * socket套接字操作
+ * socket套接字操作.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSocket.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
- * @subpackage protocol
  */
 class WindSocket
 {
@@ -26,7 +25,7 @@ class WindSocket
     }
 
     /**
-     * 打开一个连接
+     * 打开一个连接.
      */
     public function open()
     {
@@ -42,6 +41,7 @@ class WindSocket
 
     /**
      * 发送请求
+     *
      * @param string $request
      */
     public function request($request)
@@ -51,6 +51,7 @@ class WindSocket
 
     /**
      * 响应请求
+     *
      * @return string
      */
     public function response()
@@ -64,7 +65,8 @@ class WindSocket
     }
 
     /**
-     * 响应请求,只返回一行
+     * 响应请求,只返回一行.
+     *
      * @return string
      */
     public function responseLine()
@@ -73,7 +75,7 @@ class WindSocket
     }
 
     /**
-     *关闭连接
+     *关闭连接.
      */
     public function close()
     {
@@ -86,7 +88,8 @@ class WindSocket
     }
 
     /**
-     * 获取请求中的错误
+     * 获取请求中的错误.
+     *
      * @return string
      */
     public function getError()
@@ -96,6 +99,7 @@ class WindSocket
 
     /**
      * 取得socket操作对象
+     *
      * @return resource
      */
     public function getSocket()
@@ -104,7 +108,8 @@ class WindSocket
     }
 
     /**
-     * 设置主机
+     * 设置主机.
+     *
      * @param string $host
      */
     public function setHost($host)
@@ -113,7 +118,8 @@ class WindSocket
     }
 
     /**
-     * 设置端口
+     * 设置端口.
+     *
      * @param string $port
      */
     public function setPort($port)
@@ -122,7 +128,8 @@ class WindSocket
     }
 
     /**
-     * 设置超时
+     * 设置超时.
+     *
      * @param int $timeout
      */
     public function setTimeout($timeout)

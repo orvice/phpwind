@@ -1,25 +1,26 @@
 <?php
 /**
- * 图片处理类库
+ * 图片处理类库.
  *
  * 包括图片压缩和图片加水印
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindImage.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package utility
  */
 class WindImage
 {
     /**
-     * 生成略缩图
+     * 生成略缩图.
      *
-     * @param  string     $srcFile      源图片
-     * @param  string     $dstFile      略缩图保存位置
-     * @param  int        $dstW         略缩图宽度
-     * @param  string     $dstH         略缩图高度
-     * @param  string     $isProportion 略缩图是否等比略缩,默认为false
+     * @param string $srcFile      源图片
+     * @param string $dstFile      略缩图保存位置
+     * @param int    $dstW         略缩图宽度
+     * @param string $dstH         略缩图高度
+     * @param string $isProportion 略缩图是否等比略缩,默认为false
+     *
      * @return array|bool
      */
     public static function makeThumb($srcFile, $dstFile, $dstW, $dstH, $isProportion = false)
@@ -62,24 +63,25 @@ class WindImage
     }
 
     /**
-     * 给图片制作水印
+     * 给图片制作水印.
      *
      * 水印的位置可以为：
      * <code>
      * array(0 => '随机位置', 1 => '顶部居左', 2 => '顶部居中', 3 => '顶部居右', 4 => '底部居左', 5 => '底部居中', 6 => '底部居右', 7 => '中心位置')
      * </code>
      *
-     * @param  string    $source       图片的源文件
-     * @param  int|array $waterPos     水印的位置,可以选择从0-7或是制定开始位置x,y,默认为0，随机位置
-     * @param  string    $waterImg     作为水印的图片,默认为空
-     * @param  string    $waterText    作为水印的文字,默认为空
-     * @param  array     $attribute    文字水印的属性，只对文字水印有效
-     *                                 <code>
-     *                                 array(0 => '字体文件'，1 => '系统编码', 2 => '字体颜色'， 3 => '字体大小')
-     *                                 </code>
-     * @param  string    $waterPct     水印透明度，从0到100，0完全透明，100完全不透明，默认为50
-     * @param  string    $waterQuality 图片质量--jpeg，默认为75
-     * @param  string    $dstsrc       目标文件位置，默认为null即不保存
+     * @param string    $source       图片的源文件
+     * @param int|array $waterPos     水印的位置,可以选择从0-7或是制定开始位置x,y,默认为0，随机位置
+     * @param string    $waterImg     作为水印的图片,默认为空
+     * @param string    $waterText    作为水印的文字,默认为空
+     * @param array     $attribute    文字水印的属性，只对文字水印有效
+     *                                <code>
+     *                                array(0 => '字体文件'，1 => '系统编码', 2 => '字体颜色'， 3 => '字体大小')
+     *                                </code>
+     * @param string    $waterPct     水印透明度，从0到100，0完全透明，100完全不透明，默认为50
+     * @param string    $waterQuality 图片质量--jpeg，默认为75
+     * @param string    $dstsrc       目标文件位置，默认为null即不保存
+     *
      * @return bool
      */
     public static function makeWatermark($source, $waterPos = 0, $waterImg = '', $waterText = '', $attribute = '', $waterPct = 50, $waterQuality = 75, $dstsrc = null)
@@ -129,13 +131,15 @@ class WindImage
     }
 
     /**
-     * 文字水印的属性设置过滤
+     * 文字水印的属性设置过滤.
      *
      * 返回为：
      * <code>
      *   array(0 => '字体文件'，1 => '系统编码', 2 => '字体颜色'， 3 => '字体大小')
      * </code>
-     * @param  array $attribute 设置的属性
+     *
+     * @param array $attribute 设置的属性
+     *
      * @return array
      */
     private static function checkAttribute($attribute)
@@ -159,7 +163,8 @@ class WindImage
      *
      * 判断依据为，编码格式为utf-8
      *
-     * @param  string $charset 编码方式
+     * @param string $charset 编码方式
+     *
      * @return bool
      */
     private static function changeCharset($charset)
@@ -170,14 +175,15 @@ class WindImage
     }
 
     /**
-     * 获得打水印的位置
+     * 获得打水印的位置.
      *
      * 如果传入的是数组，则两个元素分别为水印的宽度x和高度y
      *
-     * @param  int|array $pos      获得水印的位置
-     * @param  array     $sourcedb 原图片的信息
-     * @param  array     $waterdb  水印图片的信息
-     * @param  int       $markType 水印类型，1为图片水印，2为文字水印
+     * @param int|array $pos      获得水印的位置
+     * @param array     $sourcedb 原图片的信息
+     * @param array     $waterdb  水印图片的信息
+     * @param int       $markType 水印类型，1为图片水印，2为文字水印
+     *
      * @return array
      */
     private static function getWaterPos($waterPos, $sourcedb, $waterdb, $markType)
@@ -225,12 +231,13 @@ class WindImage
     }
 
     /**
-     * 获得略缩图的信息
+     * 获得略缩图的信息.
      *
-     * @param  string     $srcFile      源文件
-     * @param  int        $dstW         目标文件的宽度
-     * @param  int        $dstH         目标文件的高度
-     * @param  bool       $isProportion 是否定比略缩
+     * @param string $srcFile      源文件
+     * @param int    $dstW         目标文件的宽度
+     * @param int    $dstH         目标文件的高度
+     * @param bool   $isProportion 是否定比略缩
+     *
      * @return array|bool
      */
     private static function getThumbInfo($srcFile, $dstW, $dstH, $isProportion = false)
@@ -263,9 +270,10 @@ class WindImage
     }
 
     /**
-     * 获得图片的信息,返回图片的源及图片的高度和宽度
+     * 获得图片的信息,返回图片的源及图片的高度和宽度.
      *
-     * @param  string     $srcFile 图像地址
+     * @param string $srcFile 图像地址
+     *
      * @return array|bool
      */
     public static function getImgInfo($srcFile)
@@ -286,7 +294,7 @@ class WindImage
     }
 
     /**
-     * 获得图片的类型及宽高
+     * 获得图片的类型及宽高.
      *
      * <pre>
      * 图片type：
@@ -294,8 +302,9 @@ class WindImage
      * 11 = JPX，12 = JB2，13 = SWC，14 = IFF，15 = WBMP，16 = XBM
      * </pre>、
      *
-     * @param  string     $srcFile 图像地址
-     * @param  string     $srcExt  图像后缀，默认为null则将会从图片地址中分析获取
+     * @param string $srcFile 图像地址
+     * @param string $srcExt  图像后缀，默认为null则将会从图片地址中分析获取
+     *
      * @return array|bool 返回图像的类型及高度和宽度
      */
     private static function getImgSize($srcFile, $srcExt = null)
@@ -316,9 +325,10 @@ class WindImage
     }
 
     /**
-     * 获得创建图像的方法
+     * 获得创建图像的方法.
      *
-     * @param  string $imagetype 图片类型
+     * @param string $imagetype 图片类型
+     *
      * @return array
      */
     private static function getImgcreate($imagetype)
@@ -334,12 +344,13 @@ class WindImage
     }
 
     /**
-     * 创建图像
+     * 创建图像.
      *
-     * @param  string   $type     图像类型
-     * @param  resource $image    图像源
-     * @param  string   $filename 图像保存名字
-     * @param  int      $quality  创建jpeg的时候用到，默认为75
+     * @param string   $type     图像类型
+     * @param resource $image    图像源
+     * @param string   $filename 图像保存名字
+     * @param int      $quality  创建jpeg的时候用到，默认为75
+     *
      * @return bool
      */
     private static function makeImg($type, $image, $filename, $quality = '75')
@@ -358,9 +369,10 @@ class WindImage
     }
 
     /**
-     * 图片的对应类型
+     * 图片的对应类型.
      *
-     * @param  int    $id 图片类型ID
+     * @param int $id 图片类型ID
+     *
      * @return string
      */
     private static function getTypes($id)

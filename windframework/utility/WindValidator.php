@@ -1,12 +1,12 @@
 <?php
 /**
- * 通用验证类
+ * 通用验证类.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindValidator.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package utility
  */
 class WindValidator
 {
@@ -18,8 +18,9 @@ class WindValidator
      * 地区号支持0-6位
      * 电话号码支持4到12位
      *
-     * @param  string $phone 被验证的电话号码
-     * @return bool   如果验证通过则返回true，否则返回false
+     * @param string $phone 被验证的电话号码
+     *
+     * @return bool 如果验证通过则返回true，否则返回false
      */
     public static function isTelPhone($phone)
     {
@@ -31,8 +32,9 @@ class WindValidator
      *
      * 国际区号-手机号码
      *
-     * @param  string $number 待验证的号码
-     * @return bool   如果验证失败返回false,验证成功返回true
+     * @param string $number 待验证的号码
+     *
+     * @return bool 如果验证失败返回false,验证成功返回true
      */
     public static function isTelNumber($number)
     {
@@ -44,8 +46,9 @@ class WindValidator
      *
      * QQ号码必须是以1-9的数字开头，并且长度5-15为的数字串
      *
-     * @param  string $qq 待验证的qq号码
-     * @return bool   如果验证成功返回true，否则返回false
+     * @param string $qq 待验证的qq号码
+     *
+     * @return bool 如果验证成功返回true，否则返回false
      */
     public static function isQQ($qq)
     {
@@ -57,8 +60,9 @@ class WindValidator
      *
      * 邮政编码是4-8个长度的数字串
      *
-     * @param  string $zipcode 待验证的邮编
-     * @return bool   如果验证成功返回true，否则返回false
+     * @param string $zipcode 待验证的邮编
+     *
+     * @return bool 如果验证成功返回true，否则返回false
      */
     public static function isZipcode($zipcode)
     {
@@ -66,12 +70,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否是有合法的email
+     * 验证是否是有合法的email.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasEmail($string, &$matches = array(), $ifAll = false)
     {
@@ -79,10 +84,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的email
+     * 验证是否是合法的email.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是email则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是email则返回true，否则返回false
      */
     public static function isEmail($string)
     {
@@ -90,12 +96,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有合法的身份证号
+     * 验证是否有合法的身份证号.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasIdCard($string, &$matches = array(), $ifAll = false)
     {
@@ -103,10 +110,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的身份证号
+     * 验证是否是合法的身份证号.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的身份证号则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的身份证号则返回true，否则返回false
      */
     public static function isIdCard($string)
     {
@@ -114,12 +122,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有合法的URL
+     * 验证是否有合法的URL.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasUrl($string, &$matches = array(), $ifAll = false)
     {
@@ -127,10 +136,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的url
+     * 验证是否是合法的url.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的url则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的url则返回true，否则返回false
      */
     public static function isUrl($string)
     {
@@ -138,12 +148,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有中文
+     * 验证是否有中文.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasChinese($string, &$matches = array(), $ifAll = false)
     {
@@ -151,10 +162,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是中文
+     * 验证是否是中文.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是中文则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是中文则返回true，否则返回false
      */
     public static function isChinese($string)
     {
@@ -162,12 +174,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有html标记
+     * 验证是否有html标记.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasHtml($string, &$matches = array(), $ifAll = false)
     {
@@ -175,10 +188,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的html标记
+     * 验证是否是合法的html标记.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的html标记则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的html标记则返回true，否则返回false
      */
     public static function isHtml($string)
     {
@@ -188,10 +202,11 @@ class WindValidator
     /**
      * 验证是否有合法的ipv4地址
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasIpv4($string, &$matches = array(), $ifAll = false)
     {
@@ -199,10 +214,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的IP
+     * 验证是否是合法的IP.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的IP则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的IP则返回true，否则返回false
      */
     public static function isIpv4($string)
     {
@@ -210,12 +226,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有合法的ipV6
+     * 验证是否有合法的ipV6.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasIpv6($string, &$matches = array(), $ifAll = false)
     {
@@ -236,10 +253,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的ipV6
+     * 验证是否是合法的ipV6.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的ipV6则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的ipV6则返回true，否则返回false
      */
     public static function isIpv6($string)
     {
@@ -260,12 +278,13 @@ class WindValidator
     }
 
     /**
-     * 验证是否有客户端脚本
+     * 验证是否有客户端脚本.
      *
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果,默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
-     * @return bool   如果匹配成功返回true，否则返回false
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果,默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false即仅进行一次匹配
+     *
+     * @return bool 如果匹配成功返回true，否则返回false
      */
     public static function hasScript($string, &$matches = array(), $ifAll = false)
     {
@@ -273,10 +292,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是合法的客户端脚本
+     * 验证是否是合法的客户端脚本.
      *
-     * @param  string $string 待验证的字串
-     * @return bool   如果是合法的客户端脚本则返回true，否则返回false
+     * @param string $string 待验证的字串
+     *
+     * @return bool 如果是合法的客户端脚本则返回true，否则返回false
      */
     public static function isScript($string)
     {
@@ -284,9 +304,10 @@ class WindValidator
     }
 
     /**
-     * 验证是否是非负数
+     * 验证是否是非负数.
      *
-     * @param  int  $number 需要被验证的数字
+     * @param int $number 需要被验证的数字
+     *
      * @return bool 如果大于等于0的整数数字返回true，否则返回false
      */
     public static function isNonNegative($number)
@@ -295,9 +316,10 @@ class WindValidator
     }
 
     /**
-     * 验证是否是正数
+     * 验证是否是正数.
      *
-     * @param  int  $number 需要被验证的数字
+     * @param int $number 需要被验证的数字
+     *
      * @return bool 如果数字大于0则返回true否则返回false
      */
     public static function isPositive($number)
@@ -306,9 +328,10 @@ class WindValidator
     }
 
     /**
-     * 验证是否是负数
+     * 验证是否是负数.
      *
-     * @param  int  $number 需要被验证的数字
+     * @param int $number 需要被验证的数字
+     *
      * @return bool 如果数字小于于0则返回true否则返回false
      */
     public static function isNegative($number)
@@ -317,10 +340,11 @@ class WindValidator
     }
 
     /**
-     * 验证是否是不能为空
+     * 验证是否是不能为空.
      *
-     * @param  mixed $value 待判断的数据
-     * @return bool  如果为空则返回false,不为空返回true
+     * @param mixed $value 待判断的数据
+     *
+     * @return bool 如果为空则返回false,不为空返回true
      */
     public static function isRequired($value)
     {
@@ -328,12 +352,13 @@ class WindValidator
     }
 
     /**
-     * 验证字符串的长度
+     * 验证字符串的长度.
      *
-     * @param  string $string  要验证的字符串
-     * @param  string $length  指定的合法的长度
-     * @param  string $charset 字符编码默认为utf-8编码
-     * @return bool   如果长度大于给定的长度则返回true，否则返回false
+     * @param string $string  要验证的字符串
+     * @param string $length  指定的合法的长度
+     * @param string $charset 字符编码默认为utf-8编码
+     *
+     * @return bool 如果长度大于给定的长度则返回true，否则返回false
      */
     public static function isLegalLength($string, $length, $charset = 'utf8')
     {
@@ -343,11 +368,12 @@ class WindValidator
     /**
      * 在 $string 字符串中搜索与 $regExp 给出的正则表达式相匹配的内容。
      *
-     * @param  string $regExp  搜索的规则(正则)
-     * @param  string $string  被搜索的 字符串
-     * @param  array  $matches 会被搜索的结果，默认为array()
-     * @param  bool   $ifAll   是否进行全局正则表达式匹配，默认为false不进行完全匹配
-     * @return int    返回匹配的次数
+     * @param string $regExp  搜索的规则(正则)
+     * @param string $string  被搜索的 字符串
+     * @param array  $matches 会被搜索的结果，默认为array()
+     * @param bool   $ifAll   是否进行全局正则表达式匹配，默认为false不进行完全匹配
+     *
+     * @return int 返回匹配的次数
      */
     private static function validateByRegExp($regExp, $string, &$matches = array(), $ifAll = false)
     {

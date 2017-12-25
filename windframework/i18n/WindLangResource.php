@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * 语言资源基础实现
  * 语言资源基础实现,支持ini格式语言资源类型的解析,该语言资源组件基于wind组件模式进行开发.
@@ -11,11 +10,12 @@
  *          LANG 为包名,如果不填写则默认没有分包处理,资源类将自动在language包下面寻找
  *          支持解析格式: LANG:login.fail.expty = 'xxx'
  *          </code>
+ *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindLangResource.php 3850 2012-12-04 07:30:02Z yishuo $
- * @package i18n
  */
 class WindLangResource extends WindModule implements IWindLangResource
 {
@@ -26,25 +26,25 @@ class WindLangResource extends WindModule implements IWindLangResource
      */
     protected $_cachePrefix = 'Wind.i18n.WindLangResource';
     /**
-     * 消息存储池
+     * 消息存储池.
      *
      * @var array
      */
     protected $_messages = array();
     /**
-     * 默认资源文件
+     * 默认资源文件.
      *
      * @var string
      */
     protected $default;
     /**
-     * 资源文件后缀名定义
+     * 资源文件后缀名定义.
      *
      * @var string
      */
     protected $suffix;
     /**
-     * 语言包目录
+     * 语言包目录.
      *
      * @var string
      */
@@ -57,7 +57,6 @@ class WindLangResource extends WindModule implements IWindLangResource
     protected $language;
 
     /**
-     *
      * @var WindLocale
      */
     protected $locale = null;
@@ -73,9 +72,10 @@ class WindLangResource extends WindModule implements IWindLangResource
     }
 
     /**
-     * 获取一条message信息
+     * 获取一条message信息.
      *
-     * @param  array  $messages
+     * @param array $messages
+     *
      * @return string
      */
     protected function translate($message)
@@ -120,9 +120,10 @@ class WindLangResource extends WindModule implements IWindLangResource
     }
 
     /**
-     * 解析资源文件路径信息
+     * 解析资源文件路径信息.
      *
-     * @param  string $package
+     * @param string $package
+     *
      * @return string
      */
     protected function resolvedPath($package)

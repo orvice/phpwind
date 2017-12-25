@@ -23,7 +23,7 @@
  * </code>
  * <i>使用方式：</i><br/>
  * 1、您可以像使用普通的类一样使用该组件,如下:
- * <code>
+ * <code>.
  *
  * $cache = new WindZendCache();
  * $cache->set('name', 'windframework');
@@ -54,8 +54,8 @@
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindZendCache.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package strategy
  */
 class WindZendCache extends AbstractWindCache
 {

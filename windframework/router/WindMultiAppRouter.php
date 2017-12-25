@@ -2,13 +2,13 @@
 
 
 /**
- * 多应用支持路由协议解析器
+ * 多应用支持路由协议解析器.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2012-1-12
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindMultiAppRouter.php 3772 2012-10-19 08:58:57Z yishuo $
- * @package router
  */
 class WindMultiAppRouter extends WindRouter
 {
@@ -87,7 +87,7 @@ class WindMultiAppRouter extends WindRouter
     }
 
     /**
-     * 设置当前要访问的appname
+     * 设置当前要访问的appname.
      *
      * @param string $appName
      */

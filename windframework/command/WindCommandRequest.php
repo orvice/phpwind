@@ -5,13 +5,13 @@
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindCommandRequest.php 3668 2012-06-12 03:36:18Z yishuo $
- * @package command
  */
 class WindCommandRequest implements IWindRequest
 {
     /**
-     * 请求参数信息
+     * 请求参数信息.
      *
      * @var array
      */
@@ -25,10 +25,11 @@ class WindCommandRequest implements IWindRequest
     private $_response = null;
 
     /**
-     * 获得用户请求的数据
+     * 获得用户请求的数据.
      *
-     * @param  string $key          获取的参数name,默认为null将获得$_GET和$_POST两个数组的所有值
-     * @param  mixed  $defaultValue 当获取值失败的时候返回缺省值,默认值为null
+     * @param string $key          获取的参数name,默认为null将获得$_GET和$_POST两个数组的所有值
+     * @param mixed  $defaultValue 当获取值失败的时候返回缺省值,默认值为null
+     *
      * @return mixed
      */
     public function getRequest($key, $defaultValue = null)
@@ -44,12 +45,13 @@ class WindCommandRequest implements IWindRequest
     }
 
     /**
-     * 根据名称获得服务器和执行环境信息
+     * 根据名称获得服务器和执行环境信息.
      *
      * 主要获取的依次顺序为：_attribute、$_SERVER、$_ENV
      *
-     * @param  string              $name         获取数据的key值
-     * @param  string              $defaultValue 设置缺省值,当获取值失败的时候返回缺省值,默认该值为空字串
+     * @param string $name         获取数据的key值
+     * @param string $defaultValue 设置缺省值,当获取值失败的时候返回缺省值,默认该值为空字串
+     *
      * @return string|object|array 返回获得值
      */
     public function getAttribute($key, $defaultValue = '')
@@ -66,7 +68,7 @@ class WindCommandRequest implements IWindRequest
     }
 
     /**
-     * 设置属性数据
+     * 设置属性数据.
      *
      * @param string|array|object $data 需要设置的数据
      * @param string              $key  设置的数据保存用的key,默认为空,当数组和object类型的时候将会执行array_merge操作
@@ -87,7 +89,7 @@ class WindCommandRequest implements IWindRequest
     }
 
     /**
-     * 获得请求类型
+     * 获得请求类型.
      *
      * @return string
      */

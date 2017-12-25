@@ -1,15 +1,16 @@
 <?php
 /**
- * Action操作异常
+ * Action操作异常.
  *
  * action操作异常,继承自WindException.
  * 该异常将被系统cache并交给相应的错误处理方法进行后续错误处理.该异常必须包含一个WindErrorMessage类型的属性用于保管'错误信息'以及'用于错误处理的句柄'.
  * 在WindController中当sendMessage时默认抛出该异常.
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindActionException.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package base
  */
 class WindActionException extends WindException
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * form表单拦截器
+ * form表单拦截器.
  *
  * form表单拦截器允许用户配置实现form表单验证:
  * <note><b>注意：</b>
@@ -33,14 +33,13 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFormFilter.php 3533 2012-05-08 08:24:20Z yishuo $
- * @package web
- * @subpackage filter
  */
 class WindFormFilter extends WindActionFilter
 {
     /**
-     * 验证的表单类
+     * 验证的表单类.
      *
      * @var string
      */
@@ -72,7 +71,7 @@ class WindFormFilter extends WindActionFilter
     }
 
     /**
-     * 发送错误信息
+     * 发送错误信息.
      *
      * @param string $errorAction 需要处理错误的action配置模式为module/controller/action
      * @param array  $errors      验证中产生的错误信息

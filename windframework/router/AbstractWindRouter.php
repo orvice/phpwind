@@ -1,13 +1,14 @@
 <?php
 /**
- * 路由解析器接口
+ * 路由解析器接口.
  *
  * 职责: 路由解析,Url构建.实现路由解析器必须实现该接口的{@see AbstractWindRouter::route()}方法.该抽象类支持多路由协议处理.
+ *
  * @author Qiong Wu <papa0924@gmail.com> 2011-9-23
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: AbstractWindRouter.php 3928 2013-01-29 10:21:53Z yishuo $
- * @package router
  */
 abstract class AbstractWindRouter extends WindHandlerInterceptorChain
 {
@@ -23,9 +24,10 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     protected $defaultRoute = '';
 
     /**
-     * 路由解析
+     * 路由解析.
      *
-     * @param  WindHttpRequest $request
+     * @param WindHttpRequest $request
+     *
      * @return string
      */
     abstract public function route($request);
@@ -33,9 +35,10 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     /**
      * 创建Url,并返回构建好的Url值
      *
-     * @param  string $action 操作信息
-     * @param  array  $args   参数信息
-     * @param  string $route  路由协议别名
+     * @param string $action 操作信息
+     * @param array  $args   参数信息
+     * @param string $route  路由协议别名
+     *
      * @return string
      */
     abstract public function assemble($action, $args = array(), $route = '');
@@ -65,7 +68,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 将路由解析到的url参数信息保存早系统变量中
+     * 将路由解析到的url参数信息保存早系统变量中.
      *
      * @param string          $params
      * @param WindHttpRequest $requeset
@@ -86,7 +89,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 添加路由协议对象,如果添加的路由协议已经存在则抛出异常
+     * 添加路由协议对象,如果添加的路由协议已经存在则抛出异常.
      *
      * @param string
      * @param AbstractWindRoute $route
@@ -103,7 +106,8 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     /**
      * 根据rule的规则名称，从路由链中获得该路由的对象
      *
-     * @param  string            $ruleName 路由协议别名
+     * @param string $ruleName 路由协议别名
+     *
      * @return AbstractWindRoute
      */
     public function getRoute($ruleName)
@@ -112,7 +116,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 返回action
+     * 返回action.
      *
      * @return string
      */
@@ -122,7 +126,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 返回controller
+     * 返回controller.
      *
      * @return string
      */
@@ -132,7 +136,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 设置action
+     * 设置action.
      *
      * @param string $action
      */
@@ -142,7 +146,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 设置controller
+     * 设置controller.
      *
      * @param string $controller
      */
@@ -226,7 +230,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 设置默认module
+     * 设置默认module.
      *
      * @param string $module
      */
@@ -246,7 +250,7 @@ abstract class AbstractWindRouter extends WindHandlerInterceptorChain
     }
 
     /**
-     * 设置默认的controller
+     * 设置默认的controller.
      *
      * @param string $controller
      */

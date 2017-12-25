@@ -2,14 +2,15 @@
 
 
 /**
- * json格式转换类
+ * json格式转换类.
  *
  * 支持json转php类型,以及php类型转json.
+ *
  * @author Long.shi <long.shi@adlibaba-inc.com> 2011-10-19
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindJson.php 3859 2012-12-18 09:25:51Z yishuo $
- * @package utility
  */
 class WindJson
 {
@@ -20,10 +21,11 @@ class WindJson
     const JSON_IN_CMT = 16;
 
     /**
-     * 将数据用json加密
+     * 将数据用json加密.
      *
-     * @param  mixed  $value   要加密的值
-     * @param  string $charset
+     * @param mixed  $value   要加密的值
+     * @param string $charset
+     *
      * @return string
      */
     public static function encode($source, $charset = 'utf-8')
@@ -59,11 +61,12 @@ class WindJson
     }
 
     /**
-     * 将json格式数据解密
+     * 将json格式数据解密.
      *
-     * @param  string $str
-     * @param  bool   $toArray
-     * @param  string $charset
+     * @param string $str
+     * @param bool   $toArray
+     * @param string $charset
+     *
      * @return mixed
      */
     public static function decode($str, $toArray = true, $charset = 'utf8')
@@ -88,9 +91,10 @@ class WindJson
     }
 
     /**
-     * 将json格式转成php string类型
+     * 将json格式转成php string类型.
      *
-     * @param  string   $string json字符串
+     * @param string $string json字符串
+     *
      * @return Ambigous <string, unknown>
      */
     protected static function jsonToString($string)
@@ -98,37 +102,37 @@ class WindJson
         $delim = substr($string, 0, 1);
         $chrs = substr($string, 1, -1);
         $decodeStr = '';
-        for ($c = 0, $length = strlen($chrs); $c < $length; ++$c) {
+        for ($c = 0, $length = strlen($chrs); $c < $length; $c++) {
             $compare = substr($chrs, $c, 2);
-            $ordCode = ord($chrs{$c});
+            $ordCode = ord($chrs[$c]);
             if ('\b' == $compare) {
                 $decodeStr .= chr(0x08);
-                ++$c;
+                $c++;
             } elseif ('\t' == $compare) {
                 $decodeStr .= chr(0x09);
-                ++$c;
+                $c++;
             } elseif ('\n' == $compare) {
                 $decodeStr .= chr(0x0A);
-                ++$c;
+                $c++;
             } elseif ('\f' == $compare) {
                 $decodeStr .= chr(0x0C);
-                ++$c;
+                $c++;
             } elseif ('\r' == $compare) {
                 $decodeStr .= chr(0x0D);
-                ++$c;
+                $c++;
             } elseif (in_array($compare, array('\\"', '\\\'', '\\\\', '\\/'))) {
                 if (('"' == $delim && '\\\'' != $compare) || ("'" == $delim && '\\"' != $compare)) {
-                    $decodeStr .= $chrs{++$c};
+                    $decodeStr .= $chrs[++$c];
                 }
             } elseif (preg_match('/\\\u[0-9A-F]{4}/i', substr($chrs, $c, 6))) {
                 $utf16 = chr(hexdec(substr($chrs, ($c + 2), 2))).chr(hexdec(substr($chrs, ($c + 4), 2)));
                 $decodeStr .= WindConvert::utf16beToUTF8($utf16); //self::utf16beToUTF8($utf16);
                 $c += 5;
             } elseif (0x20 <= $ordCode && 0x7F >= $ordCode) {
-                $decodeStr .= $chrs{$c};
+                $decodeStr .= $chrs[$c];
             } elseif (0xC0 == ($ordCode & 0xE0)) {
                 $decodeStr .= substr($chrs, $c, 2);
-                ++$c;
+                $c++;
             } elseif (0xE0 == ($ordCode & 0xF0)) {
                 $decodeStr .= substr($chrs, $c, 3);
                 $c += 2;
@@ -148,15 +152,16 @@ class WindJson
     }
 
     /**
-     * 复杂的json格式转换,支持object array格式
+     * 复杂的json格式转换,支持object array格式.
      *
-     * @param  string   $str
-     * @param  bool     $toArray
+     * @param string $str
+     * @param bool   $toArray
+     *
      * @return Ambigous <multitype:, stdClass>|multitype:|Ambigous <mixed, boolean, NULL, number, multitype:, stdClass, Ambigous, string, unknown>|boolean
      */
     protected static function complexConvert($str, $toArray = true)
     {
-        if ('[' == $str{0}) {
+        if ('[' == $str[0]) {
             $stk = array(self::JSON_IN_ARR);
             $arr = array();
         } else {
@@ -169,10 +174,10 @@ class WindJson
         if ('' == $chrs) {
             return self::JSON_IN_ARR == reset($stk) ? $arr : $obj;
         }
-        for ($c = 0, $length = strlen($chrs); $c <= $length; ++$c) {
+        for ($c = 0, $length = strlen($chrs); $c <= $length; $c++) {
             $top = end($stk);
             $substr_chrs_c_2 = substr($chrs, $c, 2);
-            if (($c == $length) || (($chrs{$c} == ',') && ($top['what'] == self::JSON_SLICE))) {
+            if (($c == $length) || (($chrs[$c] == ',') && ($top['what'] == self::JSON_SLICE))) {
                 $slice = substr($chrs, $top['where'], ($c - $top['where']));
                 array_push($stk, array('what' => self::JSON_SLICE, 'where' => ($c + 1), 'delim' => false));
                 if (reset($stk) == self::JSON_IN_ARR) {
@@ -187,26 +192,26 @@ class WindJson
                             $parts[2], $toArray);
                     }
                 }
-            } elseif ((($chrs{$c} == '"') || ($chrs{$c} == "'")) && ($top['what'] != self::JSON_IN_STR)) {
-                array_push($stk, array('what' => self::JSON_IN_STR, 'where' => $c, 'delim' => $chrs{$c}));
-            } elseif (($chrs{$c} == $top['delim']) && ($top['what'] == self::JSON_IN_STR) && (($chrs{$c - 1} != '\\') || ($chrs{$c - 1} == '\\' && $chrs{$c - 2} == '\\'))) {
+            } elseif ((($chrs[$c] == '"') || ($chrs[$c] == "'")) && ($top['what'] != self::JSON_IN_STR)) {
+                array_push($stk, array('what' => self::JSON_IN_STR, 'where' => $c, 'delim' => $chrs[$c]));
+            } elseif (($chrs[$c] == $top['delim']) && ($top['what'] == self::JSON_IN_STR) && (($chrs[$c - 1] != '\\') || ($chrs[$c - 1] == '\\' && $chrs[$c - 2] == '\\'))) {
                 array_pop($stk);
-            } elseif (($chrs{$c} == '[') && in_array($top['what'],
+            } elseif (($chrs[$c] == '[') && in_array($top['what'],
                 array(self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ))) {
                 array_push($stk, array('what' => self::JSON_IN_ARR, 'where' => $c, 'delim' => false));
-            } elseif (($chrs{$c} == ']') && ($top['what'] == self::JSON_IN_ARR)) {
+            } elseif (($chrs[$c] == ']') && ($top['what'] == self::JSON_IN_ARR)) {
                 array_pop($stk);
-            } elseif (($chrs{$c} == '{') && in_array($top['what'],
+            } elseif (($chrs[$c] == '{') && in_array($top['what'],
                 array(self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ))) {
                 array_push($stk, array('what' => self::JSON_IN_OBJ, 'where' => $c, 'delim' => false));
-            } elseif (($chrs{$c} == '}') && ($top['what'] == self::JSON_IN_OBJ)) {
+            } elseif (($chrs[$c] == '}') && ($top['what'] == self::JSON_IN_OBJ)) {
                 array_pop($stk);
             } elseif (($substr_chrs_c_2 == '/*') && in_array($top['what'],
                 array(self::JSON_SLICE, self::JSON_IN_ARR, self::JSON_IN_OBJ))) {
                 array_push($stk, array('what' => self::JSON_IN_CMT, 'where' => ++$c, 'delim' => false));
             } elseif (($substr_chrs_c_2 == '*/') && ($top['what'] == self::JSON_IN_CMT)) {
                 array_pop($stk);
-                for ($i = $top['where']; $i <= ++$c; ++$i) {
+                for ($i = $top['where']; $i <= ++$c; $i++) {
                     $chrs = substr_replace($chrs, ' ', $i, 1);
                 }
             }
@@ -223,8 +228,9 @@ class WindJson
     /**
      * 将字符串转化成json格式对象
      *
-     * @param  string $string
-     * @param  string $charset
+     * @param string $string
+     * @param string $charset
+     *
      * @return string
      */
     protected static function stringToJson($string, $charset = 'utf-8')
@@ -232,9 +238,9 @@ class WindJson
         $string = WindConvert::convert($string, 'utf-8', $charset);
         $ascii = '';
         $strlen = strlen($string);
-        for ($c = 0; $c < $strlen; ++$c) {
-            $b = $string{$c};
-            $ordVar = ord($string{$c});
+        for ($c = 0; $c < $strlen; $c++) {
+            $b = $string[$c];
+            $ordVar = ord($string[$c]);
             if (0x08 == $ordVar) {
                 $ascii .= '\b';
             } elseif (0x09 == $ordVar) {
@@ -246,25 +252,25 @@ class WindJson
             } elseif (0x0D == $ordVar) {
                 $ascii .= '\r';
             } elseif (in_array($ordVar, array(0x22, 0x2F, 0x5C))) {
-                $ascii .= '\\'.$string{$c};
+                $ascii .= '\\'.$string[$c];
             } elseif (0x20 <= $ordVar && 0x7F >= $ordVar) {
-                $ascii .= $string{$c}; //ASCII
+                $ascii .= $string[$c]; //ASCII
             } elseif (0xC0 == ($ordVar & 0xE0)) {
-                $char = pack('C*', $ordVar, ord($string{++$c}));
+                $char = pack('C*', $ordVar, ord($string[++$c]));
                 $ascii .= sprintf('\u%04s', bin2hex(WindConvert::utf8ToUTF16BE($char)));
             } elseif (0xE0 == ($ordVar & 0xF0)) {
-                $char = pack('C*', $ordVar, ord($string{++$c}), ord($string{++$c}));
+                $char = pack('C*', $ordVar, ord($string[++$c]), ord($string[++$c]));
                 $ascii .= sprintf('\u%04s', bin2hex(WindConvert::utf8ToUTF16BE($char)));
             } elseif (0xF0 == ($ordVar & 0xF8)) {
-                $char = pack('C*', $ordVar, ord($string{++$c}), ord($string{++$c}), ord($string{++$c}));
+                $char = pack('C*', $ordVar, ord($string[++$c]), ord($string[++$c]), ord($string[++$c]));
                 $ascii .= sprintf('\u%04s', bin2hex(WindConvert::utf8ToUTF16BE($char)));
             } elseif (0xF8 == ($ordVar & 0xFC)) {
-                $char = pack('C*', $ordVar, ord($string{++$c}), ord($string{++$c}), ord($string{++$c}),
-                    ord($string{++$c}));
+                $char = pack('C*', $ordVar, ord($string[++$c]), ord($string[++$c]), ord($string[++$c]),
+                    ord($string[++$c]));
                 $ascii .= sprintf('\u%04s', bin2hex(WindConvert::utf8ToUTF16BE($char)));
             } elseif (0xFC == ($ordVar & 0xFE)) {
-                $char = pack('C*', $ordVar, ord($string{++$c}), ord($string{++$c}), ord($string{++$c}),
-                    ord($string{++$c}), ord($string{++$c}));
+                $char = pack('C*', $ordVar, ord($string[++$c]), ord($string[++$c]), ord($string[++$c]),
+                    ord($string[++$c]), ord($string[++$c]));
                 $ascii .= sprintf('\u%04s', bin2hex(WindConvert::utf8ToUTF16BE($char)));
             }
         }
@@ -275,8 +281,9 @@ class WindJson
     /**
      * 将数组转化成json格式对象
      *
-     * @param  array  $array
-     * @param  string $charset
+     * @param array  $array
+     * @param string $charset
+     *
      * @return string
      */
     protected static function arrayToJson(array $array, $charset = 'utf-8')
@@ -294,8 +301,9 @@ class WindJson
     /**
      * 将对象转化成json格式对象
      *
-     * @param  string $object
-     * @param  string $charset
+     * @param string $object
+     * @param string $charset
+     *
      * @return string
      */
     protected static function objectToJson($object, $charset = 'utf-8')
@@ -314,7 +322,8 @@ class WindJson
     }
 
     /**
-     * @param  string $str
+     * @param string $str
+     *
      * @return string
      */
     private static function _reduceString($str)
@@ -323,7 +332,7 @@ class WindJson
     }
 
     /**
-     * callback函数，用于数组或对象加密
+     * callback函数，用于数组或对象加密.
      *
      * @param mixed  $name
      * @param mixed  $value
@@ -335,7 +344,7 @@ class WindJson
     }
 
     /**
-     * callback函数，用于数组加密(无key)
+     * callback函数，用于数组加密(无key).
      *
      * @param mixed  $value
      * @param mixed  $name

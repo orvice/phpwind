@@ -3,38 +3,34 @@
  * 操作控制器,管理用户的请求处理操作.
  *
  * 该类有一个抽象方法作为默认处理用户请求的操作实现'run',用户可以通过实现该方法处理请求
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSimpleController.php 3859 2012-12-18 09:25:51Z yishuo $
- * @package web
  */
 abstract class WindSimpleController extends WindModule implements IWindController
 {
     /**
-     *
      * @var WindForward
      */
     protected $forward = null;
     /**
-     *
      * @var WindErrorMessage
      */
     protected $errorMessage = null;
     /**
-     *
      * @var WindHttpRequest
      */
     protected $request = null;
     /**
-     *
      * @var WindHttpResponse
      */
     protected $response = null;
 
     /**
-     * 默认的操作处理方法
-     *
+     * 默认的操作处理方法.
      */
     abstract public function run();
 
@@ -56,8 +52,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 保存token令牌
-     *
+     * 保存token令牌.
      */
     protected function saveToken($tokenName = 'token')
     {
@@ -68,7 +63,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 验证令牌
+     * 验证令牌.
      *
      * @param string $tokenValue 当前获得的token值
      * @param string $tokenName  token名称
@@ -82,12 +77,13 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * action过滤链策略部署
+     * action过滤链策略部署.
      *
      * @example <pre>
      *          $filters = array(array('expression'=>'', 'class'=>'',
      *          args=array()));
      *          </pre>
+     *
      * @param array $filters
      */
     protected function resolveActionFilter($filters)
@@ -106,7 +102,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * action操作开始前调用
+     * action操作开始前调用.
      *
      * @param AbstractWindRouter $handlerAdapter
      */
@@ -115,7 +111,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * action操作结束后调用
+     * action操作结束后调用.
      *
      * @param AbstractWindRouter $handlerAdapter
      */
@@ -124,7 +120,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 重定向一个请求到另外的action
+     * 重定向一个请求到另外的action.
      *
      * @param string $action      支持格式:module/controller/action/?args
      * @param array  $args        参数信息 默认为空数组
@@ -137,7 +133,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 重定向一个请求到另外的URL
+     * 重定向一个请求到另外的URL.
      *
      * @param string $url
      */
@@ -147,8 +143,9 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /* 数据处理 */
+
     /**
-     * 设置模板数据
+     * 设置模板数据.
      *
      * @param string|array|object $data
      * @param string              $key
@@ -160,11 +157,12 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
 
     /**
      * 获得输入数据
-     * 如果输入了回调方法则返回数组:第一个值：value;第二个值：验证结果
+     * 如果输入了回调方法则返回数组:第一个值：value;第二个值：验证结果.
      *
-     * @param  string $name input name
-     * @param  string $type input type (GET POST COOKIE)
-     * @return array  string
+     * @param string $name input name
+     * @param string $type input type (GET POST COOKIE)
+     *
+     * @return array string
      */
     protected function getInput($name, $type = '', $bindKey = false)
     {
@@ -199,6 +197,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /* 模板处理 */
+
     /**
      * 设置页面模板
      *
@@ -210,7 +209,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 设置模板路径,模板目录地址,支持命名空间方式
+     * 设置模板路径,模板目录地址,支持命名空间方式.
      *
      * @param string $templatePath
      */
@@ -220,7 +219,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 设置模板文件的扩展名
+     * 设置模板文件的扩展名.
      *
      * @param string $templateExt
      */
@@ -230,7 +229,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 设置当前主题信息
+     * 设置当前主题信息.
      *
      * @param string $theme
      */
@@ -240,7 +239,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 设置布局页面
+     * 设置布局页面.
      *
      * @param string $layout
      */
@@ -250,8 +249,9 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /* 错误处理 */
+
     /**
-     * 添加错误信息
+     * 添加错误信息.
      *
      * @param string $message
      * @param string $key     默认为空字符串
@@ -276,7 +276,7 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     * 设置默认的模板名称
+     * 设置默认的模板名称.
      *
      * @param WindUrlBasedRouter $handlerAdapter
      */
@@ -286,10 +286,11 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
 
     /**
      * 解析action操作方法名称
-     * 可以通过覆盖该方法,改变action解析规则
+     * 可以通过覆盖该方法,改变action解析规则.
      *
-     * @param  WindUrlBasedRouter $handlerAdapter
-     * @return string             返回解析到的action操作处理方法,默认只返回run
+     * @param WindUrlBasedRouter $handlerAdapter
+     *
+     * @return string 返回解析到的action操作处理方法,默认只返回run
      */
     protected function resolvedActionMethod($handlerAdapter)
     {
@@ -297,7 +298,6 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     *
      * @return WindForward
      */
     public function getForward()
@@ -306,7 +306,6 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     *
      * @return WindErrorMessage
      */
     public function getErrorMessage()
@@ -315,7 +314,6 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     *
      * @param WindForward $forward
      */
     public function setForward($forward)
@@ -324,7 +322,6 @@ abstract class WindSimpleController extends WindModule implements IWindControlle
     }
 
     /**
-     *
      * @param WindErrorMessage $errorMessage
      */
     public function setErrorMessage($errorMessage)

@@ -5,26 +5,25 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindHttpRequest.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package http
- * @subpackage request
  */
 class WindHttpRequest implements IWindRequest
 {
     /**
-     * 访问的端口号
+     * 访问的端口号.
      *
      * @var int
      */
     protected $_port = null;
     /**
-     * 请求路径信息
+     * 请求路径信息.
      *
      * @var string
      */
     protected $_hostInfo = null;
     /**
-     * 客户端IP
+     * 客户端IP.
      *
      * @var string
      */
@@ -38,34 +37,34 @@ class WindHttpRequest implements IWindRequest
     protected $_language = null;
 
     /**
-     * 路径信息
+     * 路径信息.
      *
      * @var string
      */
     protected $_pathInfo = null;
 
     /**
-     * 请求参数信息
+     * 请求参数信息.
      *
      * @var array
      */
     protected $_attribute = array();
     /**
-     * 请求脚本url
+     * 请求脚本url.
      *
      * @var string
      */
     private $_scriptUrl = null;
 
     /**
-     * 请求参数uri
+     * 请求参数uri.
      *
      * @var string
      */
     private $_requestUri = null;
 
     /**
-     * 基础路径信息
+     * 基础路径信息.
      *
      * @var string
      */
@@ -73,7 +72,6 @@ class WindHttpRequest implements IWindRequest
 
     /**
      * 初始化Request对象
-     *
      */
     public function __construct()
     {
@@ -146,11 +144,13 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得用户请求的数据
+     * 获得用户请求的数据.
      *
      * 返回$_GET,$_POST的值,未设置则返回$defaultValue
-     * @param  string $key          获取的参数name,默认为null将获得$_GET和$_POST两个数组的所有值
-     * @param  mixed  $defaultValue 当获取值失败的时候返回缺省值,默认值为null
+     *
+     * @param string $key          获取的参数name,默认为null将获得$_GET和$_POST两个数组的所有值
+     * @param mixed  $defaultValue 当获取值失败的时候返回缺省值,默认值为null
+     *
      * @return mixed
      */
     public function getRequest($key = null, $defaultValue = null)
@@ -169,11 +169,13 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获取请求的表单数据
+     * 获取请求的表单数据.
      *
      * 从$_POST获得值
-     * @param  string $name         获取的变量名,默认为null,当为null的时候返回$_POST数组
-     * @param  string $defaultValue 当获取变量失败的时候返回该值,默认为null
+     *
+     * @param string $name         获取的变量名,默认为null,当为null的时候返回$_POST数组
+     * @param string $defaultValue 当获取变量失败的时候返回该值,默认为null
+     *
      * @return mixed
      */
     public function getPost($name = null, $defaultValue = null)
@@ -188,8 +190,9 @@ class WindHttpRequest implements IWindRequest
     /**
      * 获得$_GET值
      *
-     * @param  string $name         待获取的变量名,默认为空字串,当该值为null的时候将返回$_GET数组
-     * @param  string $defaultValue 当获取的变量不存在的时候返回该缺省值,默认值为null
+     * @param string $name         待获取的变量名,默认为空字串,当该值为null的时候将返回$_GET数组
+     * @param string $defaultValue 当获取的变量不存在的时候返回该缺省值,默认值为null
+     *
      * @return mixed
      */
     public function getGet($name = '', $defaultValue = null)
@@ -205,8 +208,10 @@ class WindHttpRequest implements IWindRequest
      * 返回cookie的值
      *
      * 如果$name=null则返回所有Cookie值
-     * @param  string $name         获取的变量名,如果该值为null则返回$_COOKIE数组,默认为null
-     * @param  string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
+     * @param string $name         获取的变量名,如果该值为null则返回$_COOKIE数组,默认为null
+     * @param string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
      * @return mixed
      */
     public function getCookie($name = null, $defaultValue = null)
@@ -222,8 +227,10 @@ class WindHttpRequest implements IWindRequest
      * 返回session的值
      *
      * 如果$name=null则返回所有SESSION值
-     * @param  string $name         获取的变量名,如果该值为null则返回$_SESSION数组,默认为null
-     * @param  string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
+     * @param string $name         获取的变量名,如果该值为null则返回$_SESSION数组,默认为null
+     * @param string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
      * @return mixed
      */
     public function getSession($name = null, $defaultValue = null)
@@ -239,8 +246,10 @@ class WindHttpRequest implements IWindRequest
      * 返回Server的值
      *
      * 如果$name为空则返回所有Server的值
-     * @param  string $name         获取的变量名,如果该值为null则返回$_SERVER数组,默认为null
-     * @param  string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
+     * @param string $name         获取的变量名,如果该值为null则返回$_SERVER数组,默认为null
+     * @param string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
      * @return mixed
      */
     public function getServer($name = null, $defaultValue = null)
@@ -256,8 +265,10 @@ class WindHttpRequest implements IWindRequest
      * 返回ENV的值
      *
      * 如果$name为null则返回所有$_ENV的值
-     * @param  string $name         获取的变量名,如果该值为null则返回$_ENV数组,默认为null
-     * @param  string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
+     * @param string $name         获取的变量名,如果该值为null则返回$_ENV数组,默认为null
+     * @param string $defaultValue 当获取变量失败的时候返回该值,默认该值为null
+     *
      * @return mixed
      */
     public function getEnv($name = null, $defaultValue = null)
@@ -270,9 +281,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获取请求链接协议
+     * 获取请求链接协议.
      *
      * 如果是安全链接请求则返回https否则返回http
+     *
      * @return string
      */
     public function getScheme()
@@ -281,7 +293,8 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回请求页面时通信协议的名称和版本
+     * 返回请求页面时通信协议的名称和版本.
+     *
      * @return string
      */
     public function getProtocol()
@@ -290,9 +303,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回访问IP
+     * 返回访问IP.
      *
      * 如果获取请求IP失败,则返回0.0.0.0
+     *
      * @return string
      */
     public function getClientIp()
@@ -305,9 +319,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得请求的方法
+     * 获得请求的方法.
      *
      * 将返回POST\GET\DELETE等HTTP请求方式
+     *
      * @return string
      */
     public function getRequestMethod()
@@ -316,9 +331,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得请求类型
+     * 获得请求类型.
      *
      * 如果是web请求将返回web
+     *
      * @return string
      */
     public function getRequestType()
@@ -330,6 +346,7 @@ class WindHttpRequest implements IWindRequest
      * 返回该请求是否为ajax请求
      *
      * 如果是ajax请求将返回true,否则返回false
+     *
      * @return bool
      */
     public function getIsAjaxRequest()
@@ -338,9 +355,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 请求是否使用的是HTTPS安全链接
+     * 请求是否使用的是HTTPS安全链接.
      *
      * 如果是安全请求则返回true否则返回false
+     *
      * @return bool
      */
     public function isSecure()
@@ -349,9 +367,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回请求是否为GET请求类型
+     * 返回请求是否为GET请求类型.
      *
      * 如果请求是GET方式请求则返回true，否则返回false
+     *
      * @return bool
      */
     public function isGet()
@@ -360,7 +379,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回请求是否为POST请求类型
+     * 返回请求是否为POST请求类型.
      *
      * 如果请求是POST方式请求则返回true,否则返回false
      *
@@ -372,7 +391,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回请求是否为PUT请求类型
+     * 返回请求是否为PUT请求类型.
      *
      * 如果请求是PUT方式请求则返回true,否则返回false
      *
@@ -384,7 +403,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回请求是否为DELETE请求类型
+     * 返回请求是否为DELETE请求类型.
      *
      * 如果请求是DELETE方式请求则返回true,否则返回false
      *
@@ -396,7 +415,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 初始化请求的资源标识符
+     * 初始化请求的资源标识符.
      *
      * 这里的uri是去除协议名、主机名的
      * <pre>Example:
@@ -404,8 +423,9 @@ class WindHttpRequest implements IWindRequest
      * 则返回: /example/index.php?a=test
      * </pre>
      *
-     * @return string
      * @throws WindException 当获取失败的时候抛出异常
+     *
+     * @return string
      */
     public function getRequestUri()
     {
@@ -417,15 +437,16 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回当前执行脚本的绝对路径
+     * 返回当前执行脚本的绝对路径.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回: /example/index.php
      * </pre>
      *
-     * @return string
      * @throws WindException 当获取失败的时候抛出异常
+     *
+     * @return string
      */
     public function getScriptUrl()
     {
@@ -437,15 +458,16 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回执行脚本名称
+     * 返回执行脚本名称.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回: index.php
      * </pre>
      *
-     * @return string
      * @throws WindException 当获取失败的时候抛出异常
+     *
+     * @return string
      */
     public function getScript()
     {
@@ -457,10 +479,11 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获取Http头信息
+     * 获取Http头信息.
      *
-     * @param  string $header  头部名称
-     * @param  string $default 获取失败将返回该值,默认为null
+     * @param string $header  头部名称
+     * @param string $default 获取失败将返回该值,默认为null
+     *
      * @return string
      */
     public function getHeader($header, $default = null)
@@ -483,7 +506,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回包含由客户端提供的、跟在真实脚本名称之后并且在查询语句（query string）之前的路径信息
+     * 返回包含由客户端提供的、跟在真实脚本名称之后并且在查询语句（query string）之前的路径信息.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
@@ -491,8 +514,10 @@ class WindHttpRequest implements IWindRequest
      * </pre>
      *
      * @see IWindRequest::getPathInfo()
-     * @return string
+     *
      * @throws WindException
+     *
+     * @return string
      */
     public function getPathInfo()
     {
@@ -504,7 +529,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获取基础URL
+     * 获取基础URL.
      *
      * 这里是去除了脚本文件以及访问参数信息的URL地址信息:
      *
@@ -515,9 +540,12 @@ class WindHttpRequest implements IWindRequest
      * 2]如果: $absolute = true:
      * 返回： http://www.phpwind.net/example
      * </pre>
-     * @param  bool          $absolute 是否返回主机信息
-     * @return string
+     *
+     * @param bool $absolute 是否返回主机信息
+     *
      * @throws WindException 当返回信息失败的时候抛出异常
+     *
+     * @return string
      */
     public function getBaseUrl($absolute = false)
     {
@@ -529,15 +557,18 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得主机信息，包含协议信息，主机名，访问端口信息
+     * 获得主机信息，包含协议信息，主机名，访问端口信息.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回： http://www.phpwind.net/
      * </pre>
+     *
      * @see IWindRequest::getHostInfo()
-     * @return string
+     *
      * @throws WindException 获取主机信息失败的时候抛出异常
+     *
+     * @return string
      */
     public function getHostInfo()
     {
@@ -553,6 +584,7 @@ class WindHttpRequest implements IWindRequest
      *
      * 如果脚本运行于虚拟主机中
      * 该名称是由那个虚拟主机所设置的值决定
+     *
      * @return string
      */
     public function getServerName()
@@ -574,10 +606,11 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 设置服务端口号
+     * 设置服务端口号.
      *
      * https链接的默认端口号为443
      * http链接的默认端口号为80
+     *
      * @param int $port 设置的端口号
      */
     public function setServerPort($port)
@@ -586,7 +619,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回浏览当前页面的用户的主机名
+     * 返回浏览当前页面的用户的主机名.
      *
      * DNS 反向解析不依赖于用户的 REMOTE_ADDR
      *
@@ -598,7 +631,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回浏览器发送Referer请求头
+     * 返回浏览器发送Referer请求头.
      *
      * 可以让服务器了解和追踪发出本次请求的起源URL地址
      *
@@ -610,7 +643,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得用户机器上连接到 Web 服务器所使用的端口号
+     * 获得用户机器上连接到 Web 服务器所使用的端口号.
      *
      * @return number
      */
@@ -620,7 +653,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回User-Agent头字段用于指定浏览器或者其他客户端程序的类型和名字
+     * 返回User-Agent头字段用于指定浏览器或者其他客户端程序的类型和名字.
      *
      * 如果客户机是一种无线手持终端，就返回一个WML文件；如果发现客户端是一种普通浏览器，
      * 则返回通常的HTML文件
@@ -633,7 +666,7 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回当前请求头中 Accept: 项的内容，
+     * 返回当前请求头中 Accept: 项的内容，.
      *
      * Accept头字段用于指出客户端程序能够处理的MIME类型，例如 text/html,image/*
      *
@@ -645,9 +678,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回客户端程序可以能够进行解码的数据编码方式
+     * 返回客户端程序可以能够进行解码的数据编码方式.
      *
      * 这里的编码方式通常指某种压缩方式
+     *
      * @return string|''
      */
     public function getAcceptCharset()
@@ -674,6 +708,7 @@ class WindHttpRequest implements IWindRequest
      * <pre>Example:
      * 返回：127.0.0.1
      * </pre>
+     *
      * @return string
      */
     private function _getClientIp()
@@ -700,13 +735,14 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 初始化请求的资源标识符
+     * 初始化请求的资源标识符.
      *
      * <pre>这里的uri是去除协议名、主机名的
      * Example:
      * 请求： http://www.phpwind.net/example/index.php?a=test
      * 则返回: /example/index.php?a=test
      * </pre>
+     *
      * @throws WindException 处理错误抛出异常
      */
     private function _initRequestUri()
@@ -730,12 +766,13 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回当前执行脚本的绝对路径
+     * 返回当前执行脚本的绝对路径.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回: /example/index.php
      * </pre>
+     *
      * @throws WindException 当获取失败的时候抛出异常
      */
     private function _initScriptUrl()
@@ -761,12 +798,13 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 获得主机信息，包含协议信息，主机名，访问端口信息
+     * 获得主机信息，包含协议信息，主机名，访问端口信息.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回： http://www.phpwind.net/
      * </pre>
+     *
      * @throws WindException 获取主机信息失败的时候抛出异常
      */
     private function _initHostInfo()
@@ -785,12 +823,13 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 返回包含由客户端提供的、跟在真实脚本名称之后并且在查询语句（query string）之前的路径信息
+     * 返回包含由客户端提供的、跟在真实脚本名称之后并且在查询语句（query string）之前的路径信息.
      *
      * <pre>Example:
      * 请求: http://www.phpwind.net/example/index.php?a=test
      * 返回: a=test
      * </pre>
+     *
      * @throws WindException
      */
     private function _initPathInfo()
@@ -814,9 +853,10 @@ class WindHttpRequest implements IWindRequest
     }
 
     /**
-     * 采用stripslashes反转义特殊字符
+     * 采用stripslashes反转义特殊字符.
      *
-     * @param  array|string $data 待反转义的数据
+     * @param array|string $data 待反转义的数据
+     *
      * @return array|string 反转义之后的数据
      */
     private function _stripSlashes(&$data)

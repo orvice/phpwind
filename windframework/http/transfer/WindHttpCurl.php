@@ -5,9 +5,8 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.phpwind.com/license.php
+ *
  * @version $Id: WindHttpCurl.php 3928 2013-01-29 10:21:53Z yishuo $
- * @package http
- * @subpackage transfer
  */
 final class WindHttpCurl extends AbstractWindHttp
 {
@@ -126,11 +125,12 @@ final class WindHttpCurl extends AbstractWindHttp
     }
 
     /**
-     * 解析post data使其支持数组格式传递
+     * 解析post data使其支持数组格式传递.
      *
-     * @param  array  $args
-     * @param  array  $value
-     * @param  string $key
+     * @param array  $args
+     * @param array  $value
+     * @param string $key
+     *
      * @return array
      */
     private function _resolvedData($args, &$value, $key = null)
@@ -158,7 +158,7 @@ final class WindHttpCurl extends AbstractWindHttp
     }
 
     /**
-     * url forward 兼容处理
+     * url forward 兼容处理.
      */
     private function followLocation()
     {

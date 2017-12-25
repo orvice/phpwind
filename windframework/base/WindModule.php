@@ -1,6 +1,6 @@
 <?php
 /**
- * 所有module的基础抽象类
+ * 所有module的基础抽象类.
  *
  * 在module类中基本实现了对组件特性的支持,包括:配置解析,延迟加载,类代理以及提供获取基础对象的方法.
  * 如果需要用组件配置管理方式创建类对象,需要继承该类.支持config路径解析.
@@ -8,8 +8,8 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindModule.php 3850 2012-12-04 07:30:02Z yishuo $
- * @package base
  */
 class WindModule
 {
@@ -20,13 +20,13 @@ class WindModule
      */
     public $_proxy = null;
     /**
-     * 配置数据
+     * 配置数据.
      *
      * @var array
      */
     protected $_config = array();
     /**
-     * 在延迟加载策略中使用,保存需要延迟加载的属性配置信息
+     * 在延迟加载策略中使用,保存需要延迟加载的属性配置信息.
      *
      * @var array
      */
@@ -34,7 +34,7 @@ class WindModule
 
     /**
      * 重载了魔术方法__set
-     * 当属性访问不到时该方法被调用,该方法会尝试去访问对应属性的setter设置器,如果不存在则什么也不做
+     * 当属性访问不到时该方法被调用,该方法会尝试去访问对应属性的setter设置器,如果不存在则什么也不做.
      *
      * @param string $propertyName
      * @param mixed  $value
@@ -49,9 +49,10 @@ class WindModule
 
     /**
      * 重载了魔术方法__get
-     * 当属性访问不到时该方法被调用,该方法会尝试去访问对应属性的getter并返回对应的值,如果不存在则什么也不做
+     * 当属性访问不到时该方法被调用,该方法会尝试去访问对应属性的getter并返回对应的值,如果不存在则什么也不做.
      *
-     * @param  string $propertyName
+     * @param string $propertyName
+     *
      * @return mixed
      */
     public function __get($propertyName)
@@ -68,10 +69,11 @@ class WindModule
      * <code>
      * //延迟访问某个属性,当使用这种方式调用时该方法被调用,并访问该类中的$_delayAttributes属性,并创建该属性对象并返回
      * $this->_getMethodName();
-     * </code>
+     * </code>.
      *
-     * @param  string $methodName
-     * @param  array  $args
+     * @param string $methodName
+     * @param array  $args
+     *
      * @return mixed
      */
     public function __call($methodName, $args)
@@ -101,7 +103,7 @@ class WindModule
     }
 
     /**
-     * 返回该对象的数组类型
+     * 返回该对象的数组类型.
      *
      * @return array
      */
@@ -120,12 +122,13 @@ class WindModule
 
     /**
      * 根据配置名取得相应的配置
-     * 当<i>configName</i>为空时则返回整个配置.当配置值不存在时返回默认值.默认值默认为空
+     * 当<i>configName</i>为空时则返回整个配置.当配置值不存在时返回默认值.默认值默认为空.
      *
-     * @param  string $configName    键名
-     * @param  string $subConfigName 二级键名
-     * @param  string $default       默认值
-     * @param  array  $config        外部配置
+     * @param string $configName    键名
+     * @param string $subConfigName 二级键名
+     * @param string $default       默认值
+     * @param array  $config        外部配置
+     *
      * @return mixed
      */
     public function getConfig($configName = '', $subConfigName = '', $default = '', $config = array())
@@ -150,7 +153,7 @@ class WindModule
      * 设置类配置
      * 设置类配置信息,如果配置已经存在,则将以存在配置和输入配置进行合并.
      * 重复配置后者将覆盖前者.
-     * 支持配置路径解析,当输入值为配置路径时则会调用配置解析器进行解析并自动缓存当前配置值.(缓存是由wind_config中的isCache配置值决定是否开启)
+     * 支持配置路径解析,当输入值为配置路径时则会调用配置解析器进行解析并自动缓存当前配置值.(缓存是由wind_config中的isCache配置值决定是否开启).
      *
      * @param string|array $config
      */
@@ -190,7 +193,7 @@ class WindModule
     }
 
     /**
-     * 设置延迟加载类属性相关组件配置信息
+     * 设置延迟加载类属性相关组件配置信息.
      *
      * @param array $delayAttributes
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * properties格式文件解析
+ * properties格式文件解析.
  *
  * properties文件中的注释为单行注释以#标记
  * 同时该文件也允许配置节名称，比如：
@@ -26,8 +26,8 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindPropertiesParser.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package parser
  */
 class WindPropertiesParser
 {
@@ -44,10 +44,11 @@ class WindPropertiesParser
     }
 
     /**
-     * 解析properties文件里的内容
+     * 解析properties文件里的内容.
      *
-     * @param  string $filename 文件名
-     * @param  bool   $build    是否按格式解析数据默认为true
+     * @param string $filename 文件名
+     * @param bool   $build    是否按格式解析数据默认为true
+     *
      * @return array
      */
     public function parse($filename, $build = true)
@@ -58,12 +59,13 @@ class WindPropertiesParser
     }
 
     /**
-     * 解析properties文件并返回一个多维数组
+     * 解析properties文件并返回一个多维数组.
      *
      * 载入一个由 filename 指定的 properties 文件，
      * 并将其中的设置作为一个联合数组返回。
      *
-     * @param  string $filename 文件名
+     * @param string $filename 文件名
+     *
      * @return array
      */
     private function parse_properties_file($filename)
@@ -102,9 +104,10 @@ class WindPropertiesParser
     }
 
     /**
-     * 解析配置数据
+     * 解析配置数据.
      *
-     * @param  array $data 源数据
+     * @param array $data 源数据
+     *
      * @return array
      */
     private function buildData(&$data)
@@ -121,11 +124,12 @@ class WindPropertiesParser
     }
 
     /**
-     * 将每行properties文件转换成数组
+     * 将每行properties文件转换成数组.
      *
-     * @param  string $key   properties文件中的键
-     * @param  string $value properties文件中的值
-     * @param  array  $data  操作数据,默认为array()
+     * @param string $key   properties文件中的键
+     * @param string $value properties文件中的值
+     * @param array  $data  操作数据,默认为array()
+     *
      * @return array
      */
     private function toArray($key, $value, &$data = array())
@@ -146,10 +150,11 @@ class WindPropertiesParser
     }
 
     /**
-     * 将原始数组合并成新的数组
+     * 将原始数组合并成新的数组.
      *
-     * @param  array $original 原始数组
-     * @param  array $data     合并后的数组
+     * @param array $original 原始数组
+     * @param array $data     合并后的数组
+     *
      * @return array
      */
     private function formatDataArray(&$original, &$data = array())
@@ -172,11 +177,12 @@ class WindPropertiesParser
     }
 
     /**
-     * 从字符串中合并数组
+     * 从字符串中合并数组.
      *
-     * @param  string $key   待合并的键值
-     * @param  string $value 待合并的数据
-     * @param  array  $data  操作数组
+     * @param string $key   待合并的键值
+     * @param string $value 待合并的数据
+     * @param array  $data  操作数组
+     *
      * @return array
      */
     private function formatDataFromString($key, $value, &$data)
@@ -206,11 +212,12 @@ class WindPropertiesParser
     }
 
     /**
-     * 合并格式化的数组
+     * 合并格式化的数组.
      *
-     * @param  string $key   待合并的键值
-     * @param  mixed  $value 待合并的数据
-     * @param  array  $data  合并到的数据
+     * @param string $key   待合并的键值
+     * @param mixed  $value 待合并的数据
+     * @param array  $data  合并到的数据
+     *
      * @return array
      */
     private function merge($key, $value, &$data = array())
@@ -233,10 +240,11 @@ class WindPropertiesParser
     }
 
     /**
-     * 去除字符串头和尾中指定字符
+     * 去除字符串头和尾中指定字符.
      *
-     * @param  string $str  待处理的数据
-     * @param  mixed  $char 需要取出的字符
+     * @param string $str  待处理的数据
+     * @param mixed  $char 需要取出的字符
+     *
      * @return string 处理后的数据
      */
     private function trimChar($str, $char = ' ')

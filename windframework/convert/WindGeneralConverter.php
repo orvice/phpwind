@@ -2,13 +2,13 @@
 
 
 /**
- * 通用编码转化类
+ * 通用编码转化类.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-10-19
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindGeneralConverter.php 3016 2011-10-20 02:23:08Z yishuo $
- * @package convert
  */
 class WindGeneralConverter extends WindModule implements IWindConverter
 {
@@ -20,12 +20,12 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     protected $tableEncode = array();
 
     protected $IndexPoint = array(
-        'GBKtoUTF8' => 0,
-        'GBKtoUNICODE' => 0,
-        'BIG5toUTF8' => 1024,
+        'GBKtoUTF8'     => 0,
+        'GBKtoUNICODE'  => 0,
+        'BIG5toUTF8'    => 1024,
         'BIG5toUNICODE' => 1024,
-        'UTF8toGBK' => 512,
-        'UTF8toBIG5' => 1536, );
+        'UTF8toGBK'     => 512,
+        'UTF8toBIG5'    => 1536, );
 
     /**
      * @param string $SourceLang
@@ -40,13 +40,15 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * 编码转化
+     * 编码转化.
      *
      * 对输入的字符串进行从原编码到目标编码的转化,请确定原编码与目标编码
-     * @param  string   $srcText
-     * @param  string   $SourceLang
-     * @param  string   $TargetLang
-     * @param  bool     $ForceTable
+     *
+     * @param string $srcText
+     * @param string $SourceLang
+     * @param string $TargetLang
+     * @param bool   $ForceTable
+     *
      * @return Ambigous <string, unknown>|string|unknown
      */
     public function convert($srcText, $sourceLang = '', $targetLang = '', $forceTable = false)
@@ -86,7 +88,7 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * 初始化类
+     * 初始化类.
      *
      * @param string $SourceLang
      * @param string $TargetLang
@@ -102,9 +104,10 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * unicode to utf8
+     * unicode to utf8.
      *
-     * @param  string $c
+     * @param string $c
+     *
      * @return string
      */
     protected function unicodeToUTF8($c)
@@ -129,9 +132,10 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * BIG5,GBK to Unicode
+     * BIG5,GBK to Unicode.
      *
-     * @param  string $c
+     * @param string $c
+     *
      * @return string
      */
     protected function chsUTF8toU($c)
@@ -150,9 +154,10 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * BIG5,GBK to UTF8
+     * BIG5,GBK to UTF8.
      *
-     * @param  string   $srcText
+     * @param string $srcText
+     *
      * @return Ambigous <string, unknown>
      */
     protected function chstoUTF8($srcText)
@@ -179,9 +184,10 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * UTF8 to GBK,BIG5
+     * UTF8 to GBK,BIG5.
      *
-     * @param  string $srcText
+     * @param string $srcText
+     *
      * @return string
      */
     protected function utf8toCHS($srcText)
@@ -234,10 +240,11 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * GBK,BIG5 to UNICODE
+     * GBK,BIG5 to UNICODE.
      *
-     * @param  string   $srcText
-     * @param  string   $SourceLang
+     * @param string $srcText
+     * @param string $SourceLang
+     *
      * @return Ambigous <string, unknown>
      */
     protected function chstoUNICODE($srcText, $SourceLang = '')
@@ -273,10 +280,11 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * BIG5toGBK
+     * BIG5toGBK.
      *
-     * @param  string $srcText
-     * @param  string $SourceLang
+     * @param string $srcText
+     * @param string $SourceLang
+     *
      * @return mixed
      */
     protected function chsConvert($srcText, $SourceLang = 'GBK')
@@ -305,8 +313,7 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * 解析编码表
-     *
+     * 解析编码表.
      */
     private function _getTableIndex()
     {
@@ -325,9 +332,10 @@ class WindGeneralConverter extends WindModule implements IWindConverter
     }
 
     /**
-     * 获得编码类型
+     * 获得编码类型.
      *
-     * @param  string $lang
+     * @param string $lang
+     *
      * @return string
      */
     private function _getCharset($lang)

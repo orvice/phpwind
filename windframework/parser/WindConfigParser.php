@@ -2,7 +2,7 @@
 
 
 /**
- * 配置文件解析类
+ * 配置文件解析类.
  *
  * 配置文件格式允许有4中格式：xml, php, properties, ini
  *
@@ -11,8 +11,8 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindConfigParser.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package parser
  */
 class WindConfigParser implements IWindConfigParser
 {
@@ -44,7 +44,7 @@ class WindConfigParser implements IWindConfigParser
     }
 
     /**
-     * 设置配置缓存
+     * 设置配置缓存.
      *
      * $alias和$append的关系如下:
      * <ul>
@@ -69,11 +69,12 @@ class WindConfigParser implements IWindConfigParser
     }
 
     /**
-     * 返回配置缓存
+     * 返回配置缓存.
      *
-     * @param  string            $alias  配置保存用的名字
-     * @param  string            $append 配置追加的配置
-     * @param  AbstractWindCache $cache  配置保存的缓存介质
+     * @param string            $alias  配置保存用的名字
+     * @param string            $append 配置追加的配置
+     * @param AbstractWindCache $cache  配置保存的缓存介质
+     *
      * @return array
      */
     private function getCache($alias, $append, $cache)
@@ -90,9 +91,10 @@ class WindConfigParser implements IWindConfigParser
     }
 
     /**
-     * 创建配置文件解析器
+     * 创建配置文件解析器.
      *
-     * @param  string $type 配置文件的类型
+     * @param string $type 配置文件的类型
+     *
      * @return object 解析器
      */
     private function createParser($type)
@@ -100,14 +102,11 @@ class WindConfigParser implements IWindConfigParser
         switch ($type) {
             case self::CONFIG_XML:
 
-
                 return new WindXmlParser();
             case self::CONFIG_INI:
 
-
                 return new WindIniParser();
             case self::CONFIG_PROPERTIES:
-
 
                 return new WindPropertiesParser();
             default:

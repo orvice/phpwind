@@ -1,9 +1,8 @@
 <?php
 
 
-
 /**
- * 模板编译类
+ * 模板编译类.
  *
  * 职责：进行模板编译,该类接收一个需要编译的模板文件地址,获取该模板内容并进行编译处理然后返回该内容.
  * 组件配置信息,可以通过config标签实现标签扩展支持:<code>
@@ -26,17 +25,17 @@
  * <tag name='test' tag='test' pattern='<(test)[^<>\n]*(\/>|>[^<>]*<\/\1>)' compiler='TEST:TestTemplateCompiler' />
  * </support-tags>
  * </code>
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindViewTemplate.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package viewer
- * @subpackage compiler
  */
 class WindViewTemplate extends AbstractWindViewTemplate
 {
     /**
-     * match后的模块文件块
+     * match后的模块文件块.
      *
      * @var array
      */
@@ -74,11 +73,13 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 注册支持的标签并返回注册后的模板内容
+     * 注册支持的标签并返回注册后的模板内容.
      *
      * 解析模板内容,并将匹配到的标签内容块注册到相应的标签编译器中并初始化标签解析器处理链.
-     * @param  string             $content
-     * @param  WindViewerResolver $windViewerResolver
+     *
+     * @param string             $content
+     * @param WindViewerResolver $windViewerResolver
+     *
      * @return string
      */
     private function registerTags($content, $windViewerResolver = null)
@@ -105,8 +106,9 @@ class WindViewTemplate extends AbstractWindViewTemplate
      * @param string content 模板内容
      * @param string compiler 标签编译器
      * @param string regex 正则表达式
-     * @param  WindViewerResolver $windViewerResolver 默认为null
-     * @return string             返回处理后的模板内容
+     * @param WindViewerResolver $windViewerResolver 默认为null
+     *
+     * @return string 返回处理后的模板内容
      */
     private function creatTagCompiler($content, $compiler, $regex, $windViewerResolver = null)
     {
@@ -124,7 +126,7 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 返回当前解析器中所有注册进来的标签集合
+     * 返回当前解析器中所有注册进来的标签集合.
      *
      * @return array
      */
@@ -158,11 +160,12 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 创建tag编译解析的配置
+     * 创建tag编译解析的配置.
      *
-     * @param  string $tag     标签名称
-     * @param  string $class   编译器类新型
-     * @param  stirng $pattern 正则表达式,用于匹配标签 默认为空
+     * @param string $tag     标签名称
+     * @param string $class   编译器类新型
+     * @param stirng $pattern 正则表达式,用于匹配标签 默认为空
+     *
      * @return array
      */
     private function createTag($tag, $class, $pattern = '')
@@ -171,9 +174,10 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 将标签匹配到的模板内容设置到缓存中，并返回标识位设置到模板中进行内容占为
+     * 将标签匹配到的模板内容设置到缓存中，并返回标识位设置到模板中进行内容占为.
      *
-     * @param  string $content
+     * @param string $content
+     *
      * @return mixed
      */
     private function _creatTagCompiler($content)
@@ -193,9 +197,10 @@ class WindViewTemplate extends AbstractWindViewTemplate
      * 对模板块存储进行标签处理
      * 将Key串 'HhQWFLtU0LSA3nLPLHHXMtTP3EfMtN3FsxLOR1nfYC5OiZTQri' 处理为
      * <pw-wind key='HhQWFLtU0LSA3nLPLHHXMtTP3EfMtN3FsxLOR1nfYC5OiZTQri' />
-     * 在模板中进行位置标识
+     * 在模板中进行位置标识.
      *
-     * @param  string       $key 索引
+     * @param string $key 索引
+     *
      * @return string|mixed 处理后结果
      */
     private function getBlockTag($key)
@@ -204,7 +209,7 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 获得切分后块编译缓存Key值,Key值为一个50位的随机字符串,当产生重复串时继续查找
+     * 获得切分后块编译缓存Key值,Key值为一个50位的随机字符串,当产生重复串时继续查找.
      *
      * @return string
      */
@@ -219,9 +224,10 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 返回编译后结果，根据Key值检索编译后结果，并返回.当key值为空时返回全部数据
+     * 返回编译后结果，根据Key值检索编译后结果，并返回.当key值为空时返回全部数据.
      *
-     * @param  string       $key
+     * @param string $key
+     *
      * @return string|array
      */
     public function getCompiledBlockData($key = '')
@@ -234,7 +240,7 @@ class WindViewTemplate extends AbstractWindViewTemplate
     }
 
     /**
-     * 根据key值保存编译后的模板块
+     * 根据key值保存编译后的模板块.
      *
      * @param string $key               索引
      * @param string $compiledBlockData 编译结果

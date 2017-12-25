@@ -2,18 +2,18 @@
 
 
 /**
- * 表单文件上传
+ * 表单文件上传.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFormUpload.php 3228 2011-12-02 06:49:38Z yishuo $
- * @package upload
  */
 class WindFormUpload extends AbstractWindUpload
 {
     /**
-     * 初始化允许用户上传的类型
+     * 初始化允许用户上传的类型.
      *
      * @param array $allowType
      */

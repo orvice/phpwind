@@ -1,17 +1,17 @@
 <?php
 /**
- * 日期的换算与计算
+ * 日期的换算与计算.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindDate.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package utility
  */
 class WindDate
 {
     /**
-     * 获取时区
+     * 获取时区.
      *
      * @return string
      */
@@ -21,7 +21,7 @@ class WindDate
     }
 
     /**
-     * 设置时区
+     * 设置时区.
      *
      * @param string $timezone 时区
      */
@@ -31,10 +31,11 @@ class WindDate
     }
 
     /**
-     * 格式化输出
+     * 格式化输出.
      *
-     * @param  string $format   目标格式,默认为null则以Y-m-d H:i:s格式输出
-     * @param  int    $dateTime unix时间戳，默认为null则用当前时间
+     * @param string $format   目标格式,默认为null则以Y-m-d H:i:s格式输出
+     * @param int    $dateTime unix时间戳，默认为null则用当前时间
+     *
      * @return string
      */
     public static function format($format = null, $dateTime = null)
@@ -43,10 +44,11 @@ class WindDate
     }
 
     /**
-     * 获取日期的某部分
+     * 获取日期的某部分.
      *
-     * @param  string $interval 字符串表达式 ,时间间隔类型
-     * @param  mixed  $dateTime 表示日期的文字，默认为null则用当前时间
+     * @param string $interval 字符串表达式 ,时间间隔类型
+     * @param mixed  $dateTime 表示日期的文字，默认为null则用当前时间
+     *
      * @return string 返回日期的某部分
      */
     public static function datePart($interval, $dateTime = null)
@@ -55,11 +57,12 @@ class WindDate
     }
 
     /**
-     * 获取两个日期的差
+     * 获取两个日期的差.
      *
-     * @param  string $interval      返回两个日期差的间隔类型
-     * @param  mixed  $startDateTime 开始日期
-     * @param  mixed  $endDateTime   结束日期
+     * @param string $interval      返回两个日期差的间隔类型
+     * @param mixed  $startDateTime 开始日期
+     * @param mixed  $endDateTime   结束日期
+     *
      * @return string
      */
     public static function dateDiff($interval, $startDateTime, $endDateTime)
@@ -97,10 +100,11 @@ class WindDate
     /**
      * 返回向指定日期追加指定间隔类型的一段时间间隔后的日期
      *
-     * @param  string $interval 字符串表达式，是所要加上去的时间间隔类型。
-     * @param  int    $value    数值表达式，是要加上的时间间隔的数目。其数值可以为正数（得到未来的日期），也可以为负数（得到过去的日期）。
-     * @param  string $dateTime 表示日期的文字，这一日期还加上了时间间隔。
-     * @param  mixed  $format   格式化输出
+     * @param string $interval 字符串表达式，是所要加上去的时间间隔类型。
+     * @param int    $value    数值表达式，是要加上的时间间隔的数目。其数值可以为正数（得到未来的日期），也可以为负数（得到过去的日期）。
+     * @param string $dateTime 表示日期的文字，这一日期还加上了时间间隔。
+     * @param mixed  $format   格式化输出
+     *
      * @return string 返回追加后的时间
      */
     public static function dateAdd($interval, $value, $dateTime, $format = null)
@@ -138,10 +142,11 @@ class WindDate
     }
 
     /**
-     * 得到一年中每个月真实的天数
+     * 得到一年中每个月真实的天数.
      *
-     * @param  string $year 需要获得的月份天数的年份
-     * @return array  每月的天数组成的数组
+     * @param string $year 需要获得的月份天数的年份
+     *
+     * @return array 每月的天数组成的数组
      */
     public static function getRealDaysInMonthsOfYear($year)
     {
@@ -154,10 +159,11 @@ class WindDate
     }
 
     /**
-     * 获取该月的天数
+     * 获取该月的天数.
      *
-     * @param  int $month 月份
-     * @param  int $year  年份
+     * @param int $month 月份
+     * @param int $year  年份
+     *
      * @return int
      */
     public static function getDaysInMonth($month, $year)
@@ -173,7 +179,7 @@ class WindDate
     }
 
     /**
-     * 获取该年的天数
+     * 获取该年的天数.
      *
      * @return int
      */
@@ -183,9 +189,10 @@ class WindDate
     }
 
     /**
-     * 取得RFC格式的日期与时间
+     * 取得RFC格式的日期与时间.
      *
-     * @param  string $data 需要获取的时间,默认为null则获取当前时间
+     * @param string $data 需要获取的时间,默认为null则获取当前时间
+     *
      * @return string
      */
     public static function getRFCDate($date = null)
@@ -200,9 +207,10 @@ class WindDate
     }
 
     /**
-     * 取得中国日期时间
+     * 取得中国日期时间.
      *
-     * @param  int    $time 需要使用的时间戳,默认为null则获取当前时间戳
+     * @param int $time 需要使用的时间戳,默认为null则获取当前时间戳
+     *
      * @return string
      */
     public static function getChinaDate($time = null)
@@ -215,7 +223,8 @@ class WindDate
     /**
      * 取得中国的星期
      *
-     * @param  int    $week 处国人的星期，是一个数值，默认为null则使用当前时间
+     * @param int $week 处国人的星期，是一个数值，默认为null则使用当前时间
+     *
      * @return string
      */
     public static function getChinaWeek($week = null)
@@ -227,9 +236,10 @@ class WindDate
     }
 
     /**
-     * 取得一天中的时段
+     * 取得一天中的时段.
      *
-     * @param  int    $hour 小时，默认为null则获取当前时间
+     * @param int $hour 小时，默认为null则获取当前时间
+     *
      * @return string
      */
     public static function getPeriodOfTime($hour = null)
@@ -260,9 +270,10 @@ class WindDate
     }
 
     /**
-     * 获取UTC日期格式
+     * 获取UTC日期格式.
      *
-     * @param  mixed  $dateTime 时间，默认为null则获取当前时间
+     * @param mixed $dateTime 时间，默认为null则获取当前时间
+     *
      * @return string
      */
     public static function getUTCDate($dateTime = null)
@@ -280,10 +291,11 @@ class WindDate
     }
 
     /**
-     * 获取微秒数
+     * 获取微秒数.
      *
-     * @param  string $mircrotime   微妙时间，默认为null则获取当前时间
-     * @param  string $get_as_float 获取微妙时间是否以浮点数返回,默认为false即不以浮点数方式返回
+     * @param string $mircrotime   微妙时间，默认为null则获取当前时间
+     * @param string $get_as_float 获取微妙时间是否以浮点数返回,默认为false即不以浮点数方式返回
+     *
      * @return int
      */
     public static function getMicroTime($mircrotime = null, $get_as_float = false)
@@ -292,9 +304,10 @@ class WindDate
     }
 
     /**
-     * 判断是否是闰年
+     * 判断是否是闰年.
      *
-     * @param  int  $year 需要判断的年份
+     * @param int $year 需要判断的年份
+     *
      * @return bool 如果是润年则返回true
      */
     public static function isLeapYear($year)
@@ -303,9 +316,10 @@ class WindDate
     }
 
     /**
-     * 获得时间戳
+     * 获得时间戳.
      *
-     * @param  int $dateTime 时间戳,默认为null则以当前时间戳返回
+     * @param int $dateTime 时间戳,默认为null则以当前时间戳返回
+     *
      * @return int
      */
     public static function getTimeStamp($dateTime = null)
@@ -314,12 +328,13 @@ class WindDate
     }
 
     /**
-     * 比较两个时间返回离现在最近的一个时间
+     * 比较两个时间返回离现在最近的一个时间.
      *
-     * @param  int    $time      当前时间戳
-     * @param  int    $timestamp 比较的时间戳,默认为null则获取当前时间戳
-     * @param  string $format    格式化当前时间戳,默认为null则转化为格式Y-m-d H:i:s
-     * @param  array  $type      要返回的时间类型，默认为 1则只返回Y-m-d否则返回Y-m-d m-d H:i
+     * @param int    $time      当前时间戳
+     * @param int    $timestamp 比较的时间戳,默认为null则获取当前时间戳
+     * @param string $format    格式化当前时间戳,默认为null则转化为格式Y-m-d H:i:s
+     * @param array  $type      要返回的时间类型，默认为 1则只返回Y-m-d否则返回Y-m-d m-d H:i
+     *
      * @return array
      */
     public static function getLastDate($time, $timestamp = null, $format = null, $type = 1)

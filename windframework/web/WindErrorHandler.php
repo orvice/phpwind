@@ -7,13 +7,13 @@
  * <error-handler>WIND:core.web.WindErrorHandler</error-handler>
  * ...
  * </module>
- * </code>
+ * </code>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindErrorHandler.php 3861 2012-12-18 11:13:05Z yishuo $
- * @package web
  */
 class WindErrorHandler extends WindController
 {

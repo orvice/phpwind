@@ -1,16 +1,14 @@
 <?php
 
 
-
 /**
- * 将cookie作为对象操作
+ * 将cookie作为对象操作.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindNormalCookie.php 3583 2012-05-28 03:35:10Z yishuo $
- * @package http
- * @subpackage cookie
  */
 class WindNormalCookie extends WindModule implements IWindHttpContainer
 {
@@ -22,7 +20,7 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     protected $httponly = false;
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 根据传入的cookie数据初始化cookie数据
      *
@@ -44,9 +42,10 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 配置设置
+     * 配置设置.
      *
      * @param array|string $config
+     *
      * @see WindModule::setConfig()
      */
     public function setConfig($config)
@@ -61,11 +60,12 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 设置cookie
+     * 设置cookie.
      *
-     * @param  string   $name
-     * @param  mixed    $value
-     * @param  int|null $expires 过期时间
+     * @param string   $name
+     * @param mixed    $value
+     * @param int|null $expires 过期时间
+     *
      * @return bool
      */
     public function set($name, $value, $expires = null)
@@ -91,8 +91,10 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     /**
      * 移除cookie值
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return bool
+     *
      * @see IWindHttpContainer::delete()
      */
     public function delete($name)
@@ -123,7 +125,7 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 判断cookie值是否存在
+     * 判断cookie值是否存在.
      *
      * @param string $name
      */
@@ -145,7 +147,7 @@ class WindNormalCookie extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 获取cookie的路径
+     * 获取cookie的路径.
      *
      * @return string 获得cookie保存路径
      */

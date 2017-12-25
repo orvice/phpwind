@@ -1,6 +1,6 @@
 <?php
 /**
- * 拦截器基类
+ * 拦截器基类.
  *
  * 该类是拦截器机制的核心实现，提供接口:
  * <ul>
@@ -11,23 +11,24 @@
  * 该拦截器需要配合拦截链WindHandlerInterceptorChain实现真正的拦截链.
  *
  * the last known user to change this file in the repository  <$LastChangedBy: yishuo $>
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindHandlerInterceptor.php 3107 2011-11-11 03:40:09Z yishuo $
- * @package filter
  */
 abstract class WindEnhancedListener extends WindModule
 {
     protected $targetObject = null;
     /**
-     * 保存执行的结果
+     * 保存执行的结果.
      *
      * @var mixed
      */
     protected $result = null;
     /**
-     * 保存拦截链
+     * 保存拦截链.
      *
      * 用以传递控制到下一个拦截器
      *
@@ -36,9 +37,10 @@ abstract class WindEnhancedListener extends WindModule
     protected $interceptorChain = null;
 
     /**
-     * 拦截器的执行入口
+     * 拦截器的执行入口.
      *
-     * @param  mixed $var=.. 该接口接受任意参数,并将依次传递给拦截器的前置和后置操作
+     * @param mixed $var=.. 该接口接受任意参数,并将依次传递给拦截器的前置和后置操作
+     *
      * @return mixed 返回拦截链执行的最终结果
      */
     public function handle($event, $targetObject = null)

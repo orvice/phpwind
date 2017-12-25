@@ -2,14 +2,13 @@
 
 
 /**
- * DB层的缓存监听类
+ * DB层的缓存监听类.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindDaoCacheListener.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package dao
- * @subpackage listener
  */
 class WindDaoCacheListener extends WindHandlerInterceptor
 {
@@ -21,7 +20,7 @@ class WindDaoCacheListener extends WindHandlerInterceptor
     private $daoObject = null;
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 设置需要监听的dao实例对象
      *
@@ -59,7 +58,8 @@ class WindDaoCacheListener extends WindHandlerInterceptor
     /**
      * 返回缓存键值
      *
-     * @param  array  $args 被监听方法的传递参数
+     * @param array $args 被监听方法的传递参数
+     *
      * @return string 计算生成保存的缓存键值
      */
     private function generateKey($args)

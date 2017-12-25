@@ -2,13 +2,13 @@
 
 
 /**
- * 文件夹工具类
+ * 文件夹工具类.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-12-2
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFolder.php 3772 2012-10-19 08:58:57Z yishuo $
- * @package utility
  */
 class WindFolder
 {
@@ -17,10 +17,11 @@ class WindFolder
     const READ_DIR = '2';
 
     /**
-     * 获取文件列表
+     * 获取文件列表.
      *
-     * @param  string $dir
-     * @param  bool   $mode 只读取文件列表,不包含文件夹
+     * @param string $dir
+     * @param bool   $mode 只读取文件列表,不包含文件夹
+     *
      * @return array
      */
     public static function read($dir, $mode = self::READ_ALL)
@@ -51,10 +52,11 @@ class WindFolder
     }
 
     /**
-     * 删除目录
+     * 删除目录.
      *
-     * @param  string $dir
-     * @param  bool   $f   是否强制删除
+     * @param string $dir
+     * @param bool   $f   是否强制删除
+     *
      * @return bool
      */
     public static function rm($dir, $f = false)
@@ -63,10 +65,11 @@ class WindFolder
     }
 
     /**
-     * 删除指定目录下的文件
+     * 删除指定目录下的文件.
      *
-     * @param  string $dir       目录
-     * @param  bool   $delFolder 是否删除目录
+     * @param string $dir       目录
+     * @param bool   $delFolder 是否删除目录
+     *
      * @return bool
      */
     public static function clear($dir, $delFolder = false)
@@ -93,10 +96,10 @@ class WindFolder
     }
 
     /**
-     * 递归的删除目录
+     * 递归的删除目录.
      *
-     * @param string  $dir       目录
-     * @param Boolean $delFolder 是否删除目录
+     * @param string $dir       目录
+     * @param bool   $delFolder 是否删除目录
      */
     public static function clearRecur($dir, $delFolder = false)
     {
@@ -124,9 +127,10 @@ class WindFolder
     }
 
     /**
-     * 判断输入是否为目录
+     * 判断输入是否为目录.
      *
-     * @param  string $dir
+     * @param string $dir
+     *
      * @return bool
      */
     public static function isDir($dir)
@@ -135,9 +139,10 @@ class WindFolder
     }
 
     /**
-     * 取得目录信息
+     * 取得目录信息.
      *
-     * @param  string $dir 目录路径
+     * @param string $dir 目录路径
+     *
      * @return array
      */
     public static function getInfo($dir)
@@ -146,10 +151,11 @@ class WindFolder
     }
 
     /**
-     * 创建目录
+     * 创建目录.
      *
-     * @param  string $path        目录路径
-     * @param  int    $permissions 权限
+     * @param string $path        目录路径
+     * @param int    $permissions 权限
+     *
      * @return bool
      */
     public static function mk($path, $permissions = 0777)
@@ -158,10 +164,11 @@ class WindFolder
     }
 
     /**
-     * 递归的创建目录
+     * 递归的创建目录.
      *
-     * @param  string $path        目录路径
-     * @param  int    $permissions 权限
+     * @param string $path        目录路径
+     * @param int    $permissions 权限
+     *
      * @return bool
      */
     public static function mkRecur($path, $permissions = 0777)

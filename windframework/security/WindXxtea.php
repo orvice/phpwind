@@ -2,13 +2,13 @@
 
 
 /**
- * 基于xxtea加密算法实现
+ * 基于xxtea加密算法实现.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-12-2
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package security
  */
 class WindXxtea implements IWindSecurity
 {
@@ -101,10 +101,11 @@ class WindXxtea implements IWindSecurity
     }
 
     /**
-     * 长整型转换为字符串
+     * 长整型转换为字符串.
      *
-     * @param  long   $v
-     * @param  bool   $w
+     * @param long $v
+     * @param bool $w
+     *
      * @return string
      */
     private function long2str($v, $w)
@@ -119,10 +120,11 @@ class WindXxtea implements IWindSecurity
     }
 
     /**
-     * 字符串转化为长整型
+     * 字符串转化为长整型.
      *
-     * @param  string   $s
-     * @param  bool     $w
+     * @param string $s
+     * @param bool   $w
+     *
      * @return Ambigous <multitype:, number>
      */
     private function str2long($s, $w)
@@ -137,7 +139,8 @@ class WindXxtea implements IWindSecurity
     }
 
     /**
-     * @param  int    $n
+     * @param int $n
+     *
      * @return number
      */
     private function int32($n)

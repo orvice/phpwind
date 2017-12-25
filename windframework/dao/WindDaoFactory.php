@@ -8,18 +8,18 @@
  * <li>创建DAO实例</li>
  * <li>创建数据访问连接对象</li>
  * </ul>
- * <note><b>注意: </b>数据库链接会访问名为<i>db</i>的数据库组件配置</note>
+ * <note><b>注意: </b>数据库链接会访问名为<i>db</i>的数据库组件配置</note>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindDaoFactory.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package dao
  */
 class WindDaoFactory extends WindModule
 {
     /**
-     * dao路径信息
+     * dao路径信息.
      *
      * @var string
      */
@@ -31,12 +31,14 @@ class WindDaoFactory extends WindModule
      * <ul>
      * <li>'namespace:path'</li>
      * <li>'className'</li>
-     * </ul>
+     * </ul>.
      *
-     * @param  string           $className
-     *                                     Dao名字
-     * @return WindDao
+     * @param string $className
+     *                          Dao名字
+     *
      * @throws WindDaoException 如果获取实例错误抛出异常
+     *
+     * @return WindDao
      */
     public function getDao($className)
     {
@@ -55,7 +57,7 @@ class WindDaoFactory extends WindModule
     }
 
     /**
-     * 获得dao存放的目录
+     * 获得dao存放的目录.
      *
      * @return string $daoResource Dao目录
      */

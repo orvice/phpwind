@@ -2,13 +2,13 @@
 
 
 /**
- * xml文件解析
+ * xml文件解析.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindXmlParser.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package parser
  */
 class WindXmlParser
 {
@@ -23,7 +23,7 @@ class WindXmlParser
     private $dom = null;
 
     /**
-     * 初始化xml解析器
+     * 初始化xml解析器.
      *
      * @param string $version xml版本
      * @param string $encode  xml编码
@@ -37,10 +37,11 @@ class WindXmlParser
     }
 
     /**
-     * 解析xml文件
+     * 解析xml文件.
      *
-     * @param  string $filename 待解析文件名
-     * @param  int    $option   解析选项,默认为0
+     * @param string $filename 待解析文件名
+     * @param int    $option   解析选项,默认为0
+     *
      * @return array
      */
     public function parse($filename, $option = 0)
@@ -54,10 +55,11 @@ class WindXmlParser
     }
 
     /**
-     * 将数据内容解析成数组格式
+     * 将数据内容解析成数组格式.
      *
-     * @param  string $stream 数据内容
-     * @param  int    $option 解析选项,默认为0
+     * @param string $stream 数据内容
+     * @param int    $option 解析选项,默认为0
+     *
      * @return array
      */
     public function parseXmlStream($stream, $option = 0)
@@ -71,15 +73,16 @@ class WindXmlParser
     }
 
     /**
-     * 将数据转换成xml格式
+     * 将数据转换成xml格式.
      *
      * <code>
      * 数组中key为数值型时，则转为<item id=key>value</item>
      * 普通string或其他基本类型，则转为<item>string</item>
      * </code>
      *
-     * @param  mixed  $source  待转换的数据
-     * @param  string $charset 待转换数据的编码
+     * @param mixed  $source  待转换的数据
+     * @param string $charset 待转换数据的编码
+     *
      * @return string
      */
     public function parseToXml($source, $charset = 'utf8')
@@ -104,14 +107,15 @@ class WindXmlParser
     }
 
     /**
-     * 获得节点的所有子节点
+     * 获得节点的所有子节点.
      *
      * 子节点包括属性和子节点（及文本节点),
      * 子节点的属性将会根据作为该节点的一个属性元素存放，如果该子节点中含有标签列表，则会进行一次合并。
      * 每个被合并的列表项都作为一个单独的数组元素存在。
      *
-     * @param  DOMElement $node 要解析的XMLDOM节点
-     * @return array      返回解析后该节点的数组
+     * @param DOMElement $node 要解析的XMLDOM节点
+     *
+     * @return array 返回解析后该节点的数组
      */
     public function getChilds($node)
     {
@@ -156,12 +160,13 @@ class WindXmlParser
     }
 
     /**
-     * 获得节点的属性
+     * 获得节点的属性.
      *
      * 该属性将不包含属性为name的值--规则（name的值将作为解析后数组的key值索引存在）
      *
-     * @param  DOMElement $node 节点
-     * @return array      返回属性数组
+     * @param DOMElement $node 节点
+     *
+     * @return array 返回属性数组
      */
     public function getAttributes($node)
     {
@@ -181,11 +186,12 @@ class WindXmlParser
     }
 
     /**
-     * 将一个数组转换为xml
+     * 将一个数组转换为xml.
      *
-     * @param  array       $arr     待转换的数组
-     * @param  string      $charset 编码
-     * @param  DOMDocument $dom     根节点
+     * @param array       $arr     待转换的数组
+     * @param string      $charset 编码
+     * @param DOMDocument $dom     根节点
+     *
      * @return DOMDocument
      */
     protected function arrayToXml($arr, $charset, $dom = null)

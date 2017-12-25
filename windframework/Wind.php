@@ -13,10 +13,10 @@ define('WIND_PATH', dirname(__FILE__));
  */
 !defined('WIND_DEBUG') && define('WIND_DEBUG', 0);
 /**
- *
  * @author Qiong Wu <papa0924@gmail.com> 2011-10-9
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: Wind.php 3904 2013-01-08 07:01:26Z yishuo $
  */
 class Wind
@@ -30,16 +30,16 @@ class Wind
     private static $_includePaths = array();
 
     /**
-     *
      * @var AbstractWindFrontController
      */
     private static $_front = null;
 
     /**
-     * command line mode application 应用入口
+     * command line mode application 应用入口.
      *
-     * @param  string                     $appName
-     * @param  string|array               $config
+     * @param string       $appName
+     * @param string|array $config
+     *
      * @return WindCommandFrontController
      */
     public static function commandApplication($appName = '', $config = array())
@@ -52,10 +52,11 @@ class Wind
     }
 
     /**
-     * Web Application应用入口
+     * Web Application应用入口.
      *
-     * @param  string             $appName
-     * @param  string|array       $config
+     * @param string       $appName
+     * @param string|array $config
+     *
      * @return WindWebApplication
      */
     public static function application($appName = '', $config = array())
@@ -68,12 +69,13 @@ class Wind
     }
 
     /**
-     * 获取系统组建
+     * 获取系统组建.
      *
-     * @param  string   $alias
-     * @param  array    $args
+     * @param string $alias
+     * @param array  $args
+     *
      * @return Ambigous <NULL, multitype:, WindClassProxy, WindModule, unknown,
-     *                        mixed>
+     *                  mixed>
      */
     public static function getComponent($alias, $args = array())
     {
@@ -89,11 +91,12 @@ class Wind
      * 定义方式注册:
      * Wind::registeComponent(array('path' =>
      * 'WIND:convert.WindGeneralConverter', 'scope' => 'singleton'),
-     * 'windConverter');</code>
+     * 'windConverter');</code>.
      *
-     * @param  object|array $componentInstance
-     * @param  string       $componentName
-     * @param  string       $scope
+     * @param object|array $componentInstance
+     * @param string       $componentName
+     * @param string       $scope
+     *
      * @return bool
      */
     public static function registeComponent($componentInstance, $componentName, $scope = 'application')
@@ -111,8 +114,8 @@ class Wind
     }
 
     /**
-     *
      * @see WindFrontController::getAppName()
+     *
      * @return string
      */
     public static function getAppName()
@@ -121,10 +124,12 @@ class Wind
     }
 
     /**
-     * 返回当前的app应用
+     * 返回当前的app应用.
      *
      * @param string $appName
+     *
      * @see WindFrontController::getApp()
+     *
      * @return WindWebApplication
      */
     public static function getApp()
@@ -140,10 +145,11 @@ class Wind
      * base.WFrontController 相对的路径信息
      * 如果不填写应用名称 ，例如‘base.WFrontController’，那么加载路径则相对于默认的应用路径
      * 加载一个类的参数方式：'WIND:base.WFrontController'
-     * 加载一个包的参数方式：'WIND:base.*'
+     * 加载一个包的参数方式：'WIND:base.*'.
      *
-     * @param  string $filePath
-     *                          | 文件路径信息 或者className
+     * @param string $filePath
+     *                         | 文件路径信息 或者className
+     *
      * @return string null
      */
     public static function import($filePath)
@@ -174,16 +180,17 @@ class Wind
     }
 
     /**
-     * 将路径信息注册到命名空间,该方法不会覆盖已经定义过的命名空间
+     * 将路径信息注册到命名空间,该方法不会覆盖已经定义过的命名空间.
      *
-     * @param  string    $path
-     *                                需要注册的路径
-     * @param  string    $name
-     *                                路径别名
-     * @param  bool      $includePath
-     *                                | 是否同时定义includePath
-     * @param  bool      $reset
-     *                                | 是否覆盖已经存在的定义，默认false
+     * @param string $path
+     *                            需要注册的路径
+     * @param string $name
+     *                            路径别名
+     * @param bool   $includePath
+     *                            | 是否同时定义includePath
+     * @param bool   $reset
+     *                            | 是否覆盖已经存在的定义，默认false
+     *
      * @throws Exception
      */
     public static function register($path, $alias = '', $includePath = false, $reset = false)
@@ -215,9 +222,10 @@ class Wind
     }
 
     /**
-     * 返回命名空间的路径信息
+     * 返回命名空间的路径信息.
      *
-     * @param  string $namespace
+     * @param string $namespace
+     *
      * @return string Ambigous multitype:>
      */
     public static function getRootPath($namespace)
@@ -228,7 +236,7 @@ class Wind
     }
 
     /**
-     * 类文件自动加载方法 callback
+     * 类文件自动加载方法 callback.
      *
      * @param string $className
      * @param string $path
@@ -249,12 +257,13 @@ class Wind
     }
 
     /**
-     * 解析路径信息，并返回路径的详情
+     * 解析路径信息，并返回路径的详情.
      *
-     * @param  string $filePath
-     *                          路径信息
-     * @param  bool   $suffix
-     *                          是否存在文件后缀true，false，default
+     * @param string $filePath
+     *                         路径信息
+     * @param bool   $suffix
+     *                         是否存在文件后缀true，false，default
+     *
      * @return string array('isPackage','fileName','extension','realPath')
      */
     public static function getRealPath($filePath, $suffix = '', $absolut = false)
@@ -284,12 +293,13 @@ class Wind
     }
 
     /**
-     * 解析路径信息，并返回路径的详情
+     * 解析路径信息，并返回路径的详情.
      *
-     * @param  string $filePath
-     *                          路径信息
-     * @param  bool   $absolut
-     *                          是否返回绝对路径
+     * @param string $filePath
+     *                         路径信息
+     * @param bool   $absolut
+     *                         是否返回绝对路径
+     *
      * @return string array('isPackage','fileName','extension','realPath')
      */
     public static function getRealDir($dirPath, $absolut = false)
@@ -305,7 +315,7 @@ class Wind
     }
 
     /**
-     * 初始化框架
+     * 初始化框架.
      */
     public static function init()
     {
@@ -323,11 +333,13 @@ class Wind
     }
 
     /**
-     * 日志记录
+     * 日志记录.
      *
      * 调用WindLogger组建进行日志记录
-     * @param  string            $message
-     * @param  string            $logType
+     *
+     * @param string $message
+     * @param string $logType
+     *
      * @throws WindMailException
      */
     public static function log($message, $logType = 'wind.core')
@@ -338,12 +350,11 @@ class Wind
                 $message = "\r\n".$traces[0]['file'].' ('.$traces[0]['line'].') ['.
                     $traces[1]['class'].'::'.$traces[1]['function']."]\r\n".$message;
             }
-            Wind::getComponent('windLogger')->info($message, $logType);
+            self::getComponent('windLogger')->info($message, $logType);
         }
     }
 
     /**
-     *
      * @param string $className
      * @param string $classPath
      */

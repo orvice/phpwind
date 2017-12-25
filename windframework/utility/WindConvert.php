@@ -7,27 +7,28 @@
  * 2. utf8转化为utf16be
  * 3. utf8转化为unicode
  * 4. unicode转化为utf8
- * </code>
+ * </code>.
  *
  * @author Qiong Wu <papa0924@gmail.com> 2011-10-19
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindConvert.php 3829 2012-11-19 11:13:22Z yishuo $
- * @package utility
  */
 class WindConvert
 {
     /**
-     * 编码转换
+     * 编码转换.
      *
-     * @param  string $str
-     *                              内容字符串
-     * @param  string $toEncoding
-     *                              转为新编码
-     * @param  string $fromEncoding
-     *                              原编码
-     * @param  bool   $ifMb
-     *                              是否使用mb函数
+     * @param string $str
+     *                             内容字符串
+     * @param string $toEncoding
+     *                             转为新编码
+     * @param string $fromEncoding
+     *                             原编码
+     * @param bool   $ifMb
+     *                             是否使用mb函数
+     *
      * @return string
      */
     public static function convert($str, $toEncoding, $fromEncoding, $ifMb = true)
@@ -95,7 +96,8 @@ class WindConvert
     /**
      * utf16be编码转化为utf8编码
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return string
      */
     public static function utf16beToUTF8($str)
@@ -104,7 +106,7 @@ class WindConvert
     }
 
     /**
-     * utf8编码转为utf16BE
+     * utf8编码转为utf16BE.
      *
      * @param string $string
      * @param bool   $bom
@@ -127,7 +129,8 @@ class WindConvert
     /**
      * unicode编码转化为utf8编码
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return string
      */
     public static function unicodeToUTF8($str)
@@ -150,9 +153,10 @@ class WindConvert
     }
 
     /**
-     * utf8编码转化为unicode
+     * utf8编码转化为unicode.
      *
-     * @param  string   $string
+     * @param string $string
+     *
      * @return Ambigous <multitype:, number>
      */
     public static function utf8ToUnicode($string)
@@ -182,7 +186,8 @@ class WindConvert
     /**
      * 获取输入编码
      *
-     * @param  string $lang
+     * @param string $lang
+     *
      * @return string
      */
     private static function _getCharset($lang)
@@ -208,9 +213,10 @@ class WindConvert
     }
 
     /**
-     * iconv 是否开启
+     * iconv 是否开启.
      *
-     * @param  目标编码 $targeLang
+     * @param 目标编码 $targeLang
+     *
      * @return bool
      */
     private static function _isIconv($targeLang)

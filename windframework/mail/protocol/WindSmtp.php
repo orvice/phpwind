@@ -2,14 +2,13 @@
 
 
 /**
- * 邮件传输协议操作
+ * 邮件传输协议操作.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSmtp.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
- * @subpackage protocol
  */
 class WindSmtp
 {
@@ -30,7 +29,8 @@ class WindSmtp
     }
 
     /**
-     * 打开smtp服务器,建立连接
+     * 打开smtp服务器,建立连接.
+     *
      * @return string
      */
     public function open()
@@ -41,8 +41,10 @@ class WindSmtp
     }
 
     /**
-     * 向服务器标识用户身份
-     * @param  string $host 身份
+     * 向服务器标识用户身份.
+     *
+     * @param string $host 身份
+     *
      * @return string
      */
     public function ehlo($host)
@@ -54,8 +56,10 @@ class WindSmtp
 
     /**
      * 进行用户身份认证
-     * @param  string $username 用户名
-     * @param  string $password 密码
+     *
+     * @param string $username 用户名
+     * @param string $password 密码
+     *
      * @return string
      */
     public function authLogin($username, $password)
@@ -71,7 +75,9 @@ class WindSmtp
 
     /**
      * 指定的地址是发件人地址
-     * @param  string $from 邮件发送者
+     *
+     * @param string $from 邮件发送者
+     *
      * @return string
      */
     public function mailFrom($from)
@@ -83,7 +89,9 @@ class WindSmtp
 
     /**
      * 指定的地址是收件人地址
-     * @param  string $to 邮件发送者
+     *
+     * @param string $to 邮件发送者
+     *
      * @return string
      */
     public function rcptTo($to)
@@ -94,8 +102,10 @@ class WindSmtp
     }
 
     /**
-     * 用于验证指定的用户/邮箱是否存在；由于安全方面的原因，服务器常禁止此命令
-     * @param  string $user
+     * 用于验证指定的用户/邮箱是否存在；由于安全方面的原因，服务器常禁止此命令.
+     *
+     * @param string $user
+     *
      * @return string
      */
     public function very($user)
@@ -106,8 +116,10 @@ class WindSmtp
     }
 
     /**
-     * 验证给定的邮箱列表是否存在，扩充邮箱列表，也常被禁用
-     * @param  string $name
+     * 验证给定的邮箱列表是否存在，扩充邮箱列表，也常被禁用.
+     *
+     * @param string $name
+     *
      * @return string
      */
     public function expn($name)
@@ -123,7 +135,8 @@ class WindSmtp
     }
 
     /**
-     * 无操作，服务器应响应 OK
+     * 无操作，服务器应响应 OK.
+     *
      * @return string
      */
     public function noop()
@@ -135,7 +148,9 @@ class WindSmtp
 
     /**
      * 在单个或多个 RCPT 命令后，表示所有的邮件接收人已标识，并初始化数据传输，以 CRLF.CRLF 结束
-     * @param  string $data 发送的数据
+     *
+     * @param string $data 发送的数据
+     *
      * @return string
      */
     public function data($data)
@@ -157,7 +172,8 @@ class WindSmtp
     }
 
     /**
-     * 重置会话，当前传输被取消
+     * 重置会话，当前传输被取消.
+     *
      * @return string
      */
     public function rset()
@@ -168,7 +184,8 @@ class WindSmtp
     }
 
     /**
-     * 结束会话
+     * 结束会话.
+     *
      * @return string
      */
     public function quit()
@@ -179,7 +196,7 @@ class WindSmtp
     }
 
     /**
-     * 关闭smtp服务器
+     * 关闭smtp服务器.
      */
     public function close()
     {
@@ -189,6 +206,7 @@ class WindSmtp
 
     /**
      * smtp响应请求
+     *
      * @param int $timeout
      */
     public function responseLine($timeout = null)
@@ -201,7 +219,8 @@ class WindSmtp
     }
 
     /**
-     * 发送smtp命令
+     * 发送smtp命令.
+     *
      * @param string $request
      */
     public function request($request)
@@ -213,8 +232,10 @@ class WindSmtp
 
     /**
      * 验证请求
-     * @param  string $expect
-     * @param  int    $timeout
+     *
+     * @param string $expect
+     * @param int    $timeout
+     *
      * @return string
      */
     public function checkResponse($expect, $timeout = null)

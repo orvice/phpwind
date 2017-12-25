@@ -2,57 +2,58 @@
 
 
 /**
- * 文件工具类
+ * 文件工具类.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFile.php 3298 2012-01-06 12:48:26Z yishuo $
- * @package utility
  */
 class WindFile
 {
     /**
-     * 以读的方式打开文件，具有较强的平台移植性
+     * 以读的方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const READ = 'rb';
     /**
-     * 以读写的方式打开文件，具有较强的平台移植性
+     * 以读写的方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const READWRITE = 'rb+';
     /**
-     * 以写的方式打开文件，具有较强的平台移植性
+     * 以写的方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const WRITE = 'wb';
     /**
-     * 以读写的方式打开文件，具有较强的平台移植性
+     * 以读写的方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const WRITEREAD = 'wb+';
     /**
-     * 以追加写入方式打开文件，具有较强的平台移植性
+     * 以追加写入方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const APPEND_WRITE = 'ab';
     /**
-     * 以追加读写入方式打开文件，具有较强的平台移植性
+     * 以追加读写入方式打开文件，具有较强的平台移植性.
      *
      * @var string
      */
     const APPEND_WRITEREAD = 'ab+';
 
     /**
-     * 删除文件
+     * 删除文件.
      *
-     * @param  string $filename 文件名称
+     * @param string $filename 文件名称
+     *
      * @return bool
      */
     public static function del($filename)
@@ -61,7 +62,7 @@ class WindFile
     }
 
     /**
-     * 保存文件
+     * 保存文件.
      *
      * @param string $fileName      保存的文件名
      * @param mixed  $data          保存的数据
@@ -89,15 +90,16 @@ class WindFile
     }
 
     /**
-     * 写文件
+     * 写文件.
      *
-     * @param  string $fileName    文件绝对路径
-     * @param  string $data        数据
-     * @param  string $method      读写模式,默认模式为rb+
-     * @param  bool   $ifLock      是否锁文件，默认为true即加锁
-     * @param  bool   $ifCheckPath 是否检查文件名中的“..”，默认为true即检查
-     * @param  bool   $ifChmod     是否将文件属性改为可读写,默认为true
-     * @return int    返回写入的字节数
+     * @param string $fileName    文件绝对路径
+     * @param string $data        数据
+     * @param string $method      读写模式,默认模式为rb+
+     * @param bool   $ifLock      是否锁文件，默认为true即加锁
+     * @param bool   $ifCheckPath 是否检查文件名中的“..”，默认为true即检查
+     * @param bool   $ifChmod     是否将文件属性改为可读写,默认为true
+     *
+     * @return int 返回写入的字节数
      */
     public static function write($fileName, $data, $method = self::READWRITE, $ifLock = true, $ifCheckPath = true, $ifChmod = true)
     {
@@ -115,10 +117,11 @@ class WindFile
     }
 
     /**
-     * 读取文件
+     * 读取文件.
      *
-     * @param  string $fileName 文件绝对路径
-     * @param  string $method   读取模式默认模式为rb
+     * @param string $fileName 文件绝对路径
+     * @param string $method   读取模式默认模式为rb
+     *
      * @return string 从文件中读取的数据
      */
     public static function read($fileName, $method = self::READ)
@@ -136,7 +139,8 @@ class WindFile
     }
 
     /**
-     * @param  string $fileName
+     * @param string $fileName
+     *
      * @return bool
      */
     public static function isFile($fileName)
@@ -145,10 +149,11 @@ class WindFile
     }
 
     /**
-     * 取得文件信息
+     * 取得文件信息.
      *
-     * @param  string $fileName 文件名字
-     * @return array  文件信息
+     * @param string $fileName 文件名字
+     *
+     * @return array 文件信息
      */
     public static function getInfo($fileName)
     {
@@ -158,7 +163,8 @@ class WindFile
     /**
      * 取得文件后缀
      *
-     * @param  string $filename 文件名称
+     * @param string $filename 文件名称
+     *
      * @return string
      */
     public static function getSuffix($filename)

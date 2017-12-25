@@ -5,14 +5,13 @@
  * 输出翻译后的语言信息
  * <code>
  * <lang message = '' args = 'array()'/>
- * </code>
+ * </code>.
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerLang.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerLang extends AbstractWindTemplateCompiler
 {

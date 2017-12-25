@@ -3,38 +3,38 @@
  * 拦截链基类
  * 该类是拦截链核心实现,在创建拦截链的时候往拦截链中添加拦截器实现拦截链的相关操作.
  * the last known user to change this file in the repository <$LastChangedBy:
- * yishuo $>
+ * yishuo $>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindHandlerInterceptorChain.php 3776 2012-10-23 09:30:30Z
  *          yishuo $
- * @package filter
  */
 class WindHandlerInterceptorChain extends WindModule
 {
     /**
-     * 拦截器
+     * 拦截器.
      *
      * @var array
      */
     protected $_interceptors = array('_Na' => null);
     /**
-     * 设置拦截链的回调函数
+     * 设置拦截链的回调函数.
      *
      * @var string array
      */
     protected $_callBack = null;
     /**
-     * 拦截链回调函数的参数
+     * 拦截链回调函数的参数.
      *
      * @var array
      */
     protected $_args = array();
 
     /**
-     * 设置回调方法
+     * 设置回调方法.
      *
      * @param string|array $callBack
      *                               回调方法,可以是字符串: 函数；也可以是数组: 类中的方法
@@ -48,10 +48,11 @@ class WindHandlerInterceptorChain extends WindModule
     }
 
     /**
-     * 执行callback方法
+     * 执行callback方法.
      *
-     * @return mixed         $var=.. 如果callBack没有被设置则返回null,否则返回回调函数的结果
      * @throws WindException 如果回调函数调用失败则抛出异常
+     *
+     * @return mixed $var=.. 如果callBack没有被设置则返回null,否则返回回调函数的结果
      */
     public function handle()
     {
@@ -69,7 +70,7 @@ class WindHandlerInterceptorChain extends WindModule
     }
 
     /**
-     * 返回拦截链中的下一个拦截器
+     * 返回拦截链中的下一个拦截器.
      *
      * @return WindHandlerInterceptor
      */
@@ -95,7 +96,7 @@ class WindHandlerInterceptorChain extends WindModule
 
     /**
      * 添加拦截连中的拦截器对象
-     * 支持数组和对象两种类型，如果是数组则进行array_merge操作，如果不是数组则直接进行追加操作
+     * 支持数组和对象两种类型，如果是数组则进行array_merge操作，如果不是数组则直接进行追加操作.
      *
      * @param array|WindHandlerInterceptor $interceptors
      *                                                   拦截器数组或是单个拦截器
@@ -110,7 +111,7 @@ class WindHandlerInterceptorChain extends WindModule
     }
 
     /**
-     * 重置拦截链初始化信息
+     * 重置拦截链初始化信息.
      *
      * @return bool
      */

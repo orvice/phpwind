@@ -2,14 +2,13 @@
 
 
 /**
- * imap协议封装
+ * imap协议封装.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindImap.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
- * @subpackage protocol
  */
 class WindImap
 {
@@ -359,7 +358,8 @@ class WindImap
     }
 
     /**
-     * 打开一个imap连接
+     * 打开一个imap连接.
+     *
      * @return string
      */
     public function open()
@@ -370,9 +370,11 @@ class WindImap
     }
 
     /**
-     * 登陆
-     * @param  string $username
-     * @param  string $password
+     * 登陆.
+     *
+     * @param string $username
+     * @param string $password
+     *
      * @return string
      */
     public function login($username, $password)
@@ -382,6 +384,7 @@ class WindImap
 
     /**
      * 创建指定名字的新邮箱。邮箱名称通常是带路径的文件夹全名。
+     *
      * @param string $folder;
      * @param string
      */
@@ -393,7 +396,9 @@ class WindImap
     /**
      * 除指定名字的文件夹。文件夹名字通常是带路径的文件夹全名，
      * 当邮箱被删除后，其中的邮件也不复存在。
-     * @param  string $folder
+     *
+     * @param string $folder
+     *
      * @return string
      */
     public function delete($folder)
@@ -404,8 +409,10 @@ class WindImap
     /**
      * RENAME命令可以修改文件夹的名称，它使用两个参数：当前邮箱名和新邮箱名，
      * 两个参数的命名符合标准路径命名规则。
-     * @param  string $old 当前邮箱名
-     * @param  string $new 新邮箱名，
+     *
+     * @param string $old 当前邮箱名
+     * @param string $new 新邮箱名，
+     *
      * @return string
      */
     public function rename($old, $new)
@@ -414,9 +421,11 @@ class WindImap
     }
 
     /**
-     * LIST命令用于列出邮箱中已有的文件夹，有点像操作系统的列目录命令
-     * @param  string $base     用户登陆目录
-     * @param  string $template 显示的邮箱名。可以使用通配符"*"。
+     * LIST命令用于列出邮箱中已有的文件夹，有点像操作系统的列目录命令.
+     *
+     * @param string $base     用户登陆目录
+     * @param string $template 显示的邮箱名。可以使用通配符"*"。
+     *
      * @return string
      */
     public function folderOfmail($base = '', $template = '*')
@@ -427,6 +436,7 @@ class WindImap
     /**
      * 选定某个邮箱（Folder），表示即将对该邮箱（Folder）内的邮件作操作。
      * 邮箱标志的当前状态也返回给了用户，同时返回的还有一些关于邮件和邮箱的附加信息。
+     *
      * @param string $folder
      */
     public function select($folder)
@@ -436,6 +446,7 @@ class WindImap
 
     /**
      * 读取邮件的文本信息，且仅用于显示的目的。
+     *
      * @param int|string $mail      希望读取的邮件号或者邮冒号分隔的区段
      * @param string     $datanames
      */
@@ -445,8 +456,10 @@ class WindImap
     }
 
     /**
-     * 读取邮件的头信息
-     * @param  int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     * 读取邮件的头信息.
+     *
+     * @param int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     *
      * @return string
      */
     public function fetchHeader($mail)
@@ -455,9 +468,11 @@ class WindImap
     }
 
     /**
-     * 读取邮件的头的字段信息,可能造成不安全，慎用
-     * @param  int|string $mail  希望读取的邮件号或者邮冒号分隔的区段
-     * @param  string     $field 头字段(DATE\SUBJECT\FROM\TO\MESSAGEID\CONTENTTYPE)
+     * 读取邮件的头的字段信息,可能造成不安全，慎用.
+     *
+     * @param int|string $mail  希望读取的邮件号或者邮冒号分隔的区段
+     * @param string     $field 头字段(DATE\SUBJECT\FROM\TO\MESSAGEID\CONTENTTYPE)
+     *
      * @return string
      */
     public function fetchHeaderFields($mail, $field = self::DATE)
@@ -468,9 +483,11 @@ class WindImap
     }
 
     /**
-     * 读取邮件的头已排除字段信息
-     * @param  int|string $mail  希望读取的邮件号或者邮冒号分隔的区段
-     * @param  string     $field 头字段(DATE\SUBJECT\FROM\TO\MESSAGEID\CONTENTTYPE)
+     * 读取邮件的头已排除字段信息.
+     *
+     * @param int|string $mail  希望读取的邮件号或者邮冒号分隔的区段
+     * @param string     $field 头字段(DATE\SUBJECT\FROM\TO\MESSAGEID\CONTENTTYPE)
+     *
      * @return string
      */
     public function fetchHeaderNotFields($mail, $field = self::DATE)
@@ -481,8 +498,10 @@ class WindImap
     }
 
     /**
-     * 读取邮件的MIME
-     * @param  int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     * 读取邮件的MIME.
+     *
+     * @param int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     *
      * @return string
      */
     public function fetchMime($mail)
@@ -491,8 +510,10 @@ class WindImap
     }
 
     /**
-     * 读取邮件的Text
-     * @param  int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     * 读取邮件的Text.
+     *
+     * @param int|string $mail 希望读取的邮件号或者邮冒号分隔的区段
+     *
      * @return string
      */
     public function fetchText($mail)
@@ -505,8 +526,10 @@ class WindImap
      * section部分包含的信息通常是代表某一部分的一个数字或者是下面的某一个部分：
      * HEADER, HEADER.FIELDS, HEADER.FIELDS.NOT, MIME, and TEXT。
      * 如果section部分是空的话，那就代表返回全部的信息，包括头信息。
-     * @param  int|string $mail    希望读取的邮件号或者邮冒号分隔的区段
-     * @param  int|string $section 返回的部分
+     *
+     * @param int|string $mail    希望读取的邮件号或者邮冒号分隔的区段
+     * @param int|string $section 返回的部分
+     *
      * @return string
      */
     public function fetchBySection($mail, $section = self::TEXT)
@@ -519,10 +542,12 @@ class WindImap
      * section部分包含的信息通常是代表某一部分的一个数字或者是下面的某一个部分：
      * HEADER, HEADER.FIELDS, HEADER.FIELDS.NOT, MIME, and TEXT。
      * 如果section部分是空的话，那就代表返回全部的信息，包括头信息。
-     * @param  int|string $mail    希望读取的邮件号或者邮冒号分隔的区段
-     * @param  int        $start   返回的部分的开始
-     * @param  int        $end     返回的部分的结束
-     * @param  int:string $section 返回的部分
+     *
+     * @param int|string $mail    希望读取的邮件号或者邮冒号分隔的区段
+     * @param int        $start   返回的部分的开始
+     * @param int        $end     返回的部分的结束
+     * @param int:string $section 返回的部分
+     *
      * @return string
      */
     public function fetchPartialOfSection($mail, $start, $end, $section = self::TEXT)
@@ -531,10 +556,12 @@ class WindImap
     }
 
     /**
-     * 修改指定邮件的属性，包括给邮件打上已读标记、删除标记等
-     * @param  INT|string   $mail
-     * @param  string       $flags     imap中的邮件标记,值为SLIENT和FLAGS两种类型
-     * @param  STRING|ARRAY $attribute 标记属性(DELETED\ANSWERED\RECENT\DRAFT\FLAGGED)
+     * 修改指定邮件的属性，包括给邮件打上已读标记、删除标记等.
+     *
+     * @param int|string   $mail
+     * @param string       $flags     imap中的邮件标记,值为SLIENT和FLAGS两种类型
+     * @param string|array $attribute 标记属性(DELETED\ANSWERED\RECENT\DRAFT\FLAGGED)
+     *
      * @return string
      */
     public function store($mail, $flags = self::FLAGS, $attribute = self::ANSWERED)
@@ -545,10 +572,12 @@ class WindImap
     }
 
     /**
-     * 修改指定邮件的属性，包括给邮件打上已读标记、删除标记等
-     * @param  INT|string   $mail
-     * @param  string       $flags     imap中的邮件标记,值为SLIENT和FLAGS两种类型
-     * @param  STRING|ARRAY $attribute 标记属性(DELETED\ANSWERED\RECENT\DRAFT\FLAGGED)
+     * 修改指定邮件的属性，包括给邮件打上已读标记、删除标记等.
+     *
+     * @param int|string   $mail
+     * @param string       $flags     imap中的邮件标记,值为SLIENT和FLAGS两种类型
+     * @param string|array $attribute 标记属性(DELETED\ANSWERED\RECENT\DRAFT\FLAGGED)
+     *
      * @return string
      */
     public function stripStore($mail, $flags = self::FLAGS, $attribute = self::DELETED)
@@ -560,7 +589,7 @@ class WindImap
 
     /**
      * 结束对当前Folder（文件夹/邮箱）的访问，
-     * 关闭邮箱该邮箱中所有标志为DELETED的邮件就被从物理上删除
+     * 关闭邮箱该邮箱中所有标志为DELETED的邮件就被从物理上删除.
      */
     public function close()
     {
@@ -577,8 +606,10 @@ class WindImap
     }
 
     /**
-     * 以只读方式打开邮箱
-     * @param  string $mailbox 邮箱
+     * 以只读方式打开邮箱.
+     *
+     * @param string $mailbox 邮箱
+     *
      * @return string
      */
     public function examine($mailbox)
@@ -587,7 +618,8 @@ class WindImap
     }
 
     /**
-     * 在客户机的活动邮箱列表中增加一个邮箱
+     * 在客户机的活动邮箱列表中增加一个邮箱.
+     *
      * @param string $mailbox 希望添加的邮箱名。
      */
     public function subscribe($mailbox)
@@ -596,7 +628,8 @@ class WindImap
     }
 
     /**
-     * 来从活动列表中去掉一个邮箱
+     * 来从活动列表中去掉一个邮箱.
+     *
      * @param string $mailbox 希望去掉的邮箱名。
      */
     public function unsubscribe($mailbox)
@@ -606,9 +639,11 @@ class WindImap
 
     /**
      * 修正了LIST命令，LIST返回用户$HOME目录下所有的文件，
-     * 但LSUB命令只显示那些使用SUBSCRIBE命令设置为活动邮箱的文件
-     * @param  string $folder  邮箱路径
-     * @param  string $mailbox 邮箱名。
+     * 但LSUB命令只显示那些使用SUBSCRIBE命令设置为活动邮箱的文件.
+     *
+     * @param string $folder  邮箱路径
+     * @param string $mailbox 邮箱名。
+     *
      * @return string
      */
     public function lsub($folder, $mailbox)
@@ -618,8 +653,10 @@ class WindImap
 
     /**
      * 查询邮箱的当前状态
-     * @param  string $mailbox 需要查询的邮箱名
-     * @param  string $params  客户机需要查询的项目列表,S_MESSAGES\S_RECENT\S_UIDNEXT\S_UIDVALIDITY\S_UNSEEN
+     *
+     * @param string $mailbox 需要查询的邮箱名
+     * @param string $params  客户机需要查询的项目列表,S_MESSAGES\S_RECENT\S_UIDNEXT\S_UIDVALIDITY\S_UNSEEN
+     *
      * @return string
      */
     public function status($mailbox, $params = self::S_MESSAGES)
@@ -639,9 +676,11 @@ class WindImap
 
     /**
      * 根据搜索条件在处于活动状态的邮箱中搜索邮件，然后显示匹配的邮件编号。
-     * @param  string $criteria 查询条件参数，明确查询的关键字
-     * @param  string $value    查询条件参数，明确查询的关键字的值
-     * @param  string $charset  字符集标志,缺省的标志符是US-ASCⅡ
+     *
+     * @param string $criteria 查询条件参数，明确查询的关键字
+     * @param string $value    查询条件参数，明确查询的关键字的值
+     * @param string $charset  字符集标志,缺省的标志符是US-ASCⅡ
+     *
      * @return string
      */
     public function search($criteria = self::SH_ALL, $value = null)
@@ -665,9 +704,11 @@ class WindImap
     }
 
     /**
-     * 把邮件从一个邮箱复制到另一个邮箱
-     * @param  int    $soruce 希望从活动邮箱中复制的邮件的标号
-     * @param  string $dst    望邮件被复制到的邮箱
+     * 把邮件从一个邮箱复制到另一个邮箱.
+     *
+     * @param int    $soruce 希望从活动邮箱中复制的邮件的标号
+     * @param string $dst    望邮件被复制到的邮箱
+     *
      * @return string
      */
     public function copy($soruce, $dst)
@@ -693,7 +734,8 @@ class WindImap
     }
 
     /**
-     * 发送imap会话请求命令
+     * 发送imap会话请求命令.
+     *
      * @param string $request
      */
     public function request($request)
@@ -706,6 +748,7 @@ class WindImap
 
     /**
      * imap会话响应请求
+     *
      * @param int $timeout
      */
     public function responseLine($timeout = null)
@@ -719,8 +762,10 @@ class WindImap
 
     /**
      * 验证请求
-     * @param  bool   $multi
-     * @param  int    $timeout
+     *
+     * @param bool $multi
+     * @param int  $timeout
+     *
      * @return string
      */
     public function response($endTag = '*', $timeout = null)
@@ -745,9 +790,11 @@ class WindImap
     }
 
     /**
-     * 一次imap会号
-     * @param  string $request  请求
-     * @param  string $response 响应
+     * 一次imap会号.
+     *
+     * @param string $request  请求
+     * @param string $response 响应
+     *
      * @return string
      */
     public function communicate($request, &$response = null)
@@ -758,7 +805,7 @@ class WindImap
     }
 
     /**
-     * 在imap会话中设置新标答
+     * 在imap会话中设置新标答.
      */
     public function setTag()
     {
@@ -766,7 +813,8 @@ class WindImap
     }
 
     /**
-     * 取得imap会号中的标签
+     * 取得imap会号中的标签.
+     *
      * @return string
      */
     public function getTag()

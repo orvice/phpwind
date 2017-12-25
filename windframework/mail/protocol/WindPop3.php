@@ -2,14 +2,13 @@
 
 
 /**
- * pop3协议
+ * pop3协议.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindPop3.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
- * @subpackage protocol
  */
 class WindPop3
 {
@@ -32,7 +31,8 @@ class WindPop3
     }
 
     /**
-     * 打开pop3服务器,建立连接
+     * 打开pop3服务器,建立连接.
+     *
      * @return string
      */
     public function open()
@@ -43,9 +43,11 @@ class WindPop3
     }
 
     /**
-     * 登陆pop3
-     * @param  string $username 用户名
-     * @param  string $password 密码
+     * 登陆pop3.
+     *
+     * @param string $username 用户名
+     * @param string $password 密码
+     *
      * @return string
      */
     public function login($username, $password)
@@ -56,7 +58,8 @@ class WindPop3
     }
 
     /**
-     * 处理请求 server 回送邮箱统计资料，如邮件数、 邮件总字节数
+     * 处理请求 server 回送邮箱统计资料，如邮件数、 邮件总字节数.
+     *
      * @return string
      */
     public function stat()
@@ -66,7 +69,9 @@ class WindPop3
 
     /**
      * 处理 server 返回用于该指定邮件的唯一标识， 如果没有指定，返回所有的。
-     * @param  int    $n 指定邮件
+     *
+     * @param int $n 指定邮件
+     *
      * @return string
      */
     public function uidl($n = null)
@@ -78,8 +83,10 @@ class WindPop3
     }
 
     /**
-     * 处理 server 返回指定邮件的大小等
-     * @param  int    $n 指定邮件
+     * 处理 server 返回指定邮件的大小等.
+     *
+     * @param int $n 指定邮件
+     *
      * @return string
      */
     public function getList($n = null)
@@ -91,8 +98,10 @@ class WindPop3
     }
 
     /**
-     * 处处理 server 返回邮件的全部文本
-     * @param  int    $n 指定邮件
+     * 处处理 server 返回邮件的全部文本.
+     *
+     * @param int $n 指定邮件
+     *
      * @return string
      */
     public function retr($n)
@@ -101,8 +110,10 @@ class WindPop3
     }
 
     /**
-     * 处理 server 标记删除，QUIT 命令执行时才真正删除
-     * @param  int    $n 指定邮件
+     * 处理 server 标记删除，QUIT 命令执行时才真正删除.
+     *
+     * @param int $n 指定邮件
+     *
      * @return string
      */
     public function dele($n)
@@ -111,7 +122,8 @@ class WindPop3
     }
 
     /**
-     * 处理撤消所有的 DELE 命令
+     * 处理撤消所有的 DELE 命令.
+     *
      * @return string
      */
     public function rset()
@@ -120,9 +132,11 @@ class WindPop3
     }
 
     /**
-     * 处理 返回 n 号邮件的前 m 行内容，m 必须是自然数
-     * @param  int    $n 指定邮件
-     * @param  int    $m 指定邮件前多少行
+     * 处理 返回 n 号邮件的前 m 行内容，m 必须是自然数.
+     *
+     * @param int $n 指定邮件
+     * @param int $m 指定邮件前多少行
+     *
      * @return string
      */
     public function top($n, $m = null)
@@ -133,7 +147,8 @@ class WindPop3
     }
 
     /**
-     * 处理 server 返回一个肯定的响应
+     * 处理 server 返回一个肯定的响应.
+     *
      * @return string
      */
     public function noop()
@@ -146,6 +161,7 @@ class WindPop3
      * 则现在进入"更新"状态，删除那些标记成删除的邮件。
      * 如果 server 处于"认可"状态，则结束会话时 server
      * 不进入"更新"状态 。
+     *
      * @return string
      */
     public function quit()
@@ -154,7 +170,7 @@ class WindPop3
     }
 
     /**
-     * 结否会话,关闭pop3服务器
+     * 结否会话,关闭pop3服务器.
      */
     public function close()
     {
@@ -165,6 +181,7 @@ class WindPop3
 
     /**
      * pop3响应请求
+     *
      * @param int $timeout
      */
     public function responseLine($timeout = null)
@@ -177,9 +194,11 @@ class WindPop3
     }
 
     /**
-     * 外理响应内容
-     * @param  string $response
-     * @return Array
+     * 外理响应内容.
+     *
+     * @param string $response
+     *
+     * @return array
      */
     public function buildResponse($response)
     {
@@ -201,9 +220,11 @@ class WindPop3
 
     /**
      * 进行一次网络传输通信
-     * @param  string   $request 发竤的请求命令
-     * @param  bool     $ifmulti 是否返回多行响应文本，否则为一行
-     * @param  baoolean $ifbuild 是否对响应进行处理
+     *
+     * @param string   $request 发竤的请求命令
+     * @param bool     $ifmulti 是否返回多行响应文本，否则为一行
+     * @param baoolean $ifbuild 是否对响应进行处理
+     *
      * @return array
      */
     public function communicate($request, $ifmulti = false, $ifbuild = false)
@@ -214,7 +235,8 @@ class WindPop3
     }
 
     /**
-     * 发送pop3命令
+     * 发送pop3命令.
+     *
      * @param string $request
      */
     public function request($request)
@@ -226,8 +248,10 @@ class WindPop3
 
     /**
      * 验证请求
-     * @param  bool   $multi
-     * @param  int    $timeout
+     *
+     * @param bool $multi
+     * @param int  $timeout
+     *
      * @return string
      */
     public function response($multi = false, $timeout = null)
@@ -264,7 +288,8 @@ class WindPop3
     }
 
     /**
-     * 获取解析后的内容
+     * 获取解析后的内容.
+     *
      * @param $content
      * @param $sep
      */

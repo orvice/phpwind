@@ -2,68 +2,57 @@
 
 
 /**
- * 邮件发送类
+ * 邮件发送类.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindMail.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package mail
  */
 class WindMail
 {
     /**
-     *
      * @var array 邮件头
      */
     private $mailHeader = array();
     /**
-     *
      * @var array 邮件附件
      */
     private $attachment = array();
     /**
-     *
      * @var string 邮件字符集
      */
     private $charset = 'utf-8';
     /**
-     *
      * @var string 是否是内嵌资源
      */
     private $embed = false;
     /**
-     *
      * @var array 邮件收件人
      */
     private $recipients = null;
     /**
-     *
      * @var string 邮件发件人
      */
     private $from = '';
     /**
-     *
      * @var string 邮件消息体html展现方式
      */
     private $bodyHtml = '';
     /**
-     *
      * @var string 邮件消息体文本展现方式
      */
     private $bodyText = '';
     /**
-     *
      * @var array 邮件边界线
      */
     private $boundary;
     /**
-     *
      * @var string 邮件编码方式
      */
     private $encode = self::ENCODE_BASE64;
     /**
-     *
      * @var 内容类型
      */
     private $contentType;
@@ -111,12 +100,14 @@ class WindMail
     const SEND_SEND = 'send';
 
     /**
-     * 发送邮件
+     * 发送邮件.
      *
-     * @param  string    $type   发送类型
-     * @param  array     $config 邮件发送器需要的配置数据
-     * @return bool
+     * @param string $type   发送类型
+     * @param array  $config 邮件发送器需要的配置数据
+     *
      * @throws Exception
+     *
+     * @return bool
      */
     public function send($type = self::SEND_SMTP, $config = array())
     {
@@ -128,7 +119,7 @@ class WindMail
     }
 
     /**
-     * 创建邮件头信息
+     * 创建邮件头信息.
      *
      * @return string
      */
@@ -167,7 +158,7 @@ class WindMail
     }
 
     /**
-     * 创建邮件消息体
+     * 创建邮件消息体.
      *
      * @return string
      */
@@ -206,7 +197,7 @@ class WindMail
     }
 
     /**
-     * 设置发件人
+     * 设置发件人.
      *
      * @param string $email 发件人邮箱
      * @param string $name  发件人姓名
@@ -222,7 +213,7 @@ class WindMail
     }
 
     /**
-     * 取得发件人
+     * 取得发件人.
      *
      * @return string
      */
@@ -232,7 +223,7 @@ class WindMail
     }
 
     /**
-     * 设置收件人
+     * 设置收件人.
      *
      * @param string|array $email 收件人邮箱
      * @param string       $name  收件人姓名
@@ -247,7 +238,7 @@ class WindMail
     }
 
     /**
-     * 取得收件人
+     * 取得收件人.
      *
      * @return array
      */
@@ -257,7 +248,7 @@ class WindMail
     }
 
     /**
-     * 设置抄送人
+     * 设置抄送人.
      *
      * @param string $email 抄送人邮箱
      * @param string $name  抄送人姓名
@@ -282,7 +273,7 @@ class WindMail
     }
 
     /**
-     * 设置暗送人
+     * 设置暗送人.
      *
      * @param string $email 暗送人邮箱
      * @param string $name  暗送人姓名
@@ -307,7 +298,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件主题
+     * 设置邮件主题.
      *
      * @param string $subject 主题
      */
@@ -317,7 +308,7 @@ class WindMail
     }
 
     /**
-     * 取得邮件主题
+     * 取得邮件主题.
      *
      * @return string
      */
@@ -340,7 +331,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件头
+     * 设置邮件头.
      *
      * @param string $name   邮件头名称
      * @param string $value  邮件头对应的值
@@ -377,7 +368,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件消息ID
+     * 设置邮件消息ID.
      */
     public function setMessageId()
     {
@@ -405,7 +396,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件类型
+     * 设置邮件类型.
      *
      * @param string $type
      */
@@ -424,7 +415,7 @@ class WindMail
     }
 
     /**
-     * 上传附件
+     * 上传附件.
      *
      * @return string
      */
@@ -451,9 +442,10 @@ class WindMail
     }
 
     /**
-     * 取得下一个quoted-printable
+     * 取得下一个quoted-printable.
      *
-     * @param  string $string
+     * @param string $string
+     *
      * @return string
      */
     private static function getNextQpToken($string)
@@ -481,8 +473,8 @@ class WindMail
     }
 
     /**
-     *
      * @param boundary
+     *
      * @return string
      */
     private function _boundaryStart($boundary)
@@ -503,7 +495,8 @@ class WindMail
     /**
      * 设置并返回边界线
      *
-     * @param  int    $i 默认值为0
+     * @param int $i 默认值为0
+     *
      * @return string
      */
     private function _boundary($i = 0)
@@ -518,10 +511,11 @@ class WindMail
     }
 
     /**
-     * 编码邮件内容
+     * 编码邮件内容.
      *
-     * @param  string $message
-     * @param  string $encode
+     * @param string $message
+     * @param string $encode
+     *
      * @return string
      */
     private function _encode($message, $encode = '')
@@ -530,10 +524,11 @@ class WindMail
     }
 
     /**
-     * 编码邮件头部
+     * 编码邮件头部.
      *
-     * @param  string $message
-     * @param  string $encode
+     * @param string $message
+     * @param string $encode
+     *
      * @return string
      */
     private function _encodeHeader($message, $encode = '')
@@ -548,6 +543,7 @@ class WindMail
      * 根据当前编码获取邮件编码器，并返回邮件编码器对象
      *
      * @param encode
+     *
      * @return IWindMailEncoder
      */
     private function _getEncoder($encode)
@@ -575,7 +571,6 @@ class WindMail
     }
 
     /**
-     *
      * @param string $email
      * @param string $name
      */
@@ -596,7 +591,7 @@ class WindMail
     }
 
     /**
-     * 取得真实的收件人
+     * 取得真实的收件人.
      *
      * @return array
      */
@@ -606,7 +601,7 @@ class WindMail
     }
 
     /**
-     * 设置附件
+     * 设置附件.
      *
      * @param string $stream      附件名或者附件内容
      * @param string $mime        附件类型
@@ -621,7 +616,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件展示内容
+     * 设置邮件展示内容.
      *
      * @param string $body
      */
@@ -631,7 +626,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件文本展示内容
+     * 设置邮件文本展示内容.
      *
      * @param string $bodyText
      */
@@ -641,7 +636,7 @@ class WindMail
     }
 
     /**
-     * 设置邮件字符
+     * 设置邮件字符.
      *
      * @param string $charset
      */
@@ -651,7 +646,7 @@ class WindMail
     }
 
     /**
-     * 设置是否是内嵌资源
+     * 设置是否是内嵌资源.
      *
      * @param bool $embed
      */

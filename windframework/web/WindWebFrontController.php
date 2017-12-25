@@ -6,8 +6,8 @@
  * @author Qiong Wu <papa0924@gmail.com> 2011-10-12
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFrontController.php 2966 2011-10-14 06:41:59Z yishuo $
- * @package wind
  */
 class WindWebFrontController extends AbstractWindFrontController
 {
@@ -46,43 +46,43 @@ class WindWebFrontController extends AbstractWindFrontController
     protected function _components()
     {
         return array(
-            'request' => array('path' => 'WIND:web.WindHttpRequest', 'scope' => 'application'),
+            'request'  => array('path' => 'WIND:web.WindHttpRequest', 'scope' => 'application'),
             'response' => array('path' => 'WIND:web.WindHttpResponse', 'scope' => 'application'),
-            'router' => array('path' => 'WIND:router.WindRouter', 'scope' => 'application'),
+            'router'   => array('path' => 'WIND:router.WindRouter', 'scope' => 'application'),
             'windView' => array(
-                'path' => 'WIND:viewer.WindView',
-                'scope' => 'application',
+                'path'   => 'WIND:viewer.WindView',
+                'scope'  => 'application',
                 'config' => array(
-                    'template-dir' => 'template',
-                    'template-ext' => 'htm',
-                    'is-compile' => '1',
-                    'compile-dir' => 'compile.template',
-                    'compile-ext' => 'tpl',
-                    'layout' => '',
-                    'theme' => '',
+                    'template-dir'     => 'template',
+                    'template-ext'     => 'htm',
+                    'is-compile'       => '1',
+                    'compile-dir'      => 'compile.template',
+                    'compile-ext'      => 'tpl',
+                    'layout'           => '',
+                    'theme'            => '',
                     'htmlspecialchars' => true, ),
                 'properties' => array(
                     'viewResolver' => array('path' => 'WIND:viewer.resolver.WindViewerResolver'),
-                    'windLayout' => array('path' => 'WIND:viewer.WindLayout'), ), ),
-            'template' => array('path' => 'WIND:viewer.compiler.WindViewTemplate', 'scope' => 'prototype'),
-            'db' => array('path' => 'WIND:db.WindConnection', 'scope' => 'application'),
+                    'windLayout'   => array('path' => 'WIND:viewer.WindLayout'), ), ),
+            'template'     => array('path' => 'WIND:viewer.compiler.WindViewTemplate', 'scope' => 'prototype'),
+            'db'           => array('path' => 'WIND:db.WindConnection', 'scope' => 'application'),
             'sqlStatement' => array('path' => 'WIND:db.WindSqlStatement', 'scope' => 'prototype'),
             'configParser' => array('path' => 'WIND:parser.WindConfigParser', 'scope' => 'singleton'),
-            'dispatcher' => array('path' => 'WIND:web.WindDispatcher', 'scope' => 'application'),
-            'forward' => array(
-                'path' => 'WIND:web.WindForward',
-                'scope' => 'prototype',
+            'dispatcher'   => array('path' => 'WIND:web.WindDispatcher', 'scope' => 'application'),
+            'forward'      => array(
+                'path'       => 'WIND:web.WindForward',
+                'scope'      => 'prototype',
                 'properties' => array('windView' => array('ref' => 'windView')), ),
             'errorMessage' => array('path' => 'WIND:base.WindErrorMessage', 'scope' => 'prototype'),
-            'error' => array('path' => 'WIND:web.WindWebError', 'scope' => 'application'),
-            'windLogger' => array(
-                'path' => 'WIND:log.WindLogger',
-                'scope' => 'singleton',
-                'destroy' => 'flush',
+            'error'        => array('path' => 'WIND:web.WindWebError', 'scope' => 'application'),
+            'windLogger'   => array(
+                'path'             => 'WIND:log.WindLogger',
+                'scope'            => 'singleton',
+                'destroy'          => 'flush',
                 'constructor-args' => array('0' => array('value' => 'data.log')), ),
             'i18n' => array(
-                'path' => 'WIND:i18n.WindLangResource',
-                'scope' => 'singleton',
+                'path'   => 'WIND:i18n.WindLangResource',
+                'scope'  => 'singleton',
                 'config' => array('path' => 'i18n'), ), );
     }
 

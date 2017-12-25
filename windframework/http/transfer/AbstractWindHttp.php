@@ -3,33 +3,32 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: AbstractWindHttp.php 3912 2013-01-22 06:36:30Z yishuo $
- * @package http
- * @subpackage transfer
  */
 abstract class AbstractWindHttp
 {
     /**
-     * 发送的cookie
+     * 发送的cookie.
      *
      * @var string
      */
     protected $cookie = array();
     /**
-     * 发送的http头
+     * 发送的http头.
      *
      * @var array
      */
     protected $header = array();
     /**
-     * 发送的数据
+     * 发送的数据.
      *
      * @var array
      */
     protected $data = array();
 
     /**
-     * 错误信息
+     * 错误信息.
      *
      * @var string
      */
@@ -41,14 +40,14 @@ abstract class AbstractWindHttp
      */
     protected $eno = 0;
     /**
-     * 响应的状态信息
+     * 响应的状态信息.
      *
      * @var string
      */
     protected $status;
 
     /**
-     * 超时时间
+     * 超时时间.
      *
      * @var string
      */
@@ -60,25 +59,25 @@ abstract class AbstractWindHttp
      */
     protected $url = '';
     /**
-     * 重定向次数
+     * 重定向次数.
      *
      * @var int
      */
     protected $_maxRedirs = 1;
     /**
-     * 是否支持重定向
+     * 是否支持重定向.
      *
      * @var bool
      */
     protected $_redirects = false;
     /**
-     * 是否读取头信息,false 不读取，true 读取
+     * 是否读取头信息,false 不读取，true 读取.
      *
      * @var bool
      */
     protected $_header = false;
     /**
-     * 是否读取内容体信息，false 不读取，true 读取
+     * 是否读取内容体信息，false 不读取，true 读取.
      *
      * @var bool
      */
@@ -91,12 +90,12 @@ abstract class AbstractWindHttp
     protected $_waitResponse = true;
 
     /**
-     * http连接句柄
+     * http连接句柄.
      */
     protected $httpHandler = null;
 
     /**
-     * 声明受保护的构造函数,避免在类的外界实例化
+     * 声明受保护的构造函数,避免在类的外界实例化.
      *
      * @param string $url
      * @param int    $timeout
@@ -109,10 +108,11 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 发送请求底层操作
+     * 发送请求底层操作.
      *
-     * @param  string $method  请求方式
-     * @param  array  $options 额外的主求参数
+     * @param string $method  请求方式
+     * @param array  $options 额外的主求参数
+     *
      * @return string 返回页根据请求的响应页面
      */
     abstract public function send($method = self::GET, $options = array());
@@ -120,10 +120,11 @@ abstract class AbstractWindHttp
     /**
      * 发送post请求
      *
-     * @param  array  $data    请求的数据
-     * @param  array  $header  发送请求的头
-     * @param  array  $cookie  发送的cookie
-     * @param  array  $options 额外的请求头
+     * @param array $data    请求的数据
+     * @param array $header  发送请求的头
+     * @param array $cookie  发送的cookie
+     * @param array $options 额外的请求头
+     *
      * @return string 返回页根据请求的响应页面
      */
     public function post($data = array(), $header = array(), $cookie = array(), $options = array())
@@ -138,10 +139,11 @@ abstract class AbstractWindHttp
     /**
      * get方式传值
      *
-     * @param  array  $data    请求的数据
-     * @param  array  $header  发送请求的头
-     * @param  array  $cookie  发送的cookie
-     * @param  array  $options 额外的请求头
+     * @param array $data    请求的数据
+     * @param array $header  发送请求的头
+     * @param array $cookie  发送的cookie
+     * @param array $options 额外的请求头
+     *
      * @return string 返回页根据请求的响应页面
      */
     public function get($data = array(), $header = array(), $cookie = array(), $options = array())
@@ -156,8 +158,9 @@ abstract class AbstractWindHttp
     /**
      * 发送请求
      *
-     * @param  string $key   请求的名称
-     * @param  string $value 请求的值
+     * @param string $key   请求的名称
+     * @param string $value 请求的值
+     *
      * @return bool
      */
     abstract public function request($key, $value = null);
@@ -170,14 +173,14 @@ abstract class AbstractWindHttp
     abstract public function response();
 
     /**
-     * 创建http链接句柄并返回
+     * 创建http链接句柄并返回.
      *
      * @return handler 返回链接句柄
      */
     abstract protected function createHttpHandler();
 
     /**
-     * 取得http通信中的错误
+     * 取得http通信中的错误.
      */
     abstract public function getError();
 
@@ -189,7 +192,7 @@ abstract class AbstractWindHttp
     abstract public function close();
 
     /**
-     * 打开一个http请求,返回 http请求句柄
+     * 打开一个http请求,返回 http请求句柄.
      *
      * @return httpResource
      */
@@ -199,7 +202,7 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 清理链接
+     * 清理链接.
      */
     public function __destruct()
     {
@@ -207,7 +210,7 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 设置http头,支持单个值设置和批量设置
+     * 设置http头,支持单个值设置和批量设置.
      *
      * @param string|array $key
      * @param string       $value
@@ -227,7 +230,7 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 设置cookie,支持单个值设置和批量设置
+     * 设置cookie,支持单个值设置和批量设置.
      *
      * @param string|array $key
      * @param string       $value
@@ -245,7 +248,7 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 设置data,支持单个值设置和批量设置
+     * 设置data,支持单个值设置和批量设置.
      *
      * @param string|array $key
      * @param string       $value
@@ -279,9 +282,10 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 设置响应信息中是否包含头信息
+     * 设置响应信息中是否包含头信息.
      *
      * 默认不包含头信息
+     *
      * @param bool $_header
      */
     public function setResponseHasHeader($_header)
@@ -290,9 +294,10 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 设置响应信息中是否包含内容体信息
+     * 设置响应信息中是否包含内容体信息.
      *
      * 默认只包含内容体信息
+     *
      * @param bool $_body
      */
     public function setResponseHasBody($_body)
@@ -317,7 +322,7 @@ abstract class AbstractWindHttp
     }
 
     /**
-     * 是否等待响应
+     * 是否等待响应.
      *
      * @param bool $_waitResponse
      */

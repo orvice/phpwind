@@ -23,13 +23,13 @@
  * 'path' => 'WIND:viewer.WindLayout',
  * 'scope' => 'prototype',
  * )</code>
- * <note><b>注意:</b>框架默认布局组件</note>
+ * <note><b>注意:</b>框架默认布局组件</note>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindLayout.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package viewer
  */
 class WindLayout extends WindModule
 {
@@ -42,7 +42,7 @@ class WindLayout extends WindModule
     private $segments = array();
 
     /**
-     * 解析布局文件
+     * 解析布局文件.
      *
      * @param string             $layout
      * @param WindViewerResolver $viewer
@@ -63,7 +63,7 @@ class WindLayout extends WindModule
     }
 
     /**
-     * 输出模板切片内容
+     * 输出模板切片内容.
      *
      * @param string $template
      *                         模板切片名称
@@ -74,8 +74,7 @@ class WindLayout extends WindModule
     }
 
     /**
-     * 输出当前模板的内容
-     *
+     * 输出当前模板的内容.
      */
     private function content()
     {

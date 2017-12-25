@@ -1,50 +1,50 @@
 <?php
 /**
- * 表单验证基类
+ * 表单验证基类.
  *
  * 注入：验证器/异常处理器
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindEnableValidateModule.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package base
  */
 class WindEnableValidateModule
 {
     /**
-     * 验证类
+     * 验证类.
      *
      * @var string
      */
     protected $_validatorClass = 'WindValidator';
     /**
-     * 错误处理action
+     * 错误处理action.
      *
      * @var string
      */
     protected $errorAction = '';
     /**
-     * 验证类实例
+     * 验证类实例.
      *
      * @var WindValidator
      */
     private $_validator = null;
     /**
-     * 验证中产生的错误信息
+     * 验证中产生的错误信息.
      *
      * @var array
      */
     protected $_errors = array();
     /**
-     * 验证中产生错误信息时使用的默认错误信息
+     * 验证中产生错误信息时使用的默认错误信息.
      *
      * @var string
      */
     private $_defaultMessage = 'the field validate fail.';
 
     /**
-     * 返回验证中产生的错误信息
+     * 返回验证中产生的错误信息.
      *
      * @return array $_errors
      */
@@ -54,7 +54,7 @@ class WindEnableValidateModule
     }
 
     /**
-     * 返回验证出错时使用的错误errorAction
+     * 返回验证出错时使用的错误errorAction.
      *
      * errorAction的格式可以用/分割m,c,a三个部分:完整的方式为m/c/a
      *
@@ -66,7 +66,7 @@ class WindEnableValidateModule
     }
 
     /**
-     * 返回验证规则组成的数组
+     * 返回验证规则组成的数组.
      *
      * 每一个验证规则都需要如下格式:
      * <code>
@@ -88,8 +88,7 @@ class WindEnableValidateModule
     }
 
     /**
-     * 验证方法
-     *
+     * 验证方法.
      */
     public function validate()
     {
@@ -109,9 +108,10 @@ class WindEnableValidateModule
     /**
      * 执行rule验证
      *
-     * @param  string $input 待验证的数据
-     * @param  array  $rule  数据验证的规则
-     * @return bool   如果验证成功返回true,验证失败返回false
+     * @param string $input 待验证的数据
+     * @param array  $rule  数据验证的规则
+     *
+     * @return bool 如果验证成功返回true,验证失败返回false
      */
     private function check($input, $rule)
     {
@@ -130,10 +130,11 @@ class WindEnableValidateModule
     }
 
     /**
-     * 返回验证器
+     * 返回验证器.
+     *
+     * @throws WindException 验证器创建失败抛出异常
      *
      * @return WindValidator
-     * @throws WindException 验证器创建失败抛出异常
      */
     protected function getValidator()
     {

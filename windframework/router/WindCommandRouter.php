@@ -2,13 +2,13 @@
 
 
 /**
- * 命令行路由，默认路由规则 php index.php [-m default] [-c index] [-a run] [-p id1 id2] [--help]
+ * 命令行路由，默认路由规则 php index.php [-m default] [-c index] [-a run] [-p id1 id2] [--help].
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindCommandRouter.php 3859 2012-12-18 09:25:51Z yishuo $
- * @package command
  */
 class WindCommandRouter extends AbstractWindRouter
 {
@@ -78,7 +78,7 @@ class WindCommandRouter extends AbstractWindRouter
     }
 
     /**
-     * 是否是请求帮助
+     * 是否是请求帮助.
      *
      * @return bool
      */
@@ -88,7 +88,7 @@ class WindCommandRouter extends AbstractWindRouter
     }
 
     /**
-     * 返回当前命令
+     * 返回当前命令.
      *
      * @return string
      */

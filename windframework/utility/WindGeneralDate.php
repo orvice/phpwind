@@ -1,52 +1,52 @@
 <?php
 /**
- * 是将日期转化为一个对象去操作
+ * 是将日期转化为一个对象去操作.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindGeneralDate.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package utility
  */
 class WindGeneralDate
 {
     /**
-     * 填充展示
+     * 填充展示.
      *
      * @var int
      */
     const FILL = 0;
 
     /**
-     * 数字展示
+     * 数字展示.
      *
      * @var int
      */
     const DIGIT = 1;
 
     /**
-     * 文本展示
+     * 文本展示.
      *
      * @var int
      */
     const TEXT = 2;
 
     /**
-     * 默认格式化
+     * 默认格式化.
      *
      * @var string
      */
     const DEFAULT_FORMAT = 'Y-m-d H:i:s';
 
     /**
-     * unix时间戳
+     * unix时间戳.
      *
      * @var int
      */
     private $time = 0;
 
     /**
-     * 根据输入的日期格式转化为时间戳进行属性time初始化
+     * 根据输入的日期格式转化为时间戳进行属性time初始化.
      *
      * mktime函数，在只有输入一个年份的时候，就会默认转化为上一年的最后一天，输入一个月份并且缺省输入day的时候，
      * 会转化为上个月的最后一天。所以这种情况需要注意。
@@ -79,7 +79,7 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前时间所在月的天数
+     * 获取当前时间所在月的天数.
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前时间所在年的天数
+     * 获取当前时间所在年的天数.
      *
      * @return int 如果是闰年返回366否则返回365
      */
@@ -129,7 +129,7 @@ class WindGeneralDate
     }
 
     /**
-     * 判断当前日期所在年的第几周
+     * 判断当前日期所在年的第几周.
      *
      * @return int
      */
@@ -139,9 +139,10 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的年份
+     * 获取当前日期的年份.
      *
-     * @param  bool   $format 是否返回四位格式的年份或是两位格式的年份，默认为true则以Y返回四位数
+     * @param bool $format 是否返回四位格式的年份或是两位格式的年份，默认为true则以Y返回四位数
+     *
      * @return string
      */
     public function getYear($format = true)
@@ -150,9 +151,10 @@ class WindGeneralDate
     }
 
     /**
-     * 获当前日期的取月份
+     * 获当前日期的取月份.
      *
-     * @param  int    $display 显示类型，默认为0，则显示两位的月份
+     * @param int $display 显示类型，默认为0，则显示两位的月份
+     *
      * @return string
      */
     public function getMonth($display = self::FILL)
@@ -169,9 +171,10 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的天数
+     * 获取当前日期的天数.
      *
-     * @param  string $display 显示类型，默认为0，显示两位的日期
+     * @param string $display 显示类型，默认为0，显示两位的日期
+     *
      * @return string
      */
     public function getDay($display = self::FILL)
@@ -190,7 +193,8 @@ class WindGeneralDate
     /**
      * 获取当前日期的星期
      *
-     * @param  string $display 显示类型，默认为0，返回数字表示的星期中的第几天
+     * @param string $display 显示类型，默认为0，返回数字表示的星期中的第几天
+     *
      * @return string
      */
     public function getWeek($display = self::FILL)
@@ -205,9 +209,10 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的12小时制时间
+     * 获取当前日期的12小时制时间.
      *
-     * @param  string $display 显示类型，默认为0，显示两位的小时
+     * @param string $display 显示类型，默认为0，显示两位的小时
+     *
      * @return string
      */
     public function get12Hours($display = self::FILL)
@@ -222,9 +227,10 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的24小时制时间
+     * 获取当前日期的24小时制时间.
      *
-     * @param  string $display 显示类型，默认为0，显示两位的小时
+     * @param string $display 显示类型，默认为0，显示两位的小时
+     *
      * @return string
      */
     public function get24Hours($display = self::FILL)
@@ -249,7 +255,7 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的秒数
+     * 获取当前日期的秒数.
      *
      * @return string
      */
@@ -259,7 +265,7 @@ class WindGeneralDate
     }
 
     /**
-     * 获取当前日期的本地时区
+     * 获取当前日期的本地时区.
      *
      * @return string
      */
@@ -269,7 +275,7 @@ class WindGeneralDate
     }
 
     /**
-     * 重新设置当前日期与时间
+     * 重新设置当前日期与时间.
      *
      * @param string $time 时间戳
      */
@@ -293,7 +299,7 @@ class WindGeneralDate
     }
 
     /**
-     * 对象转化为字符串，魔术方法
+     * 对象转化为字符串，魔术方法.
      *
      * @return string
      */
@@ -303,9 +309,10 @@ class WindGeneralDate
     }
 
     /**
-     * 格式化时间输出
+     * 格式化时间输出.
      *
-     * @param  string $format 需要输出的格式,默认为null，则采用格式Y-m-d H:i:s
+     * @param string $format 需要输出的格式,默认为null，则采用格式Y-m-d H:i:s
+     *
      * @return string
      */
     public function toString($format = null)
@@ -314,7 +321,7 @@ class WindGeneralDate
     }
 
     /**
-     * 判断是否是闰年
+     * 判断是否是闰年.
      *
      * @return int 返回1或是0
      */

@@ -51,16 +51,17 @@
  * <note><b>注意：</b>要使用EacceleratorCache组件，需要安装eaccelerator扩展支持。</note>
  *
  * the last known user to change this file in the repository  <LastChangedBy: xiaoxiao >
+ *
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindEacceleratorCache.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package strategy
  */
 class WindEacceleratorCache extends AbstractWindCache
 {
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 判断是否有安装eaccelerator扩展,如果没有安装则会抛出WindCacheException异常
      *

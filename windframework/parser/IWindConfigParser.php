@@ -1,17 +1,17 @@
 <?php
 /**
- * 配置解析的接口定义
+ * 配置解析的接口定义.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: IWindConfigParser.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package parser
  */
 interface IWindConfigParser
 {
     /**
-     * 解析组件的配置文件
+     * 解析组件的配置文件.
      *
      * 根据配置文件路径$configPath解析配置返回一个数组，
      * 如果设置了$cache,则将解析出来的数据保存到$cache中，保存规则如下:
@@ -23,11 +23,12 @@ interface IWindConfigParser
      * </ul>
      * 如果没有设置$cache，将直接返回解析结果.
      *
-     * @param  string            $configPath 待解析的文件路径
-     * @param  string            $alias      解析后保存的key名,默认为空,及不保存
-     * @param  string            $append     追加的文件,默认为空
-     * @param  AbstractWindCache $cache      缓存策略默认为null及不保存
-     * @return array             解析结果
+     * @param string            $configPath 待解析的文件路径
+     * @param string            $alias      解析后保存的key名,默认为空,及不保存
+     * @param string            $append     追加的文件,默认为空
+     * @param AbstractWindCache $cache      缓存策略默认为null及不保存
+     *
+     * @return array 解析结果
      */
     public function parse($configPath, $alias = '', $append = '', AbstractWindCache $cache = null);
 }

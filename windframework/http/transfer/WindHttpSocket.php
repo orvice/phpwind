@@ -2,14 +2,13 @@
 
 
 /**
- * socket操作
+ * socket操作.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindHttpSocket.php 3918 2013-01-23 10:37:40Z yishuo $
- * @package http
- * @subpackage transfer
  */
 final class WindHttpSocket extends AbstractWindHttp
 {
@@ -93,9 +92,10 @@ final class WindHttpSocket extends AbstractWindHttp
     }
 
     /**
-     * 分块收取数据处理
+     * 分块收取数据处理.
      *
-     * @param  string $data
+     * @param string $data
+     *
      * @return string
      */
     private function _unchunk($data)
@@ -189,7 +189,7 @@ final class WindHttpSocket extends AbstractWindHttp
 
     /**
      * url forward 兼容处理
-     * 获取真正的请求链接，并初始化socket句柄
+     * 获取真正的请求链接，并初始化socket句柄.
      *
      * @param array $options
      */
@@ -205,7 +205,7 @@ final class WindHttpSocket extends AbstractWindHttp
         $newurl = $this->url;
         do {
             /* @var $socket WindHttpSocket */
-            $socket = new WindHttpSocket($newurl, $this->timeout);
+            $socket = new self($newurl, $this->timeout);
             $socket->setResponseHasBody(false);
             $socket->setResponseHasHeader(true);
             $header = $socket->send();

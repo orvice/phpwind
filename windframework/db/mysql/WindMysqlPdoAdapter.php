@@ -2,19 +2,19 @@
 
 
 /**
- * mysql类型数据库连接类
+ * mysql类型数据库连接类.
  *
  * mysql类型数据库连接类,用于连接mysql数据库.该类继承了{@see AbstractWindPdoAdapter},是基于pdo的数据连接方式.
  * 使用该数据库连接类型需要启动pdo支持.配置方式:<code>
  * mysql:host=localhost;dbname=test
  * //':'前面部分标明了链接类型为mysql.
  * </code>
+ *
  * @author Qiong Wu <papa0924@gmail.com> 2011-9-22
  * @copyright (c)2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindMysqlPdoAdapter.php 3941 2013-05-31 05:41:07Z long.shi $
- * @package db
- * @subpackage mysql
  */
 class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
 {
@@ -31,7 +31,7 @@ class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
     }
 
     /**
-     * 创建数据表
+     * 创建数据表.
      *
      * 添加数据表,支持三个参数'数据表明,字段定义,是否覆盖已存在表'.'$values'举例如下,当数据表名称未定义,或者当'fields'字段未定义,或者为空时抛出异常:
      * <code>
@@ -48,9 +48,12 @@ class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
      * @param string       $tableName 数据表名称
      * @param string|array $values    数据表字段信息
      * @param bool         $replace   如果表已经存在是否覆盖,接收两个值true|false
+     *
      * @see AbstractWindPdoAdapter::createTable()
-     * @return bool
+     *
      * @throws WindDbException
+     *
+     * @return bool
      */
     public function createTable($tableName, $values, $replace = false)
     {
@@ -71,7 +74,7 @@ class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
     }
 
     /**
-     * 过滤数组并将数组变量转换为sql字符串
+     * 过滤数组并将数组变量转换为sql字符串.
      *
      * 对数组中的值进行安全过滤,并转化为mysql支持的values的格式,如下例子:
      * <code>
@@ -96,7 +99,7 @@ class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
     }
 
     /**
-     * 过滤二维数组将数组变量转换为多组的sql字符串
+     * 过滤二维数组将数组变量转换为多组的sql字符串.
      *
      * <code>
      * $var = array(array('a1','b1','c1'),array('a2','b2','c2'));
@@ -122,10 +125,12 @@ class WindMysqlPdoAdapter extends AbstractWindPdoAdapter
     }
 
     /**
-     * 组装单条 key=value 形式的SQL查询语句值 insert/update
+     * 组装单条 key=value 形式的SQL查询语句值 insert/update.
      *
-     * @param  array  $array
+     * @param array $array
+     *
      * @return string
+     *
      * @see AbstractWindPdoAdapter
      */
     public function sqlSingle($array)

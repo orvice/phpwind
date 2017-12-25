@@ -1,12 +1,12 @@
 <?php
 /**
- * 错误处理句柄
+ * 错误处理句柄.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package wind.base
  */
 abstract class WindError extends WindModule
 {
@@ -14,7 +14,7 @@ abstract class WindError extends WindModule
     protected $isClosed;
 
     /**
-     * 构造方法
+     * 构造方法.
      *
      * @param string $errorDir 错误目录地址
      * @param bool   $isClosed 站点是否关闭
@@ -26,7 +26,7 @@ abstract class WindError extends WindModule
     }
 
     /**
-     * 异常处理句柄
+     * 异常处理句柄.
      *
      * @param Exception $exception
      */
@@ -48,7 +48,7 @@ abstract class WindError extends WindModule
     }
 
     /**
-     * 错误处理句柄
+     * 错误处理句柄.
      *
      * @param int    $errno
      * @param string $errstr
@@ -67,19 +67,20 @@ abstract class WindError extends WindModule
     }
 
     /**
-     * 错误处理
+     * 错误处理.
      *
-     * @param  string             $message
-     * @param  string             $file      异常文件
-     * @param  int                $line      错误发生的行
-     * @param  array              $trace
-     * @param  int                $errorcode 错误代码
+     * @param string $message
+     * @param string $file      异常文件
+     * @param int    $line      错误发生的行
+     * @param array  $trace
+     * @param int    $errorcode 错误代码
+     *
      * @throws WindFinalException
      */
     abstract protected function showErrorMessage($message, $file, $line, $trace, $errorcode);
 
     /**
-     * 错误信息处理方法
+     * 错误信息处理方法.
      *
      * @param string $file
      * @param string $line
@@ -121,8 +122,8 @@ abstract class WindError extends WindModule
     }
 
     /**
+     * @param array $call
      *
-     * @param  array  $call
      * @return string
      */
     private function _getCallLine($call)
@@ -163,9 +164,10 @@ abstract class WindError extends WindModule
     }
 
     /**
-     * 返回友好的错误类型名
+     * 返回友好的错误类型名.
      *
-     * @param  int    $type
+     * @param int $type
+     *
      * @return string unknown
      */
     private function _friendlyErrorType($type)

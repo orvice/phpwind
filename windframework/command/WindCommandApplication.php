@@ -1,17 +1,17 @@
 <?php
 /**
- * 命令行应用控制器
+ * 命令行应用控制器.
  *
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindCommandApplication.php 3859 2012-12-18 09:25:51Z yishuo $
- * @package command
  */
 class WindCommandApplication extends AbstractWindApplication
 {
     /**
-     * 显示帮助信息
+     * 显示帮助信息.
      *
      * @param string        $className
      * @param WindException $e

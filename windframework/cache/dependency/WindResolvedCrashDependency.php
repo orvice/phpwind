@@ -2,7 +2,7 @@
 
 
 /**
- * cache依赖实现,通过该实现解决大并发时cache(memcached)的值突然失效
+ * cache依赖实现,通过该实现解决大并发时cache(memcached)的值突然失效.
  *
  * 在value内部设置1个超时值(timeout1), timeout1比实际的cache(memcached)timeout(timeout2)小.
  * 当从cache读取到timeout1发现它已经过期时候,马上延长timeout1并重新设置到cache.
@@ -12,9 +12,8 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindResolvedCrashDependency.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package cache
- * @subpackage dependency
  */
 class WindResolvedCrashDependency implements IWindCacheDependency
 {

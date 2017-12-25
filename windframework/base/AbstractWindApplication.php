@@ -1,14 +1,15 @@
 <?php
 /**
- * 应用基础接口
+ * 应用基础接口.
  *
  * 应用基础接口,该接口包含4个接口<i>run,getRequest,getResponse,getWindFactory</i>,自定义应用类型需要实现该接口.
  * 基础实现有<i>WindWebApplication</i>
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: AbstractWindApplication.php 3919 2013-01-25 03:09:56Z yishuo $
- * @package base
  */
 abstract class AbstractWindApplication extends WindModule
 {
@@ -41,7 +42,7 @@ abstract class AbstractWindApplication extends WindModule
     protected $handlerAdapter = null;
 
     /**
-     * 应用初始化操作
+     * 应用初始化操作.
      *
      * @param WindHttpRequest  $request
      * @param WindHttpResponse $response
@@ -55,7 +56,7 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     * 请求处理完毕后，进一步分发
+     * 请求处理完毕后，进一步分发.
      *
      * @param WindForward $forward
      * @param bool        $display
@@ -64,7 +65,7 @@ abstract class AbstractWindApplication extends WindModule
 
     /**
      * 处理错误请求
-     * 根据错误请求的相关信息,将程序转向到错误处理句柄进行错误处理
+     * 根据错误请求的相关信息,将程序转向到错误处理句柄进行错误处理.
      *
      * @param WindErrorMessage $errorMessage
      * @param int              $errorcode
@@ -115,14 +116,15 @@ abstract class AbstractWindApplication extends WindModule
      * <!-- 指定模板路径 -->
      * <template-dir>template</template-dir>
      * <!-- 指定模板后缀 -->
-     * <template-ext>htm</template-ext></code>
+     * <template-ext>htm</template-ext></code>.
      *
-     * @param  string $name
-     *                         module名称
-     * @param  array  $config
-     *                         配置数组
-     * @param  bool   $replace
-     *                         如果module已经存在是否覆盖他 默认值为false不进行覆盖
+     * @param string $name
+     *                        module名称
+     * @param array  $config
+     *                        配置数组
+     * @param bool   $replace
+     *                        如果module已经存在是否覆盖他 默认值为false不进行覆盖
+     *
      * @return array
      */
     public function setModules($name, $config, $replace = false)
@@ -135,15 +137,17 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     * 获得module配置,$name为空时返回当前module配置
+     * 获得module配置,$name为空时返回当前module配置.
      *
-     * @param  string              $name
-     *                                    module名称 默认为空
-     * @param  bool                $merge
-     *                                    合并默认值
-     * @return array
+     * @param string $name
+     *                      module名称 默认为空
+     * @param bool   $merge
+     *                      合并默认值
+     *
      * @throws WindActionException
      * @throws WindException
+     *
+     * @return array
      */
     public function getModules($name = '')
     {
@@ -192,7 +196,7 @@ abstract class AbstractWindApplication extends WindModule
 
     /**
      * 手动注册actionFilter
-     * 参数为数组格式：
+     * 参数为数组格式：.
      *
      * @param array $filters
      */
@@ -209,7 +213,7 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     * 解析action过滤链的配置信息
+     * 解析action过滤链的配置信息.
      *
      * @param WindSimpleController $handler
      */
@@ -264,7 +268,6 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     *
      * @return WindHttpRequest
      */
     public function getRequest()
@@ -273,7 +276,6 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     *
      * @return WindHttpResponse
      */
     public function getResponse()
@@ -282,7 +284,6 @@ abstract class AbstractWindApplication extends WindModule
     }
 
     /**
-     *
      * @return WindFactory
      */
     public function getFactory()

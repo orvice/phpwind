@@ -2,7 +2,7 @@
 
 
 /**
- * 使用ftp函数实现ftp相关操作
+ * 使用ftp函数实现ftp相关操作.
  *
  * 使用方法和普通类库一样:
  * <code>
@@ -14,20 +14,20 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFtp.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package ftp
  */
 class WindFtp extends AbstractWindFtp
 {
     /**
-     * 被动模式是否开启默认为true开启
+     * 被动模式是否开启默认为true开启.
      *
      * @var bool
      */
     private $isPasv = true;
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * 通过传入config构造链接对象
      *
@@ -39,18 +39,19 @@ class WindFtp extends AbstractWindFtp
     }
 
     /**
-     * 链接ftp
+     * 链接ftp.
      *
-     * @param  array $config ftp的配置信息：
-     *                       <ul>
-     *                       <li>server: ftp主机地址</li>
-     *                       <li>port: ftp链接端口号，默认为21</li>
-     *                       <li>user: ftp链接用户名</li>
-     *                       <li>pwd: ftp链接用户密码</li>
-     *                       <li>dir: ftp链接后切换的目录,默认为空</li>
-     *                       <li>timeout: ftp链接超时时间,默认为10秒</li>
-     *                       <li>ispasv: ftp是否采用被动模式，默认为1，如果配置为0则表示不开启被动模式，其他值都将设置为开启被动模式</li>
-     *                       </ul>
+     * @param array $config ftp的配置信息：
+     *                      <ul>
+     *                      <li>server: ftp主机地址</li>
+     *                      <li>port: ftp链接端口号，默认为21</li>
+     *                      <li>user: ftp链接用户名</li>
+     *                      <li>pwd: ftp链接用户密码</li>
+     *                      <li>dir: ftp链接后切换的目录,默认为空</li>
+     *                      <li>timeout: ftp链接超时时间,默认为10秒</li>
+     *                      <li>ispasv: ftp是否采用被动模式，默认为1，如果配置为0则表示不开启被动模式，其他值都将设置为开启被动模式</li>
+     *                      </ul>
+     *
      * @return bool
      */
     private function connection($config = array())
@@ -72,7 +73,7 @@ class WindFtp extends AbstractWindFtp
     }
 
     /**
-     * 获得ftp链接
+     * 获得ftp链接.
      *
      * @return resource
      */
@@ -176,11 +177,12 @@ class WindFtp extends AbstractWindFtp
     }
 
     /**
-     * 给文件赋指定权限
+     * 给文件赋指定权限.
      *
-     * @param  string $file        待处理的文件
-     * @param  int    $permissions 文件的需要的权限
-     * @return bool   设置成功返回true,设置失败返回false
+     * @param string $file        待处理的文件
+     * @param int    $permissions 文件的需要的权限
+     *
+     * @return bool 设置成功返回true,设置失败返回false
      */
     private function chmod($file, $permissions = 0777)
     {
@@ -216,10 +218,11 @@ class WindFtp extends AbstractWindFtp
     }
 
     /**
-     * 根据文件获得文件访问的模式
+     * 根据文件获得文件访问的模式.
      *
-     * @param  string $filename 文件名
-     * @param  string $mode     模式，二进制还是ASCII上传，I为二进制模式，A为ASCII模式，默认为A模式，如果是auto将会根据文件后缀来设置模式
+     * @param string $filename 文件名
+     * @param string $mode     模式，二进制还是ASCII上传，I为二进制模式，A为ASCII模式，默认为A模式，如果是auto将会根据文件后缀来设置模式
+     *
      * @return string 返回模式方式FTP_ASCII或是FTP_BINARY
      */
     private function getMode($filename, $mode)

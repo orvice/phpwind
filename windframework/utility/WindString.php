@@ -1,12 +1,12 @@
 <?php
 /**
- * 字符串格式化
+ * 字符串格式化.
  *
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindString.php 3760 2012-10-11 08:02:25Z yishuo $
- * @package utility
  */
 class WindString
 {
@@ -14,13 +14,14 @@ class WindString
     const GBK = 'gbk';
 
     /**
-     * 截取字符串,支持字符编码,默认为utf-8
+     * 截取字符串,支持字符编码,默认为utf-8.
      *
-     * @param  string $string  要截取的字符串编码
-     * @param  int    $start   开始截取
-     * @param  int    $length  截取的长度
-     * @param  string $charset 原妈编码,默认为UTF8
-     * @param  bool   $dot     是否显示省略号,默认为false
+     * @param string $string  要截取的字符串编码
+     * @param int    $start   开始截取
+     * @param int    $length  截取的长度
+     * @param string $charset 原妈编码,默认为UTF8
+     * @param bool   $dot     是否显示省略号,默认为false
+     *
      * @return string 截取后的字串
      */
     public static function substr($string, $start, $length, $charset = self::UTF8, $dot = false)
@@ -40,10 +41,11 @@ class WindString
     }
 
     /**
-     * 求取字符串长度
+     * 求取字符串长度.
      *
-     * @param  string $string  要计算的字符串编码
-     * @param  string $charset 原始编码,默认为UTF8
+     * @param string $string  要计算的字符串编码
+     * @param string $charset 原始编码,默认为UTF8
+     *
      * @return int
      */
     public static function strlen($string, $charset = self::UTF8)
@@ -63,10 +65,11 @@ class WindString
     }
 
     /**
-     * 将变量的值转换为字符串
+     * 将变量的值转换为字符串.
      *
-     * @param  mixed  $input  变量
-     * @param  string $indent 缩进,默认为''
+     * @param mixed  $input  变量
+     * @param string $indent 缩进,默认为''
+     *
      * @return string
      */
     public static function varToString($input, $indent = '')
@@ -98,10 +101,11 @@ class WindString
     }
 
     /**
-     * 将数据用json加密
+     * 将数据用json加密.
      *
-     * @param  mixed  $value   需要加密的数据
-     * @param  string $charset 字符编码
+     * @param mixed  $value   需要加密的数据
+     * @param string $charset 字符编码
+     *
      * @return string 加密后的数据
      */
     public static function jsonEncode($value, $charset = self::UTF8)
@@ -110,11 +114,12 @@ class WindString
     }
 
     /**
-     * 将json格式数据解密
+     * 将json格式数据解密.
      *
-     * @param  string $value   待解密的数据
-     * @param  string $charset 解密后字符串编码
-     * @return mixed  解密后的数据
+     * @param string $value   待解密的数据
+     * @param string $charset 解密后字符串编码
+     *
+     * @return mixed 解密后的数据
      */
     public static function jsonDecode($value, $charset = self::UTF8)
     {
@@ -124,10 +129,11 @@ class WindString
     /**
      * 以utf8格式截取的字符串编码
      *
-     * @param  string $string 要截取的字符串编码
-     * @param  int    $start  开始截取
-     * @param  int    $length 截取的长度，默认为null，取字符串的全长
-     * @param  bool   $dot    是否显示省略号，默认为false
+     * @param string $string 要截取的字符串编码
+     * @param int    $start  开始截取
+     * @param int    $length 截取的长度，默认为null，取字符串的全长
+     * @param bool   $dot    是否显示省略号，默认为false
+     *
      * @return string
      */
     public static function substrForUtf8($string, $start, $length = null, $dot = false)
@@ -185,10 +191,11 @@ class WindString
     /**
      * 以gbk格式截取的字符串编码
      *
-     * @param  string $string 要截取的字符串编码
-     * @param  int    $start  开始截取
-     * @param  int    $length 截取的长度，默认为null，取字符串的全长
-     * @param  bool   $dot    是否显示省略号，默认为false
+     * @param string $string 要截取的字符串编码
+     * @param int    $start  开始截取
+     * @param int    $length 截取的长度，默认为null，取字符串的全长
+     * @param bool   $dot    是否显示省略号，默认为false
+     *
      * @return string
      */
     public static function substrForGbk($string, $start, $length = null, $dot = false)
@@ -226,9 +233,10 @@ class WindString
     }
 
     /**
-     * 以utf8求取字符串长度
+     * 以utf8求取字符串长度.
      *
-     * @param  string $string 要计算的字符串编码
+     * @param string $string 要计算的字符串编码
+     *
      * @return int
      */
     public static function strlenForUtf8($string)
@@ -257,9 +265,10 @@ class WindString
     }
 
     /**
-     * 以gbk求取字符串长度
+     * 以gbk求取字符串长度.
      *
-     * @param  string $string 要计算的字符串编码
+     * @param string $string 要计算的字符串编码
+     *
      * @return int
      */
     public static function strlenForGbk($string)

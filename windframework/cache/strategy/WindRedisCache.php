@@ -55,18 +55,18 @@
  * $redis = Wind::getComponent('redisCache');
  * $redis->set('name', 'windFramework');
  * echo $redis->get('name');
- * </code>
+ * </code>.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindRedisCache.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package wind.cache.strategy
  */
 class WindRedisCache extends AbstractWindCache
 {
     /**
-     * redis缓存操作句柄
+     * redis缓存操作句柄.
      *
      * @var Redis
      */
@@ -80,7 +80,7 @@ class WindRedisCache extends AbstractWindCache
     protected $auth = '';
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * @throws WindCacheException
      */

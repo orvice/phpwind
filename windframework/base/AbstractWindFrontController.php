@@ -6,8 +6,8 @@
  * @author Qiong Wu <papa0924@gmail.com> 2011-12-27
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $$Id$$
- * @package base
  */
 abstract class AbstractWindFrontController
 {
@@ -30,7 +30,7 @@ abstract class AbstractWindFrontController
      */
     protected $_factory = null;
     /**
-     * 应用配置
+     * 应用配置.
      *
      * @var array
      */
@@ -39,38 +39,36 @@ abstract class AbstractWindFrontController
         'web-apps' => array(
             'default' => array(
                 'error-dir' => 'WIND:web.view',
-                'compress' => true,
+                'compress'  => true,
                 'root-path' => '',
-                'charset' => 'utf-8',
-                'modules' => array(
+                'charset'   => 'utf-8',
+                'modules'   => array(
                     'default' => array(
-                        'controller-path' => 'controller',
+                        'controller-path'   => 'controller',
                         'controller-suffix' => 'Controller',
-                        'error-handler' => 'WindErrorHandler', ), ), ), ),
+                        'error-handler'     => 'WindErrorHandler', ), ), ), ),
         'components' => array(), );
     /**
-     * 当前app名称
+     * 当前app名称.
      *
      * @var string
      */
     protected $_appName = 'default';
     /**
-     * 应用对象数组
+     * 应用对象数组.
      *
      * @var WindWebApplication
      */
     protected $_app = null;
     /**
-     *
      * @var WindHandlerInterceptorChain
      */
     private $_chain = null;
 
     /**
-     *
      * @param string       $appName
      *                              默认app名称
-     * @param Array|string $config
+     * @param array|string $config
      *                              应用配置信息,支持为空或多应用配置
      */
     public function __construct($appName, $config)
@@ -86,7 +84,7 @@ abstract class AbstractWindFrontController
      * return array(
      * 'WindController' => 'web/WindController',
      * 'WindDispatcher' => 'web/WindDispatcher'
-     * </pre>
+     * </pre>.
      *
      * @return array
      */
@@ -116,18 +114,19 @@ abstract class AbstractWindFrontController
      * value: 一个字串值
      * path: path指向的类的实例将会被创建传递给该属性
      * config： 组件的配置-该值对应的配置会通过setConfig接口传递给组件；
-     * resource: 指定一个外部地址，将会去包含该文件
+     * resource: 指定一个外部地址，将会去包含该文件.
      *
      * @return array()
      */
     abstract protected function _components();
 
     /**
-     * 创建并初始化应用配置
+     * 创建并初始化应用配置.
      *
-     * @param  array              $config
-     *                                     当前应用配置信息
-     * @param  WindFactory        $factory
+     * @param array       $config
+     *                             当前应用配置信息
+     * @param WindFactory $factory
+     *
      * @return WindWebApplication
      */
     abstract protected function createApplication($config, $factory);
@@ -139,7 +138,7 @@ abstract class AbstractWindFrontController
      * <li>加载类加载器，拥有系统初始化加速</li>
      * <li>初始化组建工厂，组建工厂的组建分为，系统配置和自定义配置</li>
      * <li>初始化应用根目录</li>
-     * </ul>
+     * </ul>.
      *
      * @param array|string $config
      *                             应用配置
@@ -175,7 +174,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 初始化配置信息
+     * 初始化配置信息.
      *
      * @param array|string $config
      * @param WindFactory  $factory
@@ -192,7 +191,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 创建并执行当前应用,单应用访问入口
+     * 创建并执行当前应用,单应用访问入口.
      */
     public function run()
     {
@@ -226,7 +225,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 注册过滤器,监听Application Run
+     * 注册过滤器,监听Application Run.
      *
      * @param WindHandlerInterceptor $filter
      */
@@ -241,7 +240,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 错误处理句柄
+     * 错误处理句柄.
      *
      * @param int    $errno
      * @param string $errstr
@@ -263,7 +262,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * Exception处理
+     * Exception处理.
      *
      * @param Exception $exception
      */
@@ -280,12 +279,13 @@ abstract class AbstractWindFrontController
 
     /**
      * 根据配置名取得相应的配置
-     * 当<i>configName</i>为空时则返回整个配置.当配置值不存在时返回默认值.默认值默认为空
+     * 当<i>configName</i>为空时则返回整个配置.当配置值不存在时返回默认值.默认值默认为空.
      *
-     * @param  string $configName    键名
-     * @param  string $subConfigName 二级键名
-     * @param  string $default       默认值
-     * @param  array  $config        外部配置
+     * @param string $configName    键名
+     * @param string $subConfigName 二级键名
+     * @param string $default       默认值
+     * @param array  $config        外部配置
+     *
      * @return mixed
      */
     public function getConfig($configName = '', $subConfigName = '', $default = '')
@@ -307,7 +307,7 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 返回当前app应用名称
+     * 返回当前app应用名称.
      *
      * @return string
      */
@@ -317,9 +317,10 @@ abstract class AbstractWindFrontController
     }
 
     /**
-     * 返回当前的app应用
+     * 返回当前的app应用.
      *
-     * @param  string             $appName
+     * @param string $appName
+     *
      * @return WindWebApplication
      */
     public function getApp()

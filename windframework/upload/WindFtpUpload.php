@@ -2,13 +2,13 @@
 
 
 /**
- * ftp远程文件上传
+ * ftp远程文件上传.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFtpUpload.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package upload
  */
 class WindFtpUpload extends AbstractWindUpload
 {
@@ -17,7 +17,7 @@ class WindFtpUpload extends AbstractWindUpload
     private $ftp = null;
 
     /**
-     * 构造函数设置远程ftp链接信息
+     * 构造函数设置远程ftp链接信息.
      *
      * @param array $config
      */
@@ -41,9 +41,10 @@ class WindFtpUpload extends AbstractWindUpload
     }
 
     /**
-     * 设置ftp链接配置文件
+     * 设置ftp链接配置文件.
      *
-     * @param  array $config ftp链接信息
+     * @param array $config ftp链接信息
+     *
      * @return bool
      */
     public function setConfig($config)

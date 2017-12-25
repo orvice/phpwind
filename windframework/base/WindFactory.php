@@ -13,8 +13,8 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindFactory.php 3914 2013-01-23 03:07:17Z yishuo $
- * @package base
  */
 class WindFactory
 {
@@ -27,7 +27,7 @@ class WindFactory
     private static $_instance = null;
 
     /**
-     * 初始化工厂类
+     * 初始化工厂类.
      *
      * @param array $classDefinitions
      *                                组件定义 默认值为空数组
@@ -110,10 +110,11 @@ class WindFactory
     /**
      * 注册组件对象,如果已经存在则覆盖原有值
      *
-     * @param  object $instance
-     * @param  string $alias
-     * @param  string $scope
-     *                          对象作用域 默认为'singleton'
+     * @param object $instance
+     * @param string $alias
+     * @param string $scope
+     *                         对象作用域 默认为'singleton'
+     *
      * @return bool
      */
     public function registInstance($instance, $alias, $scope = 'singleton')
@@ -122,10 +123,11 @@ class WindFactory
     }
 
     /**
-     * 动态添加组件定义
+     * 动态添加组件定义.
      *
-     * @param  string        $alias
-     * @param  array         $classDefinition
+     * @param string $alias
+     * @param array  $classDefinition
+     *
      * @throws WindException
      */
     public function addClassDefinitions($alias, $classDefinition)
@@ -167,7 +169,7 @@ class WindFactory
 
     /**
      * 设置类定义
-     * 通过该方法设置会覆盖原有类定义，请注意该方法于{@see loadClassDefinitions}的区别
+     * 通过该方法设置会覆盖原有类定义，请注意该方法于{@see loadClassDefinitions}的区别.
      *
      * @param array $classDefinitions
      */
@@ -178,9 +180,10 @@ class WindFactory
 
     /**
      * 组件定义检查
-     * 检查类定义是否已经存在,或者是否已经被创建.避免重复注册组件定义
+     * 检查类定义是否已经存在,或者是否已经被创建.避免重复注册组件定义.
      *
-     * @param  string $alias
+     * @param string $alias
+     *
      * @return bool
      */
     public function checkAlias($alias)
@@ -244,11 +247,12 @@ class WindFactory
     /**
      * 组件对象的作用域解析
      * 组件对象的作用域解析,目前支持的属性作用于为'prototype','application','singleton',默认为'application'.
-     * 相关组件定义方式<code><component scope=''>...</component></code>
+     * 相关组件定义方式<code><component scope=''>...</component></code>.
      *
-     * @param  string     $alias
-     * @param  string     $scope
-     * @param  WindModule $instance
+     * @param string     $alias
+     * @param string     $scope
+     * @param WindModule $instance
+     *
      * @return bool
      */
     protected function setScope($alias, $scope, $instance)
@@ -295,12 +299,14 @@ class WindFactory
 
     /**
      * 执行类的初始化方法
-     * 类的初始化方法的组件定义<code><component init-method=''>...</component></code>
+     * 类的初始化方法的组件定义<code><component init-method=''>...</component></code>.
      *
-     * @param  string        $initMethod
-     * @param  object        $instance
-     * @return mixed
+     * @param string $initMethod
+     * @param object $instance
+     *
      * @throws WindException
+     *
+     * @return mixed
      */
     protected function executeInitMethod($initMethod, $instance)
     {
@@ -322,8 +328,9 @@ class WindFactory
      * proxy=''>...</component></code>当'proxy'设置为false时返回该类的代理类型,
      * 类默认的代理类型为WindClassProxy,不可以通过配置进行修改.
      *
-     * @param  string         $proxy
-     * @param  WindModule     $instance
+     * @param string     $proxy
+     * @param WindModule $instance
+     *
      * @return WindClassProxy
      */
     protected function setProxyForClass($proxy, $listeners, $instance)
@@ -338,7 +345,7 @@ class WindFactory
         $proxy = self::createInstance(Wind::import($proxy));
         $proxy->registerTargetObject($instance);
         foreach ($listeners as $key => $value) {
-            $listener = WindFactory::createInstance(Wind::import($value));
+            $listener = self::createInstance(Wind::import($value));
             $proxy->registerEventListener($listener, $key);
         }
         // $instance->_proxy = $proxy;

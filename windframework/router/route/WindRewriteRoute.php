@@ -2,7 +2,7 @@
 
 
 /**
- * 基于rewrite和二级域名的路由协议
+ * 基于rewrite和二级域名的路由协议.
  *
  * 该类继承了抽象类{@see AbstractWindRoute},实现了{@see AbstractWindRoute::match()},
  * {@see AbstractWindRoute::build()}.
@@ -16,9 +16,8 @@
  * @author Shi Long <long.shi@alibaba-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindRewriteRoute.php 3677 2012-06-13 06:30:01Z yishuo $
- * @package router
- * @subpackage route
  */
 class WindRewriteRoute extends AbstractWindRoute
 {
@@ -28,7 +27,7 @@ class WindRewriteRoute extends AbstractWindRoute
     protected $params = array('a' => 3, 'c' => 2, 'm' => 1);
 
     /**
-     * 路由解析
+     * 路由解析.
      *
      * 匹配这个patten时，将试图去解析module、controller和action值，并解析二级域名。
      *
@@ -56,14 +55,16 @@ class WindRewriteRoute extends AbstractWindRoute
     }
 
     /**
-     * 在此路由协议的基础上组装url
+     * 在此路由协议的基础上组装url.
      *
-     * @param  AbstractWindRouter $router
-     * @param  string             $action
-     *                                    格式为app/module/controller/action
-     * @param  array              $args
-     *                                    附带的参数
+     * @param AbstractWindRouter $router
+     * @param string             $action
+     *                                   格式为app/module/controller/action
+     * @param array              $args
+     *                                   附带的参数
+     *
      * @return string
+     *
      * @see AbstractWindRoute::build()
      */
     public function build($router, $action, $args = array())

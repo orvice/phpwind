@@ -18,7 +18,7 @@
  * </pre>
  * 【使用】调用时使用：
  * <pre>
- * $session = Wind::getComponent('WindSession');
+ * $session = Wind::getComponent('WindSession');.
  *
  * $session->set('name', 'test');    //等同：$_SESSION['name'] = 'test';
  * echo $session->get('name');       //等同：echo $_SESSION['name'];
@@ -42,14 +42,13 @@
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSession.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package http
- * @subpackage session
  */
 class WindSession extends WindModule implements IWindHttpContainer
 {
     /**
-     * 构造函数
+     * 构造函数.
      *
      * @param AbstractWindCache $dataStoreHandler 数据缓存对象,默认为null
      * @param object            $sessionHandler   session操作设置类,默认为null
@@ -60,8 +59,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 开启session
-     *
+     * 开启session.
      */
     public function start()
     {
@@ -69,7 +67,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 设置数据
+     * 设置数据.
      *
      * @param string $key   保存在session中的键名
      * @param mixed  $value 保存在session中的值
@@ -80,10 +78,11 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 获得数据
+     * 获得数据.
      *
-     * @param  string $key 保存在session中的键名
-     * @return mixed  返回保存在session中该键名对应的键值
+     * @param string $key 保存在session中的键名
+     *
+     * @return mixed 返回保存在session中该键名对应的键值
      */
     public function get($key)
     {
@@ -91,7 +90,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 删除数据
+     * 删除数据.
      *
      * @param string $key
      */
@@ -104,7 +103,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 清除会话信息
+     * 清除会话信息.
      *
      * @return bool
      */
@@ -114,10 +113,11 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 检测变量是否已经被注册
+     * 检测变量是否已经被注册.
      *
-     * @param  string $key 需要进行判断的建名
-     * @return bool   如果已经被注册则返回true,否则返回false
+     * @param string $key 需要进行判断的建名
+     *
+     * @return bool 如果已经被注册则返回true,否则返回false
      */
     public function isRegistered($key)
     {
@@ -125,7 +125,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 获得当前session的名字
+     * 获得当前session的名字.
      *
      * @return string
      */
@@ -135,10 +135,11 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 设置当前session的名字
+     * 设置当前session的名字.
      *
-     * @param  string $name session的名字
-     * @return bool   设置成功将返回true
+     * @param string $name session的名字
+     *
+     * @return bool 设置成功将返回true
      */
     public function setCurrentName($name)
     {
@@ -146,7 +147,7 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 获得sessionId
+     * 获得sessionId.
      *
      * @return string
      */
@@ -156,10 +157,11 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 设置当前session的Id
+     * 设置当前session的Id.
      *
-     * @param  string $id 需要设置的id名
-     * @return bool   设置成功返回true
+     * @param string $id 需要设置的id名
+     *
+     * @return bool 设置成功返回true
      */
     public function setCurrentId($id)
     {
@@ -167,10 +169,9 @@ class WindSession extends WindModule implements IWindHttpContainer
     }
 
     /**
-     * 写入session之后关闭session
+     * 写入session之后关闭session.
      *
      * 同session_write_close
-     *
      */
     public function commit()
     {

@@ -5,12 +5,12 @@
  * 输出安全令牌隐藏域
  *
  * <token name='' />
+ *
  * @author Qiong Wu <papa0924@gmail.com> 2011-10-19
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerToken.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerToken extends AbstractWindTemplateCompiler
 {

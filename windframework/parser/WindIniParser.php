@@ -1,6 +1,6 @@
 <?php
 /**
- * ini 格式文件解析
+ * ini 格式文件解析.
  *
  * <note><b>注意：</b>有些保留字不能作为 ini 文件中的键名，<br/>
  * 包括：null，yes，no，true 和 false。值为 null，no 和 false 等效于 ""，<br/>
@@ -26,23 +26,24 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindIniParser.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package parser
  */
 class WindIniParser
 {
     /**
-     * ini中分割数组的标识
+     * ini中分割数组的标识.
      *
      * @var string
      */
     const ARRAY_SEP = '.';
 
     /**
-     * 解析数据
+     * 解析数据.
      *
-     * @param  string $filename ini格式文件
-     * @param  bool   $build    是否解析,默认为true
+     * @param string $filename ini格式文件
+     * @param bool   $build    是否解析,默认为true
+     *
      * @return bool
      */
     public function parse($filename, $build = true)
@@ -56,9 +57,10 @@ class WindIniParser
     }
 
     /**
-     * 构建数据
+     * 构建数据.
      *
-     * @param  array $data 将解析出来的数据进行值解析
+     * @param array $data 将解析出来的数据进行值解析
+     *
      * @return array 解析后的数组
      */
     private function buildData(&$data)
@@ -75,11 +77,12 @@ class WindIniParser
     }
 
     /**
-     * 将每行ini文件转换成数组
+     * 将每行ini文件转换成数组.
      *
-     * @param  string $key   ini文件中的键
-     * @param  string $value ini文件中的值
-     * @param  array  $data  操作数据,默认为array()
+     * @param string $key   ini文件中的键
+     * @param string $value ini文件中的值
+     * @param array  $data  操作数据,默认为array()
+     *
      * @return array
      */
     private function toArray($key, $value, &$data = array())
@@ -101,10 +104,11 @@ class WindIniParser
     }
 
     /**
-     * 解析ini格式文件成数组
+     * 解析ini格式文件成数组.
      *
-     * @param  array $original 原始数组
-     * @param  array $data     解析后的数组
+     * @param array $original 原始数组
+     * @param array $data     解析后的数组
+     *
      * @return array
      */
     private function formatDataArray(&$original, &$data = array())
@@ -125,11 +129,12 @@ class WindIniParser
     }
 
     /**
-     * 从字符串中合并数组
+     * 从字符串中合并数组.
      *
-     * @param  string $key   待合并的键值
-     * @param  string $value 待合并的数据
-     * @param  array  $data  操作数组
+     * @param string $key   待合并的键值
+     * @param string $value 待合并的数据
+     * @param array  $data  操作数组
+     *
      * @return array
      */
     private function formatDataFromString($key, $value, &$data)
@@ -160,11 +165,12 @@ class WindIniParser
     }
 
     /**
-     * 合并格式化的数组
+     * 合并格式化的数组.
      *
-     * @param  string $key   待合并的键值
-     * @param  mixed  $value 待合并的数据
-     * @param  array  $data  合并到的数据
+     * @param string $key   待合并的键值
+     * @param mixed  $value 待合并的数据
+     * @param array  $data  合并到的数据
+     *
      * @return array
      */
     private function merge($key, $value, &$data = array())

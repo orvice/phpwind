@@ -1,19 +1,20 @@
 <?php
 /**
- * 操作转发类,该类携带了操作转发信息以及后续处理信息给主应用控制器
+ * 操作转发类,该类携带了操作转发信息以及后续处理信息给主应用控制器.
  *
  * 所有的操作处理类中,都默认包含了一个WindForward对象,当操作处理结束后返回该对象给主应用控制器.
  * 该类中包含了,变量信息,视图处理信息,跳转信息布局信息等.
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindForward.php 3533 2012-05-08 08:24:20Z yishuo $
- * @package web
  */
 class WindForward extends WindModule
 {
     /**
-     * 定义视图处理器
+     * 定义视图处理器.
      *
      * @var WindView
      */
@@ -23,7 +24,7 @@ class WindForward extends WindModule
      */
     protected $_delayAttributes = array('windView' => array('ref' => 'windView'));
     /**
-     * 存储变量
+     * 存储变量.
      *
      * @var array
      */
@@ -41,7 +42,7 @@ class WindForward extends WindModule
      */
     private $isRedirect = false;
     /**
-     * 跳转链接
+     * 跳转链接.
      *
      * @var string
      */
@@ -50,13 +51,15 @@ class WindForward extends WindModule
     private $args = array();
 
     /**
-     * 将请求重定向到另外一个Action操作
+     * 将请求重定向到另外一个Action操作.
      *
      * 参数支持格式:module/controller/action/?a=&b=&c=
-     * @param  string               $action      $action 操作
-     * @param  array                $args        参数 默认为空数组
-     * @param  bool                 $isRedirect  是否重定向  默认为false
-     * @param  bool                 $immediately 是否理解重定向 默认为true
+     *
+     * @param string $action      $action 操作
+     * @param array  $args        参数 默认为空数组
+     * @param bool   $isRedirect  是否重定向  默认为false
+     * @param bool   $immediately 是否理解重定向 默认为true
+     *
      * @throws WindForwardException
      */
     public function forwardAction($action, $args = array(), $isRedirect = false, $immediately = true)
@@ -71,23 +74,27 @@ class WindForward extends WindModule
     }
 
     /**
-     * url重定向
+     * url重定向.
      *
      * 采用<b>head</b>方式，将当前的请求重定向到新的url地址
-     * @param  string               $url 重定向的url地址
+     *
+     * @param string $url 重定向的url地址
+     *
      * @throws WindForwardException
      */
     public function forwardRedirect($url)
     {
         $this->setIsRedirect(true);
         $this->setUrl($url);
+
         throw new WindForwardException($this);
     }
 
     /**
-     * 设置当前forward对象中存储的变量
+     * 设置当前forward对象中存储的变量.
      *
      * 设置当前forward对象中存储的变量，设置到forward中的所有变量都可以在模板页面中被直接访问到
+     *
      * @param string|array|object $vars
      * @param string              $key  默认为空字符串
      */
@@ -108,9 +115,10 @@ class WindForward extends WindModule
     }
 
     /**
-     * 返回当前forward对象中存储的变量信息
+     * 返回当前forward对象中存储的变量信息.
      *
      * 返回当前forward对象中存储的变量信息，支持多个参数，当参数为空时返回全部的变量信息
+     *
      * @return mixed
      */
     public function getVars()

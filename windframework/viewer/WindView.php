@@ -1,9 +1,8 @@
 <?php
 
 
-
 /**
- * 视图处理器
+ * 视图处理器.
  *
  * <i>WindView</i>是基础的视图处理器,职责：进行视图渲染.<br>
  * 他实现自接口<i>IWindView</i>,该类依赖<i>WindViewerResolver</i>完成视图渲染工作<br/>
@@ -42,66 +41,68 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license {@link http://www.windframework.com}
+ *
  * @version $Id: WindView.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package viewer
  */
 class WindView extends WindModule implements IWindView
 {
     /**
-     * 模板目录
+     * 模板目录.
      *
      * 支持命名空间格式:<i>WIND:template</i>,
      * 当命名空间为空时以当前<i>app</i>的<i>rootpath</i>为默认命名空间
+     *
      * @var string
      */
     public $templateDir;
     /**
-     * 模板文件的扩展名
+     * 模板文件的扩展名.
      *
      * @var string
      */
     public $templateExt;
     /**
-     * 模板名称
+     * 模板名称.
      *
      * @var string
      */
     public $templateName;
     /**
-     * 是否对模板变量进行html字符过滤
+     * 是否对模板变量进行html字符过滤.
      *
      * @var bool
      */
     public $htmlspecialchars = true;
     /**
-     * 是否开启模板自动编译
+     * 是否开启模板自动编译.
      *
      * 接受两种输入值0和1<ol>
      * <li>0   关闭,不进行模板编译</li>
      * <li>1  进行模板编译</li></ol>
+     *
      * @var int
      */
     public $isCompile = 0;
     /**
-     * 模板编译文件生成目录,目录定义规则同<i>templateDir</i>
+     * 模板编译文件生成目录,目录定义规则同<i>templateDir</i>.
      *
      * @var string
      */
     public $compileDir;
     /**
-     * 模板编译文件生成后缀,默认值为'tpl'
+     * 模板编译文件生成后缀,默认值为'tpl'.
      *
      * @var string
      */
     public $compileExt = 'tpl';
     /**
-     * 模板布局文件
+     * 模板布局文件.
      *
      * @var string
      */
     public $layout;
     /**
-     * 更个包的结构
+     * 更个包的结构.
      *
      * @var string
      */
@@ -109,18 +110,19 @@ class WindView extends WindModule implements IWindView
 
     /**
      * 主题包目录
-     * array('theme' => '', 'package' => '');
+     * array('theme' => '', 'package' => '');.
+     *
      * @var string
      */
     protected $theme = array();
     /**
-     * 视图解析引擎,通过组件配置改变该类型
+     * 视图解析引擎,通过组件配置改变该类型.
      *
      * @var WindViewerResolver
      */
     protected $viewResolver = null;
     /**
-     * 视图布局管理器
+     * 视图布局管理器.
      *
      * @var WindLayout
      */
@@ -178,16 +180,18 @@ class WindView extends WindModule implements IWindView
     }
 
     /**
-     * 返回模板绝对路径信息
+     * 返回模板绝对路径信息.
      *
      * 根据模板的逻辑名称,返回模板的绝对路径信息,支持命名空间方式定义模板信息.<code>
      * $template='templateName'; //return $templateDir/templateName.$ext
      * $template='subTemplateDir.templateName'; //return $templateDir/subTemplateDir/templateName.$ext
      * $template='namespace:templateName'; //return namespace:templateName.$ext</code>
      * <note><b>注意:</b>$template为空则返回当前的模板的路径信息.模板文件后缀名可以通过修改配置进行修改.</note>
-     * @param  string              $template         模板名称, 默认值为空 , 为空则返回当前模板的绝对地址
-     * @param  string              $ext              模板后缀, 默认值为空, 为空则返回使用默认的后缀
-     * @param  bool                $createCompileDir true
+     *
+     * @param string $template         模板名称, 默认值为空 , 为空则返回当前模板的绝对地址
+     * @param string $ext              模板后缀, 默认值为空, 为空则返回使用默认的后缀
+     * @param bool   $createCompileDir true
+     *
      * @return array(templatePath, compilePath, currentThemeKey)
      */
     public function getViewTemplate($template = '', $ext = '')
@@ -218,9 +222,10 @@ class WindView extends WindModule implements IWindView
     }
 
     /**
-     * 获取当前风格定义
+     * 获取当前风格定义.
      *
-     * @param  string               $type (all)
+     * @param string $type (all)
+     *
      * @return array(theme,package)
      */
     public function getTheme($key = 'all')
@@ -233,7 +238,7 @@ class WindView extends WindModule implements IWindView
     }
 
     /**
-     * 设置风格主题信息
+     * 设置风格主题信息.
      *
      * @param string $theme
      * @param string $package

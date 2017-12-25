@@ -2,7 +2,7 @@
 
 
 /**
- * ApcCache缓存策略实现类
+ * ApcCache缓存策略实现类.
  *
  * ApcCache继承AbstractWindCache类,并实现该类的提供的各自操作接口.
  * 提供对方访问接口如下:
@@ -53,11 +53,12 @@
  * <note><b>注意: </b>要使用ApcCache组件,需要安装apc扩展支持.</note>
  *
  * the last known user to change this file in the repository  <LastChangedBy: xiaoxiao >
+ *
  * @author xiaoxiao <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindApcCache.php 3791 2012-10-30 04:01:29Z liusanbian $
- * @package strategy
  */
 class WindApcCache extends AbstractWindCache
 {

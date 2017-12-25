@@ -1,22 +1,20 @@
 <?php
 
 
-
 /**
  * 变量输出编译类
  * 变量输出格式:<code>
  * 变量名称|变量格式（html，text）
  * {$var|html} //不执行编译
  * {@$var->a|text} //执行编译
- * {@templateName:var|html}</code>
+ * {@templateName:var|html}</code>.
  *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindTemplateCompilerEcho.php 3773 2012-10-19 09:53:40Z long.shi
  *          $
- * @package viewer
- * @subpackage compiler
  */
 class WindTemplateCompilerEcho extends AbstractWindTemplateCompiler
 {

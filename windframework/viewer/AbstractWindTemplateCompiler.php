@@ -1,14 +1,15 @@
 <?php
 /**
- * 模板标签解析器
+ * 模板标签解析器.
  *
  * 可以通过继承该抽象类,扩展模板的标签解析.在扩展模板的标签解析时实现'compile'方法即可.
  * 该方法接收一段match到的标签内容进行解析操作并返回解析后的结果.
+ *
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: AbstractWindTemplateCompiler.php 3533 2012-05-08 08:24:20Z yishuo $
- * @package viewer
  */
 abstract class AbstractWindTemplateCompiler extends WindHandlerInterceptor
 {
@@ -38,7 +39,7 @@ abstract class AbstractWindTemplateCompiler extends WindHandlerInterceptor
     protected $_propertiesCache = array();
 
     /**
-     * 初始化标签解析器
+     * 初始化标签解析器.
      *
      * @param string             $tags
      * @param WindViewTemplate   $windViewTemplate
@@ -56,25 +57,24 @@ abstract class AbstractWindTemplateCompiler extends WindHandlerInterceptor
     }
 
     /**
-     * 内容编译,接受一段落内容进行编译处理并返回编译内容
+     * 内容编译,接受一段落内容进行编译处理并返回编译内容.
      *
-     * @param  string $key
-     * @param  string $content 模板内容
+     * @param string $key
+     * @param string $content 模板内容
+     *
      * @return string 输出编译后结果
      */
     abstract public function compile($key, $content);
 
     /**
-     * 编译前预处理
-     *
+     * 编译前预处理.
      */
     protected function preCompile()
     {
     }
 
     /**
-     * 编译后处理结果
-     *
+     * 编译后处理结果.
      */
     protected function postCompile()
     {

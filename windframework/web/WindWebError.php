@@ -9,8 +9,8 @@
  * @author Qiong Wu <papa0924@gmail.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id$
- * @package wind.web
  */
 class WindWebError extends WindError
 {
@@ -54,7 +54,7 @@ class WindWebError extends WindError
     }
 
     /**
-     * 错误视图渲染
+     * 错误视图渲染.
      *
      * @param array $__vars
      */

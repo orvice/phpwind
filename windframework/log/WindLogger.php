@@ -1,6 +1,6 @@
 <?php
 /**
- * 日志记录
+ * 日志记录.
  *
  * 日志记录的级别有以下几种：
  * <ul>
@@ -20,27 +20,27 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindLogger.php 3904 2013-01-08 07:01:26Z yishuo $
- * @package log
  */
 class WindLogger extends WindModule
 {
     /**
-     * 级别1： 只是记录信息不记录trace信息
+     * 级别1： 只是记录信息不记录trace信息.
      *
      * @var int
      */
     const LEVEL_INFO = 1;
 
     /**
-     * 级别2：将会打印出堆栈中trace信息
+     * 级别2：将会打印出堆栈中trace信息.
      *
      * @var int
      */
     const LEVEL_TRACE = 2;
 
     /**
-     * 级别3：标志该信息是一个debug
+     * 级别3：标志该信息是一个debug.
      *
      * debug信息将会导出trace信息和debug详细信息
      *
@@ -49,35 +49,35 @@ class WindLogger extends WindModule
     const LEVEL_DEBUG = 3;
 
     /**
-     * 级别4：记录错误信息，不包含trace信息
+     * 级别4：记录错误信息，不包含trace信息.
      *
      * @var int
      */
     const LEVEL_ERROR = 4;
 
     /**
-     * 级别5：分析信息记录，包含详细的时间及内存使用情况等
+     * 级别5：分析信息记录，包含详细的时间及内存使用情况等.
      *
      * @var int
      */
     const LEVEL_PROFILE = 5;
 
     /**
-     * 日志的方式
+     * 日志的方式.
      *
      * @var int
      */
     const WRITE_TYPE = 2;
 
     /**
-     * 日志记录中profile信息开始的标志
+     * 日志记录中profile信息开始的标志.
      *
      * @var string
      */
     const TOKEN_BEGIN = 'begin:';
 
     /**
-     * 日志记录中profile信息结束的标志
+     * 日志记录中profile信息结束的标志.
      *
      * @var string
      */
@@ -91,7 +91,7 @@ class WindLogger extends WindModule
     private $_autoFlush = 1000;
 
     /**
-     * 日志内容
+     * 日志内容.
      *
      * @var array
      */
@@ -105,7 +105,7 @@ class WindLogger extends WindModule
     private $_logCount = 0;
 
     /**
-     * 日志的详细信息
+     * 日志的详细信息.
      *
      * @var array
      */
@@ -119,14 +119,14 @@ class WindLogger extends WindModule
     private $_logDir;
 
     /**
-     * 日志文件的最大长度
+     * 日志文件的最大长度.
      *
      * @var int
      */
     private $_maxFileSize = 100;
 
     /**
-     * 日志打印形式
+     * 日志打印形式.
      *
      * 0: 打印全部日志信息结果
      * 1: 按照level分文件存储日志记录
@@ -137,14 +137,14 @@ class WindLogger extends WindModule
     private $_writeType = 0;
 
     /**
-     * 存放日志打印形式
+     * 存放日志打印形式.
      *
      * @var array
      */
     private $_types = array();
 
     /**
-     * 构造函数
+     * 构造函数.
      *
      * @param string $logDir    日志文件存放的目录
      * @param int    $writeType 日志文件的保存方式
@@ -157,7 +157,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加info级别的日志信息
+     * 添加info级别的日志信息.
      *
      * @param string $msg   日志信息
      * @param string $type  日志的类型,默认为wind.system
@@ -169,7 +169,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加trace级别的日志信息
+     * 添加trace级别的日志信息.
      *
      * @param string $msg   日志信息
      * @param string $type  日志的类型,默认为wind.system
@@ -181,7 +181,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加debug级别的日志信息
+     * 添加debug级别的日志信息.
      *
      * @param string $msg   日志信息
      * @param string $type  日志的类型,默认为wind.system
@@ -193,7 +193,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加error级别的日志信息
+     * 添加error级别的日志信息.
      *
      * @param string $msg   日志信息
      * @param string $type  日志的类型,默认为wind.core
@@ -205,7 +205,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加profile级别的开始位置日志信息
+     * 添加profile级别的开始位置日志信息.
      *
      * 通过该接口添加的日志信息将是记录一个开始位置的信息
      *
@@ -219,7 +219,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加profile级别的结束位置日志信息
+     * 添加profile级别的结束位置日志信息.
      *
      * 通过该接口添加的日志信息将是记录一个结束位置的信息
      *
@@ -233,7 +233,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 添加info级别的日志信息
+     * 添加info级别的日志信息.
      *
      * @param string $msg   日志信息
      * @param int    $level 日志记录的级别,默认为INFO级别即为1
@@ -266,7 +266,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 将记录的日志列表信息写入文件
+     * 将记录的日志列表信息写入文件.
      *
      * @return bool
      */
@@ -278,10 +278,10 @@ class WindLogger extends WindModule
 
         $_l = $_logTypes = $_logLevels = array();
         $_map = array(
-            self::LEVEL_INFO => 'info',
-            self::LEVEL_ERROR => 'error',
-            self::LEVEL_DEBUG => 'debug',
-            self::LEVEL_TRACE => 'trace',
+            self::LEVEL_INFO    => 'info',
+            self::LEVEL_ERROR   => 'error',
+            self::LEVEL_DEBUG   => 'debug',
+            self::LEVEL_TRACE   => 'trace',
             self::LEVEL_PROFILE => 'profile', );
 
         foreach ($this->_logs as $key => $value) {
@@ -315,9 +315,10 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 返回内存使用量
+     * 返回内存使用量.
      *
-     * @param  bool $peak 是否是内存峰值,默认为true
+     * @param bool $peak 是否是内存峰值,默认为true
+     *
      * @return int
      */
     public function getMemoryUsage($peak = true)
@@ -341,13 +342,14 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 组装日志信息
+     * 组装日志信息.
      *
-     * @param  string $msg   日志信息
-     * @param  int    $level 日志级别
-     * @param  string $type  日志类型
-     * @param  int    $timer 日志记录的时间,默认为0
-     * @param  int    $mem   日志记录的时候内容使用情况,默认为0
+     * @param string $msg   日志信息
+     * @param int    $level 日志级别
+     * @param string $type  日志类型
+     * @param int    $timer 日志记录的时间,默认为0
+     * @param int    $mem   日志记录的时候内容使用情况,默认为0
+     *
      * @return string 构造好的信息字符串
      */
     private function _build($msg, $level, $type, $timer = 0, $mem = 0)
@@ -377,12 +379,13 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 构造profile信息格式
+     * 构造profile信息格式.
      *
-     * @param  string $msg   记录的信息
-     * @param  string $type  记录的信息类型
-     * @param  int    $timer 记录的信息的时间
-     * @param  int    $mem   记录的信息的时候内容使用情况
+     * @param string $msg   记录的信息
+     * @param string $type  记录的信息类型
+     * @param int    $timer 记录的信息的时间
+     * @param int    $mem   记录的信息的时候内容使用情况
+     *
      * @return string 返回构造好的profile信息
      */
     private function _buildProfile($msg, $type, $timer, $mem)
@@ -420,13 +423,14 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 组装info级别的信息输出格式
+     * 组装info级别的信息输出格式.
      *
      * <code>
      * INFO! Message: $msg
      * </code>
      *
-     * @param  string $msg 输出的信息
+     * @param string $msg 输出的信息
+     *
      * @return string
      */
     private function _buildInfo($msg)
@@ -435,7 +439,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 组装堆栈trace的信息输出格式
+     * 组装堆栈trace的信息输出格式.
      *
      * <code>
      * TRACE! Message: $msg
@@ -443,7 +447,8 @@ class WindLogger extends WindModule
      * #2 trace2
      * </code>
      *
-     * @param  string $msg 输出的信息
+     * @param string $msg 输出的信息
+     *
      * @return string
      */
     private function _buildTrace($msg)
@@ -452,7 +457,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 组装debug信息输出
+     * 组装debug信息输出.
      *
      * <code>
      * DEBUG! Message: $msg
@@ -460,7 +465,8 @@ class WindLogger extends WindModule
      * #2 trace2
      * </code>
      *
-     * @param  string $msg 输出的信息
+     * @param string $msg 输出的信息
+     *
      * @return string
      */
     private function _buildDebug($msg)
@@ -469,7 +475,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     *组装Error信息输出
+     *组装Error信息输出.
      *
      * <code>
      * ERROR! Message: $msg
@@ -477,7 +483,8 @@ class WindLogger extends WindModule
      * #2 trace2
      * </code>
      *
-     * @param  string $msg 输出的错误信息
+     * @param string $msg 输出的错误信息
+     *
      * @return string
      */
     private function _buildError($msg)
@@ -486,7 +493,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 错误堆栈信息的获取及组装输出
+     * 错误堆栈信息的获取及组装输出.
      *
      * <code>
      * #1 trace
@@ -521,15 +528,16 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 组装输出的trace中的参数组装
+     * 组装输出的trace中的参数组装.
      *
-     * @param  mixed  $arg 需要组装的信息
+     * @param mixed $arg 需要组装的信息
+     *
      * @return string 返回组装好的信息
-     *                    <ul>
-     *                    <li>如果是array: 返回 Array</li>
-     *                    <li>如果是Object: 返回 Object classname</li>
-     *                    <li>其他格式: 返回 $arg</li>
-     *                    </ul>
+     *                <ul>
+     *                <li>如果是array: 返回 Array</li>
+     *                <li>如果是Object: 返回 Object classname</li>
+     *                <li>其他格式: 返回 $arg</li>
+     *                </ul>
      */
     private function _buildArg($arg)
     {
@@ -547,9 +555,10 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 取得日志文件名
+     * 取得日志文件名.
      *
-     * @param  string $suffix 日志文件的后缀,默认为空
+     * @param string $suffix 日志文件的后缀,默认为空
+     *
      * @return string 返回日志文件名
      */
     private function _getFileName($suffix = '')
@@ -567,7 +576,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 设置日志保存的路径
+     * 设置日志保存的路径.
      *
      * @param string $logFile 日志保存的路径
      */
@@ -578,7 +587,7 @@ class WindLogger extends WindModule
     }
 
     /**
-     * 设置日志文件最大的大小
+     * 设置日志文件最大的大小.
      *
      * @param int $_maxFileSize 文件的最大值
      */

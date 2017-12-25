@@ -1,7 +1,6 @@
 <?php
 
 
-
 /**
  * 邮件发送
  *
@@ -20,9 +19,8 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSmtpMail.php 3298 2012-01-06 12:48:26Z yishuo $
- * @package mail
- * @subpackage sender
  */
 class WindSmtpMail extends WindModule implements IWindSendMail
 {
@@ -31,13 +29,13 @@ class WindSmtpMail extends WindModule implements IWindSendMail
      */
     protected $smtp = null;
     /**
-     * 邮件发送服务器
+     * 邮件发送服务器.
      *
      * @var string
      */
     protected $host;
     /**
-     * 邮件发送端口
+     * 邮件发送端口.
      *
      * @var int
      */
@@ -61,7 +59,7 @@ class WindSmtpMail extends WindModule implements IWindSendMail
      */
     protected $password;
     /**
-     * 请求超时时间
+     * 请求超时时间.
      *
      * @var string
      */
@@ -69,6 +67,7 @@ class WindSmtpMail extends WindModule implements IWindSendMail
 
     /**
      * @param WindMail $mail
+     *
      * @see IWindSendMail::send()
      */
     public function send($mail, $config = array())

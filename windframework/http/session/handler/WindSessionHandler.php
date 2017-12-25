@@ -1,13 +1,12 @@
 <?php
 /**
- * 注册session处理的方法
+ * 注册session处理的方法.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSessionHandler.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package http
- * @subpackage session.handler
  */
 class WindSessionHandler extends AbstractWindSessionHandler
 {
@@ -68,37 +67,37 @@ class WindSessionHandler extends AbstractWindSessionHandler
 }
 
 /**
- * 注册sessionHandler的接口定义类
+ * 注册sessionHandler的接口定义类.
  *
  * @author xiaoxia.xu <xiaoxia.xuxx@aliyun-inc.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindSessionHandler.php 2973 2011-10-15 19:22:48Z yishuo $
- * @package http
- * @subpackage session.handler
  */
 abstract class AbstractWindSessionHandler
 {
     /**
-     * 保存session数据的实例
+     * 保存session数据的实例.
      *
      * @var AbstractWindCache
      */
     protected $dataStore = null;
 
     /**
-     * 在开始会话时调用初始化会话信息
+     * 在开始会话时调用初始化会话信息.
      *
      * 用以从从保存的介质中获取session数据
      *
-     * @param  string $savePath    保存的地址
-     * @param  string $sessionName 会话的名字
+     * @param string $savePath    保存的地址
+     * @param string $sessionName 会话的名字
+     *
      * @return bool
      */
     abstract public function open($savePath, $sessionName);
 
     /**
-     * 关闭会话存储存储机制
+     * 关闭会话存储存储机制.
      *
      * 在页面执行完的时候执行
      *
@@ -107,7 +106,7 @@ abstract class AbstractWindSessionHandler
     abstract public function close();
 
     /**
-     * 将sessionID对应的数据写到存储
+     * 将sessionID对应的数据写到存储.
      *
      * 在sessionClose之前执行写入session数据的
      *
@@ -117,7 +116,7 @@ abstract class AbstractWindSessionHandler
     abstract public function write($sessID, $sessData);
 
     /**
-     * 从存储中装载session数据
+     * 从存储中装载session数据.
      *
      * 在执行session_start的时候执行在open之后
      *
@@ -126,7 +125,7 @@ abstract class AbstractWindSessionHandler
     abstract public function read($sessID);
 
     /**
-     * 对存储系统中的数据进行垃圾收集
+     * 对存储系统中的数据进行垃圾收集.
      *
      * 在执行session过期策略的时候执行，注意，session的过期并不是时时的，需要根据php.ini中的配置项：
      * session.gc_probability = 1
@@ -139,7 +138,7 @@ abstract class AbstractWindSessionHandler
     abstract public function gc($maxlifetime);
 
     /**
-     * 销毁与指定的会话ID相关联的数据
+     * 销毁与指定的会话ID相关联的数据.
      *
      * 在执行session_destroy的时候执行。
      *
@@ -148,7 +147,7 @@ abstract class AbstractWindSessionHandler
     abstract public function destroy($sessID);
 
     /**
-     * 设置session的存储方法及注册session中各个handler
+     * 设置session的存储方法及注册session中各个handler.
      *
      * @param AbstractWindCache $dataStore 存储方式
      */

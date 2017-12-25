@@ -5,9 +5,8 @@
  * @author Qian Su <aoxue.1988.su.qian@163.com>
  * @copyright ©2003-2103 phpwind.com
  * @license http://www.windframework.com
+ *
  * @version $Id: WindHttpStream.php 3912 2013-01-22 06:36:30Z yishuo $
- * @package http
- * @subpackage transfer
  */
 final class WindHttpStream extends AbstractWindHttp
 {
@@ -25,7 +24,8 @@ final class WindHttpStream extends AbstractWindHttp
     private $query = '';
 
     /**
-     * 设置通信协议
+     * 设置通信协议.
+     *
      * @param string $wrapper
      */
     public function setWrapper($wrapper = 'http')
@@ -76,7 +76,7 @@ final class WindHttpStream extends AbstractWindHttp
     }
 
     /**
-     * 释放资源
+     * 释放资源.
      */
     public function close()
     {
@@ -146,7 +146,7 @@ final class WindHttpStream extends AbstractWindHttp
 
     /**
      * url forward 兼容处理
-     * 获取真正的请求链接，并初始化socket句柄
+     * 获取真正的请求链接，并初始化socket句柄.
      *
      * @param array $options
      */
@@ -162,7 +162,7 @@ final class WindHttpStream extends AbstractWindHttp
         $newurl = $this->url;
         do {
             /* @var $socket WindHttpStream */
-            $handler = new WindHttpStream($newurl, $this->timeout);
+            $handler = new self($newurl, $this->timeout);
             $handler->setResponseHasBody(false);
             $handler->setResponseHasHeader(true);
             $header = $handler->send();
