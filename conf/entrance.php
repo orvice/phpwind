@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'api.php'           => 'api/index/run',
     'read.php'          => 'bbs/read/run',
     'pay/alipay.php'    => 'bbs/alipay/run',
     'pay/paypal.php'    => 'bbs/paypal/run',
