@@ -28,7 +28,7 @@ if (function_exists('get_include_path') && function_exists('set_include_path')) 
 $filename = dirname(__FILE__).'/vendor/autoload.php';
 if (!file_exists($filename) || !is_file($filename)) {
     echo '<pre>',
-         '您必须使用Composer包管理设置项目依赖关系，在程序根目录运行以下命令:', PHP_EOL,
+         '您必须使用 Composer 包依赖管理设置项目依赖关系，在程序根目录运行以下命令:', PHP_EOL,
          'composer install', PHP_EOL,
          '</pre>';
     exit;
