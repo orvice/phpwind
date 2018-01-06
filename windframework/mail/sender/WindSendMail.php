@@ -18,7 +18,7 @@ class WindSendMail extends WindModule implements IWindSendMail
     private $sendMail = '/usr/sbin/sendmail';
 
     /**
-     * @var string 发送者
+     * @var string 发送�
      */
     private $sender = '';
 
