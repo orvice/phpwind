@@ -235,7 +235,7 @@ class PwImageWatermark
             //imagealphablending($source, true);
             imagecolortransparent($source, imagecolorallocatealpha($source, 0, 0, 0, 0));
             imagecopyresampled($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height, $water->width, $water->height);
-            //imagecopy($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height);
+        //imagecopy($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height);
         } else {
             imagealphablending($ws, true);
             imagecopymerge($source, $ws, $offsetX, $offsetY, 0, 0, $water->width, $water->height, $transparency);

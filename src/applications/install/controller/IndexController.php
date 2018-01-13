@@ -482,11 +482,11 @@ class IndexController extends WindController
                 $tablename = trim(strrchr(trim(substr($query, 0, strrpos($query, ';'))), ' '), '` ');
                 $query = str_replace(';<wind>', '', $query);
                 $dataSQL['DROP'][] = $query;
-                //$logData['DROP'][] = $tablename;
+            //$logData['DROP'][] = $tablename;
             } elseif ($sql_key == 'ALTER') {
                 $query = str_replace(';<wind>', '', $query);
                 $dataSQL['ALTER'][] = $query;
-                //$logData['ALTER'][] = $query;
+            //$logData['ALTER'][] = $query;
             } elseif (in_array($sql_key, array('INSERT', 'REPLACE', 'UPDATE'))) {
                 $query = str_replace(';<wind>', '', $query);
                 $sql_key == 'INSERT' && $query = 'REPLACE'.substr($query, 6);

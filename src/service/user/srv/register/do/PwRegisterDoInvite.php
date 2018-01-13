@@ -78,7 +78,7 @@ class PwRegisterDoInvite extends PwRegisterDoBase
             /* @var $attention PwAttentionService */
             $attention = Wekit::load('attention.srv.PwAttentionService');
             $attention->addFollow($userDm->uid, $this->inviteInfo['created_userid']);
-            //			$attention->addFollow($this->inviteInfo['created_userid'], $userDm->uid);
+        //			$attention->addFollow($this->inviteInfo['created_userid'], $userDm->uid);
         } else {
             $codeDm = new PwInviteCodeDm();
             $codeDm->setInvitedUid($userDm->uid)
