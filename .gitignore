@@ -1,3 +1,8 @@
+/bootstrap
 /node_modules
+/vendor
 
+.env
 .fans.yml
+
+composer.*
