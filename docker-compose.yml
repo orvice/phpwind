@@ -1,0 +1,85 @@
+version: '3'
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+services:
+  workspace:
+    build:
+      context: ./.docker/workspace
+      args:
+        - DOCKER_CONTAINER_USER=${DOCKER_CONTAINER_USER}
+        - DOCKER_CONTAINER_GROUP=${DOCKER_CONTAINER_GROUP}
+        - DOCKER_CONTAINER_PUID=${DOCKER_CONTAINER_PUID}
+        - DOCKER_CONTAINER_PGID=${DOCKER_CONTAINER_PGID}
+        - APP_TIMEZONE=${APP_TIMEZONE}
+        - DOCKER_PHP_INSTALL_XDEBUG=${DOCKER_PHP_INSTALL_XDEBUG}
+    volumes:
+      - "./:/var/www:cached"
+    extra_hosts:
+      - "dockerhost:${DOCKER_HOST_IP}"
+    ports:
+      - "${DOCKER_WORKSPACE_SSH_PORT}:22"
+    tty: true
+    depends_on:
+      - mysql
+    networks:
+      - frontend
+      - backend
+  php-fpm:
+    build:
+      context: ./.docker/php-fpm
+      args:
+        - DOCKER_CONTAINER_USER=${DOCKER_CONTAINER_USER}
+        - DOCKER_CONTAINER_GROUP=${DOCKER_CONTAINER_GROUP}
+        - DOCKER_CONTAINER_PUID=${DOCKER_CONTAINER_PUID}
+        - DOCKER_CONTAINER_PGID=${DOCKER_CONTAINER_PGID}
+        - APP_TIMEZONE=${APP_TIMEZONE}
+        - DOCKER_PHP_INSTALL_XDEBUG=${DOCKER_PHP_INSTALL_XDEBUG}
+    volumes:
+      - ./:/var/www:cached
+      - ./.docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+    expose:
+      - "9000"
+    extra_hosts:
+      - "dockerhost:${DOCKER_HOST_IP}"
+    depends_on:
+      - mysql
+    networks:
+      - backend
+  nginx:
+    build:
+      context: ./.docker/nginx
+      args:
+        - USERNAME=${DOCKER_CONTAINER_USER}
+        - PUID=${DOCKER_CONTAINER_PUID}
+        - APP_TIMEZONE=${APP_TIMEZONE}
+    volumes:
+      - ./:/var/www:cached
+      - ./storage/logs/nginx:/var/log/nginx
+      - ./.docker/nginx/project.web.conf:/etc/nginx/sites/project.web.conf
+    ports:
+      - "${DOCKER_HTTP_PORT}:80"
+    depends_on:
+      - php-fpm
+    networks:
+      - frontend
+      - backend
+  mysql:
+    build:
+      context: ./.docker/mysql
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=${APP_TIMEZONE}
+    volumes:
+      - ./database/data/mysql:/var/lib/mysql
+    ports:
+      - "${DB_PORT}:3306"
+    networks:
+      - backend
