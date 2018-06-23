@@ -31,7 +31,7 @@
 |:----|----|
 | `APP_URL` | 你的网站地址，如果你修改了这个，那么请你页修改 `.docker/nginx/project.wen.conf` 内容 |
 | `DB_HOST` | 如果使用 Docker 那么请不要修改这个值，否则连接不上数据库 |
-| `DB_DOCKER_CONTAINER_[USER|GROUP]` | 容器工作区用户和组名称
+| `DB_DOCKER_CONTAINER_[USER\|GROUP]` | 容器工作区用户和组名称
 | `DOCKER_HOST_IP` | 你的宿主机 ip，正式环境推荐配置！内网 IP |
 | `DOCKER_PHP_INSTALL_XDEBUG` | 是否安装 xdebug？默认安装 |
 | `DOCKER_HTTP_PORT` | 对外提供的端口，默认 `8090`，正常使用应该设置为 `80` |
