@@ -6,32 +6,35 @@
 <a href="https://travis-ci.org/medz/phpwind" title="TravisCI"><img src="https://travis-ci.org/medz/phpwind.svg?branch=master"></a>
 </p>
 
-# 关于 Fans
+## 关于 Fans
 
 使用 PHP 和 MySQL 开发的高性能社区系统。
 
 > phpwind Fans 版本是原本暂定的 phpwind 10 版本而来，基于官方最新的 phpwind 9.0.1 开发，同步官方所有代码的基础上进行改良和长期维护。
 
-# 文档中心
+## 安装 Fans
 
-[https://medz.github.io/phpwind/](https://medz.github.io/phpwind/)
+为了简化安装，目前 Fans 开发版添加了 Docker 支持，你只需要在你的电脑或者服务器上安装 `Docker` 和 `Docker Compose` 你就可以简单的完成部署：
 
-> 文档中心提供了非常多关于 Fans 版本的说明，并且使用 SPA 开发；有良好的用户阅读体验和跨设备体验，相比 GitHub 文档，能更好更清晰的为用户提供帮助。
->> 文档中心仓库: [medz/phpwind-docs](https://github.com/medz/phpwind-docs)
->>> 在文档仓库，你可以为 Fans 版提供更多的文档帮助以及页面设计或者是建议。
+1. 下载 2.0 的程序
+2. Fans 程序下，有一份 `.env.example` 的文件，复制一份命名为 `.env` 文件 👉 [.env 配置说明](#.env-配置说明)
+3. 在 Fans 目录下运行 `docker-compose build`，此命令用于编译容器。
+4. 在 Fans 目录下运行 `docker-compose up -d`
+5. 执行 `docker-compose exec --user={你配置的 DOCKER_CONTAINER_USER}` workspace bash
+6. 执行 php fans key:generate && php fans jwt:secret && php fans migrate --seed
 
-# 安装 Fans
+> 好了，安装完成！！！
 
-所有的安装说明都在文档中心([https://medz.github.io/phpwind/](https://medz.github.io/phpwind/))中。
+### `.env` 配置说明
 
-# 参与 Fans
-
-> 首先，先明确下 Fans 版本的态度，Fans 版本非常欢迎大家能踊跃的参与到 Fans 的开发和改进当中。无论你是什么职业，目的如何，我们都欢迎大家参与其中，让 Fans 版被更多人所喜爱。
-
-> 无论何种方式，提交 [Issue](https://github.com/medz/phpwind/issues)、[PR (Pull requests)](https://github.com/medz/phpwind/pulls)亦或是参与到代码 Commit 讨论，Issue 回复，PR 评论科学性都是一种贡献。使用 Fans 版也是一种贡献，我们希望尽了把好的给各位站长、开发者以及使用者。
-
-非常感谢您考虑为 Fans 版做出贡献，
-贡献指南可以在 Fans 文档中心（[https://medz.github.io/phpwind/#/contributing](https://medz.github.io/phpwind/#/contributing)）中找到。
+| 配置项 | 说明 |
+|:----|----|
+| `APP_URL` | 你的网站地址，如果你修改了这个，那么请你页修改 `.docker/nginx/project.wen.conf` 内容 |
+| `DB_HOST` | 如果使用 Docker 那么请不要修改这个值，否则连接不上数据库 |
+| `DB_DOCKER_CONTAINER_[USER|GROUP]` | 容器工作区用户和组名称
+| `DOCKER_HOST_IP` | 你的宿主机 ip，正式环境推荐配置！内网 IP |
+| `DOCKER_PHP_INSTALL_XDEBUG` | 是否安装 xdebug？默认安装 |
+| `DOCKER_HTTP_PORT` | 对外提供的端口，默认 `8090`，正常使用应该设置为 `80` |
 
 ## 赞助捐赠
 
