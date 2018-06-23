@@ -17,7 +17,7 @@
 为了简化安装，目前 Fans 开发版添加了 Docker 支持，你只需要在你的电脑或者服务器上安装 `Docker` 和 `Docker Compose` 你就可以简单的完成部署：
 
 1. 下载 2.0 的程序
-2. Fans 程序下，有一份 `.env.example` 的文件，复制一份命名为 `.env` 文件 👉 [.env 配置说明](#.env-配置说明)
+2. Fans 程序下，有一份 `.env.example` 的文件，复制一份命名为 `.env` 文件 👉 [.env 配置说明](#env-配置说明)
 3. 在 Fans 目录下运行 `docker-compose build`，此命令用于编译容器。
 4. 在 Fans 目录下运行 `docker-compose up -d`
 5. 执行 `docker-compose exec --user={你配置的 DOCKER_CONTAINER_USER}` workspace bash
