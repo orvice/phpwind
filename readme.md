@@ -29,7 +29,7 @@
 
 | 配置项 | 说明 |
 |:----|----|
-| `APP_URL` | 你的网站地址，如果你修改了这个，那么请你页修改 `.docker/nginx/project.wen.conf` 内容 |
+| `APP_URL` | 你的网站地址，如果你修改了这个，那么请你也修改 `.docker/nginx/project.wen.conf` 内容 |
 | `DB_HOST` | 如果使用 Docker 那么请不要修改这个值，否则连接不上数据库 |
 | `DB_DOCKER_CONTAINER_[USER\|GROUP]` | 容器工作区用户和组名称
 | `DOCKER_HOST_IP` | 你的宿主机 ip，正式环境推荐配置！内网 IP |
@@ -38,7 +38,7 @@
 
 ## 赞助捐赠
 
-**Fans** 项目是免费开源的一个项目，个人维护需要付出很多精力，如果你喜欢 Fans 或者像鼓励维护者，请捐赠来鼓励维护者吧。
+**Fans** 项目是免费开源的一个项目，个人维护需要付出很多精力，如果你喜欢 Fans 或者想鼓励维护者，请捐赠来鼓励维护者吧。
 
 [捐赠](https://github.com/medz/phpwind/issues/265)
 
