@@ -1,9 +1,9 @@
-FROM orvice/laravel-base:71
+FROM orvice/laravel-base
 
 
 ENV PHPWIND_VERSION 2.0.0
 
-ADD entrypoint.sh /var/www/html/
+ADD entrypoint.sh /var/www/html/entrypoint.sh
 
 RUN touch /var/www/html/.env
 
